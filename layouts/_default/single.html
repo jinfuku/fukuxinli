@@ -351,8 +351,7 @@
 
   <!-- 隐藏的文章密码字段 -->
   {{ if .Params.password }}
-    <input type="hidden" id="correct-password-{{ .RelPermalink | base64 }}" value="{{ .Params.password }}">
-    <input type="hidden" id="article-id" value="{{ .RelPermalink | base64 }}">
+    <input type="hidden" id="correct-password" value="{{ .Params.password }}">
   {{ end }}
 
   <!-- 密码保护功能脚本 -->

@@ -140,8 +140,8 @@ function checkPasswordProtection() {
         return;
     }
 
-    // 获取文章 ID（使用页面标题或 URL 生成）
-    const articleId = document.getElementById('article-id')?.value || generateArticleId();
+    // 生成文章 ID（使用页面 URL 生成）
+    const articleId = generateArticleId();
     const isUnlocked = isArticleUnlocked(articleId);
 
     if (isUnlocked) {
