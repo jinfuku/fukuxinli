@@ -1,7 +1,6 @@
-baseURL: "https://your-username.github.io/fuku-psychology-website"
+baseURL: "https://jinfuku.github.io/fukuxinli/"
 title: "福库心理 - 身心神同调"
 languageCode: "zh-CN"
-theme: "custom"
 
 # 网站描述
 params:
