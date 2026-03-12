@@ -1,0 +1,53 @@
+baseURL: "https://your-username.github.io/fuku-psychology-website"
+title: "福库心理 - 身心神同调"
+languageCode: "zh-CN"
+theme: "custom"
+
+# 网站描述
+params:
+  author: "靳福库"
+  description: "身心神同调内容架构 - 身（推拿、艾灸）、心（心理咨询）、神（意识、生命整合）"
+  keywords: ["身心同调", "心理咨询", "推拿", "艾灸", "意识", "生命整合", "伴侣关系", "AI"]
+
+# 菜单配置
+menu:
+  main:
+    - identifier: "home"
+      name: "首页"
+      url: "/"
+      weight: 1
+    - identifier: "body"
+      name: "身"
+      url: "/body/"
+      weight: 2
+    - identifier: "mind"
+      name: "心"
+      url: "/mind/"
+      weight: 3
+    - identifier: "spirit"
+      name: "神"
+      url: "/spirit/"
+      weight: 4
+    - identifier: "partnership"
+      name: "伴侣关系"
+      url: "/partnership/"
+      weight: 5
+    - identifier: "ai"
+      name: "AI"
+      url: "/ai/"
+      weight: 6
+
+# 分类
+taxonomies:
+  category: "categories"
+  tag: "tags"
+
+# Markdown 配置
+markup:
+  highlight:
+    lineNos: false
+    lineNumbersInTable: false
+    noClasses: false
+  goldmark:
+    renderer:
+      unsafe: true  # 允许 HTML 标签
