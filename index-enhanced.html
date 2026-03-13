@@ -1286,6 +1286,18 @@
       font-weight: bold;
     }
 
+    /* 飞书图标 */
+    .feishu-icon {
+      background: linear-gradient(135deg, #1456f0 0%, #0043ce 100%);
+      color: white;
+      box-shadow: 0 4px 12px rgba(20, 86, 240, 0.3);
+    }
+    .feishu-icon::after {
+      content: '飞';
+      font-size: 28px;
+      font-weight: bold;
+    }
+
     /* 小红书图标 */
     .xiaohongshu-icon {
       background: linear-gradient(135deg, #ff2442 0%, #ff6b6b 100%);
@@ -2634,6 +2646,14 @@ function copyEmbedCode(btn, platform) {
           <div class="social-icon qq-icon"></div>
           <h3>QQ</h3>
           <p>福库身心同调</p>
+          <span class="add-hint">点击链接添加</span>
+        </a>
+
+        <!-- 飞书 -->
+        <a href="https://www.feishu.cn/invitation/page/add_contact/?token=776haaca-0cf4-4946-9a91-0d98df376d16&unique_id=n1LEkph6SSzEtCF3I_jgGA==" target="_blank" class="social-card">
+          <div class="social-icon feishu-icon"></div>
+          <h3>飞书</h3>
+          <p>福库申请添加你为联系人</p>
           <span class="add-hint">点击链接添加</span>
         </a>
       </div>
