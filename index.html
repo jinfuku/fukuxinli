@@ -1149,6 +1149,18 @@
       content: '✉';
     }
 
+    
+    /* 企业微信图标 */
+    .qyweixin-icon {
+      background: linear-gradient(135deg, #07c160 0%, #05a04f 100%);
+      color: white;
+      box-shadow: 0 4px 12px rgba(7, 193, 96, 0.3);
+    }
+    .qyweixin-icon::after {
+      content: '企';
+      font-size: 28px;
+      font-weight: bold;
+    }
     /* 微信公众号图标 */
     .wechat-icon {
       background: linear-gradient(135deg, #07c160 0%, #06ad56 100%);
@@ -2521,6 +2533,14 @@ function copyEmbedCode(btn, platform) {
       <p class="section-subtitle">通过以下方式与福库身心同调保持联系</p>
 
       <div class="social-grid">
+        <!-- 企业微信 -->
+        <a href="https://work.weixin.qq.com/wework_admin/join?vcode=c3b06d1b6d64c93eeed3c9d43e315e91&r=copy_share_pc" target="_blank" class="social-card">
+          <div class="social-icon qyweixin-icon"></div>
+          <h3>企业微信</h3>
+          <p>靳福库生命整合</p>
+          <span class="add-hint">点击加入</span>
+        </a>
+
         <!-- 微信公众号 -->
         <a href="#" class="social-card" onclick="return false;">
           <div class="social-icon wechat-icon"></div>
@@ -2538,7 +2558,7 @@ function copyEmbedCode(btn, platform) {
         </a>
 
         <!-- B站 -->
-        <a href="https://space.bilibili.com/your-id" target="_blank" class="social-card">
+        <a href="https://b23.tv/QePPHIL" target="_blank" class="social-card">
           <div class="social-icon bilibili-icon"></div>
           <h3>B站</h3>
           <p>福库身心同调</p>
@@ -2552,7 +2572,7 @@ function copyEmbedCode(btn, platform) {
         </a>
 
         <!-- 抖音 -->
-        <a href="https://www.douyin.com/user/your-id" target="_blank" class="social-card">
+        <a href="https://www.douyin.com/user/1110729819" target="_blank" class="social-card">
           <div class="social-icon douyin-icon"></div>
           <h3>抖音</h3>
           <p>福库身心同调</p>
@@ -2697,9 +2717,9 @@ function copyEmbedCode(btn, platform) {
         <div class="footer-social">
           <a href="#" class="footer-social-link" title="微信公众号">微信公众号</a>
           <a href="#" class="footer-social-link" title="微信视频号">视频号</a>
-          <a href="https://space.bilibili.com/your-id" class="footer-social-link" title="B站" target="_blank">B站</a>
+          <a href="https://b23.tv/QePPHIL" class="footer-social-link" title="B站" target="_blank">B站</a>
           <a href="https://www.xiaohongshu.com/user/profile/your-id" class="footer-social-link" title="小红书" target="_blank">小红书</a>
-          <a href="https://www.douyin.com/user/your-id" class="footer-social-link" title="抖音" target="_blank">抖音</a>
+          <a href="https://www.douyin.com/user/1110729819" class="footer-social-link" title="抖音" target="_blank">抖音</a>
           <a href="https://www.toutiao.com/c/user/your-id" class="footer-social-link" title="今日头条" target="_blank">今日头条</a>
           <a href="https://weibo.com/u/1285229442" class="footer-social-link" title="新浪微博" target="_blank">微博</a>
           <a href="https://wx.zsxq.com/group/51115811242224" class="footer-social-link" title="知识星球" target="_blank">知识星球</a>
