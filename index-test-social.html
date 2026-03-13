@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>福库身心同调 - 社交媒体测试版</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      background-color: #f5f5f7;
+      color: #1d1d1f;
+      line-height: 1.7;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .test-header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 40px;
+      border-radius: 20px;
+      margin-bottom: 50px;
+      text-align: center;
+    }
+
+    .test-header h1 {
+      font-size: 36px;
+      margin-bottom: 15px;
+    }
+
+    .test-header p {
+      font-size: 18px;
+      opacity: 0.9;
+    }
+
+    /* ========== 社交媒体区域样式 ========== */
+
+    .social-media-section {
+      background: linear-gradient(135deg, #ffffff 0%, #f5f7fa 100%);
+      padding: 60px 0;
+      margin: 50px 0;
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.05);
+      border-radius: 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 32px;
+      color: #1d1d1f;
+      margin-bottom: 10px;
+      font-weight: 600;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .section-subtitle {
+      text-align: center;
+      font-size: 16px;
+      color: #86868b;
+      margin-bottom: 40px;
+    }
+
+    .social-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .social-card {
+      background: white;
+      border-radius: 16px;
+      padding: 35px 25px;
+      text-align: center;
+      text-decoration: none;
+      color: #1d1d1f;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06),
+                  0 1px 3px rgba(0, 0, 0, 0.04);
+      border: 1px solid #e5e5e7;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .social-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12),
+                  0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .social-icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
+    }
+
+    .social-card h3 {
+      font-size: 20px;
+      margin-bottom: 8px;
+      color: #1d1d1f;
+      font-weight: 600;
+    }
+
+    .social-card p {
+      font-size: 14px;
+      color: #86868b;
+      margin-bottom: 12px;
+    }
+
+    .social-card .features {
+      font-size: 13px;
+      color: #6e6e73;
+      line-height: 1.6;
+      background: #f5f5f7;
+      padding: 12px;
+      border-radius: 10px;
+      margin-bottom: 12px;
+    }
+
+    .social-card .add-hint {
+      font-size: 12px;
+      color: #86868b;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 8px 16px;
+      border-radius: 20px;
+      display: inline-block;
+      margin-top: 10px;
+    }
+
+    /* 平台特定样式 */
+    .wechat-icon { color: #07c160; }
+    .video-icon { color: #fa9d3b; }
+    .bilibili-icon { color: #fb7299; }
+    .xiaohongshu-icon { color: #ff2442; }
+    .douyin-icon { color: #000000; }
+    .toutiao-icon { color: #f85959; }
+    .weibo-icon { color: #e6162d; }
+    .douban-icon { color: #007722; }
+    .zsxq-icon { color: #6b7280; }
+
+    /* 新增平台样式 */
+    .whatsapp-icon { color: #25d366; }
+    .telegram-icon { color: #0088cc; }
+    .messenger-icon { color: #0084ff; }
+    .qq-icon { color: #12b7f5; }
+
+    /* 响应式设计 */
+    @media (max-width: 768px) {
+      .test-header h1 {
+        font-size: 28px;
+      }
+
+      .test-header p {
+        font-size: 16px;
+      }
+
+      .section-title {
+        font-size: 26px;
+      }
+
+      .social-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0 15px;
+      }
+
+      .social-card {
+        padding: 30px 20px;
+      }
+
+      .social-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 40px;
+      }
+    }
+
+    /* 标记新添加的平台 */
+    .new-badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      color: white;
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="test-header">
+      <h1>🎨 社交媒体测试版</h1>
+      <p>新增 WhatsApp、Telegram、Messenger 三个国际平台</p>
+    </div>
+
+    <section class="social-media-section">
+      <h2 class="section-title">关注我们</h2>
+      <p class="section-subtitle">通过以下方式与福库心理保持联系</p>
+
+      <div class="social-grid">
+        <!-- WhatsApp -->
+        <a href="https://wa.me/YOUR_PHONE_NUMBER" target="_blank" class="social-card">
+          <span class="new-badge">新增</span>
+          <div class="social-icon whatsapp-icon">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="currentColor">
+              <path d="M20.008 0C8.962 0 0 8.963 0 20.008c0 3.52.923 6.85 2.53 9.73l-2.436 7.218 7.386-2.092a20.06 20.06 0 009.528 2.402c11.045 0 20.008-8.963 20.008-20.008C40.016 8.963 31.053 0 20.008 0zm11.578 14.223c-2.068-1.234-4.39-2.107-6.91-2.638-.347.595-.743 1.284-1.065 1.928-2.573-.39-5.327-.387-7.833.014-.322-.644-.728-1.343-1.075-1.937-2.52.53-4.852 1.403-6.92 2.637-2.87 4.415-4.713 9.3-5.458 3.363 2.518 7.52 4.076 12.022 4.298 4.502-.222 8.658-1.78 12.02-4.298-.745-5.157-2.588-10.043-5.458-14.458zm-15.695 11.636c-1.253 0-2.275-1.15-2.275-2.563 0-1.412 1.022-2.563 2.275-2.563s2.275 1.15 2.275 2.563c0 1.412-1.022 2.563-2.275 2.563zm8.42 0c-1.253 0-2.275-1.15-2.275-2.563 0-1.412 1.022-2.563 2.275-2.563s2.275 1.15 2.275 2.563c0 1.412-1.022 2.563-2.275 2.563z"/>
+            </svg>
+          </div>
+          <h3>WhatsApp</h3>
+          <p>福库心理</p>
+          <div class="features">
+            基础通讯 + 全球覆盖<br>
+            无支付 / 小程序、更极简
+          </div>
+          <span class="add-hint">点击链接添加</span>
+        </a>
+
+        <!-- Telegram -->
+        <a href="https://t.me/YOUR_USERNAME" target="_blank" class="social-card">
+          <span class="new-badge">新增</span>
+          <div class="social-icon telegram-icon">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="currentColor">
+              <path d="M20 0C8.954 0 0 8.954 0 20s8.954 20 20 20 20-8.954 20-20S31.046 0 20 0zm10.938 13.977l-3.246 15.362c-.24 1.092-.887 1.363-1.797.846l-4.97-3.66-2.397 2.308c-.266.266-.49.49-1.005.49l.357-5.07 9.2-8.324c.398-.355-.087-.553-.617-.197l-11.372 7.16-4.896-1.527c-1.063-.332-1.08-1.063.223-1.577l19.15-7.385c.886-.332 1.663.197 1.378 1.577z"/>
+            </svg>
+          </div>
+          <h3>Telegram</h3>
+          <p>福库心理</p>
+          <div class="features">
+            开放社群 + 安全<br>
+            无支付、侧重隐私与社群
+          </div>
+          <span class="add-hint">点击链接添加</span>
+        </a>
+
+        <!-- Messenger -->
+        <a href="https://m.me/YOUR_PAGE_ID" target="_blank" class="social-card">
+          <span class="new-badge">新增</span>
+          <div class="social-icon messenger-icon">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="currentColor">
+              <path d="M20 0C8.954 0 0 8.954 0 20s8.954 20 20 20 20-8.954 20-20S31.046 0 20 0zm1.2 29.966l-4.854-.724c-3.27 1.765-6.812 1.765-6.812 1.765-7.653 0-12.474-5.55-12.474-11.852S3.95 8.303 11.534 8.303c7.584 0 12.405 5.55 12.405 11.852 0 4.683-2.514 8.683-6.272 10.23l2.533-4.419zm-6.25-6.732l-1.035-1.65-2.536 2.688 1.274 1.685 2.697-1.722 2.537 2.688 5.905-8.416-6.224-4.572-4.618 3.3z"/>
+            </svg>
+          </div>
+          <h3>Messenger</h3>
+          <p>福库心理</p>
+          <div class="features">
+            社交关系链 + 支付<br>
+            依附 Facebook、社交属性强
+          </div>
+          <span class="add-hint">点击链接添加</span>
+        </a>
+
+        <!-- 微信公众号 -->
+        <a href="#" class="social-card" onclick="return false;">
+          <div class="social-icon wechat-icon">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="currentColor">
+              <path d="M20 8.5c-6.6 0-12 4.6-12 10.3 0 3.2 1.8 6.1 4.6 8-.2.8-.8 2.2-.9 2.4 0 0 .1.1.2.1.2.1 1-.4 2.7-1 3.8 2.4 1.4 5.3 2.2 8.1 2.2.2 0 .4 0 .7 0 6.6 0 12-4.6 12-10.3S26.6 8.5 20 8.5z"/>
+            </svg>
+          </div>
+          <h3>微信公众号</h3>
+          <p>福库心理</p>
+          <span class="add-hint">扫码关注</span>
+        </a>
+
+        <!-- 微信视频号 -->
+        <a href="#" class="social-card" onclick="return false;">
+          <div class="social-icon video-icon">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="currentColor">
+              <path d="M20 4c-8.8 0-16 7.2-16 16s7.2 16 16 16 16-7.2 16-16-7.2-16-16-16zm4 22l-8-5v-4l8 5v4z"/>
+            </svg>
+          </div>
+          <h3>微信视频号</h3>
+          <p>福库心理</p>
+          <span class="add-hint">扫码观看</span>
+        </a>
+
+        <!-- B站 -->
+        <a href="https://space.bilibili.com/your-id" target="_blank" class="social-card">
+          <div class="social-icon bilibili-icon">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="currentColor">
+              <path d="M20 4C11.16 4 4 11.16 4 20s7.16 16 16 16 16-7.16 16-16S28.84 4 20 4zm-4.5 10h9a1.5 1.5 0 011.5 1.5v9a1.5 1.5 0 01-1.5 1.5h-9a1.5 1.5 0 01-1.5-1.5v-9a1.5 1.5 0 011.5-1.5z"/>
+            </svg>
+          </div>
+          <h3>B站</h3>
+          <p>福库心理</p>
+          <span class="add-hint">关注主页</span>
+        </a>
+
+        <!-- 小红书 -->
+        <a href="https://www.xiaohongshu.com/user/profile/your-id" target="_blank" class="social-card">
+          <div class="social-icon xiaohongshu-icon">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="currentColor">
+              <path d="M20 4C11.16 4 4 11.16 4 20s7.16 16 16 16 16-7.16 16-16S28.84 4 20 4zm0 28c-6.6 0-12-5.4-12-12s5.4-12 12-12 12 5.4 12 12-5.4 12-12 12z"/>
+            </svg>
+          </div>
+          <h3>小红书</h3>
+          <p>福库心理</p>
+          <span class="add-hint">关注主页</span>
+        </a>
+
+        <!-- 抖音 -->
+        <a href="https://www.douyin.com/user/your-id" target="_blank" class="social-card">
+          <div class="social-icon douyin-icon">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="currentColor">
+              <path d="M20 4C11.16 4 4 11.16 4 20s7.16 16 16 16 16-7.16 16-16S28.84 4 20 4zm0 28c-6.6 0-12-5.4-12-12s5.4-12 12-12 12 5.4 12 12-5.4 12-12 12z"/>
+            </svg>
+          </div>
+          <h3>抖音</h3>
+          <p>福库心理</p>
+          <span class="add-hint">关注主页</span>
+        </a>
+
+        <!-- 今日头条 -->
+        <a href="https://www.toutiao.com/c/user/your-id" target="_blank" class="social-card">
+          <div class="social-icon toutiao-icon">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="currentColor">
+              <path d="M20 4C11.16 4 4 11.16 4 20s7.16 16 16 16 16-7.16 16-16S28.84 4 20 4zm0 28c-6.6 0-12-5.4-12-12s5.4-12 12-12 12 5.4 12 12-5.4 12-12 12z"/>
+            </svg>
+          </div>
+          <h3>今日头条</h3>
+          <p>福库心理</p>
+          <span class="add-hint">关注主页</span>
+        </a>
+
+        <!-- 新浪微博 -->
+        <a href="https://weibo.com/your-id" target="_blank" class="social-card">
+          <div class="social-icon weibo-icon">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="currentColor">
+              <path d="M20 4C11.16 4 4 11.16 4 20s7.16 16 16 16 16-7.16 16-16S28.84 4 20 4zm0 28c-6.6 0-12-5.4-12-12s5.4-12 12-12 12 5.4 12 12-5.4 12-12 12z"/>
+            </svg>
+          </div>
+          <h3>新浪微博</h3>
+          <p>福库心理</p>
+          <span class="add-hint">关注主页</span>
+        </a>
+
+        <!-- 豆瓣 -->
+        <a href="https://www.douban.com/people/your-id" target="_blank" class="social-card">
+          <div class="social-icon douban-icon">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="currentColor">
+              <path d="M20 4C11.16 4 4 11.16 4 20s7.16 16 16 16 16-7.16 16-16S28.84 4 20 4zm0 28c-6.6 0-12-5.4-12-12s5.4-12 12-12 12 5.4 12 12-5.4 12-12 12z"/>
+            </svg>
+          </div>
+          <h3>豆瓣</h3>
+          <p>福库心理</p>
+          <span class="add-hint">关注主页</span>
+        </a>
+
+        <!-- 知识星球 -->
+        <a href="https://wx.zsxq.com/dweb2/index/group/your-id" target="_blank" class="social-card">
+          <div class="social-icon zsxq-icon">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="currentColor">
+              <path d="M20 4C11.16 4 4 11.16 4 20s7.16 16 16 16 16-7.16 16-16S28.84 4 20 4zm0 28c-6.6 0-12-5.4-12-12s5.4-12 12-12 12 5.4 12 12-5.4 12-12 12z"/>
+            </svg>
+          </div>
+          <h3>知识星球</h3>
+          <p>福库身心同调</p>
+          <span class="add-hint">加入星球</span>
+        </a>
+      </div>
+    </section>
+
+    <div style="background: white; padding: 40px; border-radius: 20px; margin-top: 50px;">
+      <h2 style="text-align: center; margin-bottom: 30px;">📝 添加好友方式说明</h2>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px;">
+        <!-- WhatsApp -->
+        <div style="background: #f5f5f7; padding: 25px; border-radius: 15px;">
+          <h3 style="color: #25d366; margin-bottom: 15px;">WhatsApp</h3>
+          <p style="margin-bottom: 10px; font-weight: 600;">方式1：点击链接</p>
+          <p style="color: #86868b; font-size: 14px; margin-bottom: 15px;">
+            直接点击卡片链接，自动打开WhatsApp并开始聊天
+          </p>
+          <p style="margin-bottom: 10px; font-weight: 600;">方式2：搜索手机号</p>
+          <p style="color: #86868b; font-size: 14px;">
+            在WhatsApp中搜索手机号 +86 XXX XXXX XXXX
+          </p>
+        </div>
+
+        <!-- Telegram -->
+        <div style="background: #f5f5f7; padding: 25px; border-radius: 15px;">
+          <h3 style="color: #0088cc; margin-bottom: 15px;">Telegram</h3>
+          <p style="margin-bottom: 10px; font-weight: 600;">方式1：点击链接</p>
+          <p style="color: #86868b; font-size: 14px; margin-bottom: 15px;">
+            直接点击卡片链接，自动打开Telegram并打开对话
+          </p>
+          <p style="margin-bottom: 10px; font-weight: 600;">方式2：搜索用户名</p>
+          <p style="color: #86868b; font-size: 14px;">
+            在Telegram中搜索用户名 @fukuxinli
+          </p>
+        </div>
+
+        <!-- Messenger -->
+        <div style="background: #f5f5f7; padding: 25px; border-radius: 15px;">
+          <h3 style="color: #0084ff; margin-bottom: 15px;">Messenger</h3>
+          <p style="margin-bottom: 10px; font-weight: 600;">方式1：点击链接</p>
+          <p style="color: #86868b; font-size: 14px; margin-bottom: 15px;">
+            直接点击卡片链接，自动打开Messenger并发送消息
+          </p>
+          <p style="margin-bottom: 10px; font-weight: 600;">方式2：搜索页面</p>
+          <p style="color: #86868b; font-size: 14px;">
+            在Facebook或Messenger中搜索"福库心理"
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
