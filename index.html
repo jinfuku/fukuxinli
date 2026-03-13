@@ -13,70 +13,220 @@
     }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif;
-      background-color: #f5f5f5;
-      color: #333;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      background-color: #f5f5f7;
+      color: #1d1d1f;
+      line-height: 1.7;
+      letter-spacing: 0.02em;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
     }
 
-     
+    /* 优化正文文字样式 */
+    .summary, .article-content {
+      font-size: 15px;
+      line-height: 1.8;
+      color: #424245;
+      text-align: left;
+      letter-spacing: 0.03em;
+      word-spacing: 0.05em;
+    }
+
+    .summary h1, .summary h2, .summary h3,
+    .article-content h1, .article-content h2, .article-content h3 {
+      color: #1d1d1f;
+      font-weight: 600;
+      margin-top: 2em;
+      margin-bottom: 1em;
+    }
+
+    .summary h1 { font-size: 1.8em; }
+    .summary h2 { font-size: 1.5em; }
+    .summary h3 { font-size: 1.3em; }
+
+    .summary p, .article-content p {
+      margin-bottom: 1.5em;
+      text-align: justify;
+      text-justify: inter-ideograph;
+      text-indent: 0;
+    }
+
+    .summary ul, .summary ol, .article-content ul, .article-content ol {
+      margin: 1.5em 0;
+      padding-left: 2em;
+    }
+
+    .summary li, .article-content li {
+      margin-bottom: 0.8em;
+      line-height: 1.8;
+    }
+
+    .summary strong, .article-content strong {
+      font-weight: 600;
+      color: #1d1d1f;
+    }
+
+    .summary em, .article-content em {
+      font-style: italic;
+    }
+
+    
+    /* Header with Apple-style shadow */
     header {
       background: linear-gradient(135deg, #00c853 0%, #2196f3 100%);
       color: white;
-      padding: 20px 0;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      padding: 15px 0 20px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12),
+                  0 1px 3px rgba(0, 0, 0, 0.08);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
     }
 
     header .container {
       max-width: 1400px;
       margin: 0 auto;
       padding: 0 20px;
+      text-align: center;
     }
 
     header h1 {
       font-size: 36px;
       margin-bottom: 10px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      display: block;
+      text-align: center;
     }
 
+    .tagline {
+      font-size: 16px;
+      margin-bottom: 15px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      opacity: 0.95;
+      display: block;
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    /* Navigation with Apple-style cards */
     nav ul {
       list-style: none;
       display: flex;
-      gap: 30px;
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
     nav a {
       color: white;
       text-decoration: none;
-      font-size: 18px;
-      transition: opacity 0.3s;
+      font-size: 15px;
+      font-weight: 500;
+      padding: 10px 20px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      display: inline-block;
     }
 
     nav a:hover {
-      opacity: 0.8;
+      background: rgba(255, 255, 255, 0.25);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15),
+                  0 4px 8px rgba(0, 0, 0, 0.1),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.3);
     }
 
-     
+    nav a:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1),
+                  inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    
     .main-content {
-      max-width: 1400px;
-      margin: 30px auto;
+      max-width: 1600px;
+      margin: 40px auto;
       padding: 0 20px;
       display: grid;
-      grid-template-columns: 250px 1fr 300px;
+      grid-template-columns: 280px minmax(0, 1fr) 320px;
       gap: 30px;
     }
 
-     
+    /* 响应式布局 - 修复推荐书籍显示问题 */
+    @media (max-width: 1400px) {
+      .main-content {
+        grid-template-columns: 260px minmax(0, 1fr) 300px;
+        gap: 25px;
+      }
+    }
+
+    @media (max-width: 1200px) {
+      .main-content {
+        grid-template-columns: 240px minmax(0, 1fr) 280px;
+        gap: 20px;
+      }
+    }
+
+    @media (max-width: 1000px) {
+      .main-content {
+        grid-template-columns: 220px minmax(0, 1fr) 260px;
+        gap: 15px;
+      }
+    }
+
+    @media (max-width: 850px) {
+      .main-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .sidebar-left,
+      .sidebar-right {
+        max-width: 100%;
+      }
+    }
+
+      .sidebar-left, .sidebar-right {
+        max-width: 100%;
+      }
+    }
+
+    
+    /* Sidebar with Apple-style card design */
     .sidebar-left {
       background: white;
-      border-radius: 8px;
-      padding: 20px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 20px;
+      padding: 25px;
+      box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06),
+                  0 1px 4px rgba(0, 0, 0, 0.04);
       height: fit-content;
+      transition: all 0.3s ease;
+    }
+
+    .sidebar-left:hover {
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08),
+                  0 4px 16px rgba(0, 0, 0, 0.06);
     }
 
     .sidebar-left h3 {
       color: #00c853;
-      margin-bottom: 15px;
+      margin-bottom: 20px;
       font-size: 20px;
+      font-weight: 600;
+      letter-spacing: -0.3px;
     }
 
     .sidebar-left ul {
@@ -84,203 +234,1211 @@
     }
 
     .sidebar-left li {
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
     .sidebar-left a {
-      color: #333;
+      color: #1d1d1f;
       text-decoration: none;
-      transition: color 0.3s;
+      padding: 12px 16px;
+      border-radius: 12px;
+      display: block;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      font-weight: 500;
+      border: 1px solid transparent;
     }
 
     .sidebar-left a:hover {
+      background: linear-gradient(135deg, #f0fff4 0%, #e3f2fd 100%);
       color: #00c853;
+      transform: translateX(4px);
+      box-shadow: 0 2px 8px rgba(0, 200, 83, 0.1);
+      border-color: rgba(0, 200, 83, 0.2);
     }
 
-     
+    
     .search-box {
-      margin-top: 20px;
-      padding: 15px;
-      background: #f0f0f0;
-      border-radius: 8px;
+      margin-top: 25px;
+      padding: 20px;
+      background: #f9f9fb;
+      border-radius: 16px;
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.04);
     }
 
     .search-box input {
       width: 100%;
-      padding: 10px;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-      font-size: 14px;
+      padding: 14px 16px;
+      border: 2px solid #e5e5e7;
+      border-radius: 12px;
+      font-size: 15px;
+      transition: all 0.3s ease;
+      background: white;
+      outline: none;
     }
 
-     
+    .search-box input:focus {
+      border-color: #2196f3;
+      box-shadow: 0 0 0 4px rgba(33, 150, 243, 0.1),
+                  0 2px 8px rgba(33, 150, 243, 0.15);
+      transform: scale(1.02);
+    }
+
+    /* 留言板样式 */
+    .guestbook {
+      margin-top: 25px;
+      background: white;
+      border-radius: 20px;
+      padding: 25px;
+      box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06),
+                  0 1px 4px rgba(0, 0, 0, 0.04);
+    }
+
+    .guestbook h3 {
+      color: #00c853;
+      margin-bottom: 20px;
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+    }
+
+    .guestbook-form {
+      margin-bottom: 20px;
+    }
+
+    .guestbook-input {
+      width: 100%;
+      padding: 12px 16px;
+      border: 2px solid #e5e5e7;
+      border-radius: 12px;
+      font-size: 14px;
+      margin-bottom: 12px;
+      transition: all 0.3s ease;
+      outline: none;
+      background: #f9f9fb;
+    }
+
+    .guestbook-input:focus {
+      border-color: #00c853;
+      box-shadow: 0 0 0 4px rgba(0, 200, 83, 0.1);
+      background: white;
+    }
+
+    .guestbook-textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 2px solid #e5e5e7;
+      border-radius: 12px;
+      font-size: 14px;
+      margin-bottom: 12px;
+      min-height: 80px;
+      resize: vertical;
+      transition: all 0.3s ease;
+      outline: none;
+      background: #f9f9fb;
+      font-family: inherit;
+    }
+
+    .guestbook-textarea:focus {
+      border-color: #00c853;
+      box-shadow: 0 0 0 4px rgba(0, 200, 83, 0.1);
+      background: white;
+    }
+
+    .guestbook-submit {
+      width: 100%;
+      padding: 12px 24px;
+      background: linear-gradient(135deg, #00c853 0%, #009624 100%);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0, 200, 83, 0.3);
+    }
+
+    .guestbook-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 200, 83, 0.4);
+    }
+
+    .guestbook-messages {
+      max-height: 400px;
+      overflow-y: auto;
+      padding-right: 10px;
+    }
+
+    .guestbook-messages::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .guestbook-messages::-webkit-scrollbar-thumb {
+      background: #d1d1d6;
+      border-radius: 3px;
+    }
+
+    .guestbook-message {
+      padding: 15px;
+      margin-bottom: 12px;
+      background: linear-gradient(135deg, #f9f9fb 0%, #f5f5f7 100%);
+      border-radius: 12px;
+      border-left: 3px solid #00c853;
+      transition: all 0.3s ease;
+    }
+
+    .guestbook-message:hover {
+      transform: translateX(4px);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .message-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      font-size: 13px;
+    }
+
+    .message-author {
+      font-weight: 600;
+      color: #1d1d1f;
+    }
+
+    .message-time {
+      color: #86868b;
+    }
+
+    .message-content {
+      color: #424245;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    /* 文章评论区样式 */
+    .comments-section {
+      margin-top: 30px;
+      padding: 25px;
+      background: linear-gradient(135deg, #ffffff 0%, #fafafa 100%);
+      border-radius: 16px;
+      border: 1px solid #e5e5e7;
+    }
+
+    .comments-section h3 {
+      color: #2196f3;
+      font-size: 22px;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .comment-count {
+      color: #86868b;
+      font-size: 14px;
+      margin-left: 10px;
+      font-weight: 400;
+    }
+
+    .comment-form {
+      margin-bottom: 25px;
+      padding: 20px;
+      background: #f9f9fb;
+      border-radius: 12px;
+    }
+
+    .comment-input-group {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin-bottom: 15px;
+    }
+
+    .comment-input {
+      width: 100%;
+      padding: 12px 16px;
+      border: 2px solid #e5e5e7;
+      border-radius: 10px;
+      font-size: 14px;
+      outline: none;
+      transition: all 0.3s ease;
+      background: white;
+    }
+
+    .comment-input:focus {
+      border-color: #2196f3;
+      box-shadow: 0 0 0 4px rgba(33, 150, 243, 0.1);
+    }
+
+    .comment-textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 2px solid #e5e5e7;
+      border-radius: 10px;
+      font-size: 14px;
+      min-height: 100px;
+      resize: vertical;
+      outline: none;
+      transition: all 0.3s ease;
+      background: white;
+      font-family: inherit;
+      margin-bottom: 15px;
+    }
+
+    .comment-textarea:focus {
+      border-color: #2196f3;
+      box-shadow: 0 0 0 4px rgba(33, 150, 243, 0.1);
+    }
+
+    .comment-submit {
+      padding: 12px 30px;
+      background: linear-gradient(135deg, #2196f3 0%, #1976d2 100%);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
+    }
+
+    .comment-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(33, 150, 243, 0.4);
+    }
+
+    .comments-list {
+      max-height: 500px;
+      overflow-y: auto;
+    }
+
+    .comments-list::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .comments-list::-webkit-scrollbar-thumb {
+      background: #d1d1d6;
+      border-radius: 3px;
+    }
+
+    .comment-item {
+      display: flex;
+      gap: 15px;
+      padding: 20px;
+      margin-bottom: 15px;
+      background: white;
+      border-radius: 12px;
+      border: 1px solid #e5e5e7;
+      transition: all 0.3s ease;
+    }
+
+    .comment-item:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      transform: translateX(4px);
+    }
+
+    .comment-avatar {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #00c853 0%, #2196f3 100%);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .comment-content-wrapper {
+      flex: 1;
+    }
+
+    .comment-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .comment-author {
+      font-weight: 600;
+      color: #1d1d1f;
+      font-size: 15px;
+    }
+
+    .comment-time {
+      color: #86868b;
+      font-size: 13px;
+    }
+
+    .comment-body {
+      color: #424245;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 768px) {
+      .comment-input-group {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    
+    /* Main content with Apple-style card */
     .content-center {
       background: white;
-      border-radius: 8px;
-      padding: 30px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 20px;
+      padding: 35px;
+      box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06),
+                  0 1px 4px rgba(0, 0, 0, 0.04);
+      transition: all 0.3s ease;
+    }
+
+    .content-center:hover {
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08),
+                  0 4px 16px rgba(0, 0, 0, 0.06);
     }
 
     .content-center h2 {
       color: #2196f3;
-      margin-bottom: 20px;
-      font-size: 28px;
+      margin-bottom: 25px;
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      text-shadow: 0 2px 8px rgba(33, 150, 243, 0.15);
     }
 
     .article-list {
-      margin-top: 20px;
+      margin-top: 25px;
     }
 
+    /* Article card with enhanced design */
     .article {
-      padding: 20px;
-      margin-bottom: 20px;
-      border-bottom: 1px solid #eee;
+      padding: 25px;
+      margin-bottom: 25px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #ffffff 0%, #fafafa 100%);
+      border: 1px solid #e5e5e7;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04),
+                  0 1px 2px rgba(0, 0, 0, 0.02);
     }
 
-    .article:last-child {
-      border-bottom: none;
+    .article:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1),
+                  0 6px 16px rgba(0, 0, 0, 0.08),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.8);
+      border-color: #d1d1d6;
     }
 
     .article h3 {
-      color: #00c853;
-      margin-bottom: 10px;
-      font-size: 22px;
+      margin-bottom: 12px;
+      font-size: 24px;
+      font-weight: 600;
+      letter-spacing: -0.3px;
     }
 
-    .article a {
-      color: #00c853;
+    .article h3 a {
+      color: #1d1d1f;
       text-decoration: none;
-      transition: color 0.3s;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      display: block;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
     }
 
-    .article a:hover {
-      color: #2196f3;
+    .article h3 a:hover {
+      color: #00c853;
+      transform: translateX(4px);
+      text-shadow: 0 2px 4px rgba(0, 200, 83, 0.2);
     }
 
     .article .meta {
-      color: #999;
+      color: #86868b;
       font-size: 14px;
-      margin-top: 8px;
+      margin-top: 10px;
+      font-weight: 500;
     }
 
     .article .summary {
-      color: #666;
-      margin-top: 10px;
-      line-height: 1.6;
+      color: #424245;
+      margin-top: 15px;
+      line-height: 1.8;
+      font-size: 15px;
+      letter-spacing: 0.03em;
     }
 
-     
+    
+    /* Right sidebar with enhanced design */
     .sidebar-right {
       background: white;
-      border-radius: 8px;
-      padding: 20px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      height: fit-content;
+      border-radius: 20px;
+      padding: 25px;
+      box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06),
+                  0 1px 4px rgba(0, 0, 0, 0.04);
+      min-width: 280px;
+      width: 100%;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .sidebar-right:hover {
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08),
+                  0 4px 16px rgba(0, 0, 0, 0.06);
     }
 
     .sidebar-right h3 {
       color: #2196f3;
-      margin-bottom: 15px;
+      margin-bottom: 20px;
       font-size: 20px;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+      text-shadow: 0 2px 8px rgba(33, 150, 243, 0.15);
     }
 
+    /* Enhanced book list with cards */
     .book-list {
       list-style: none;
     }
 
     .book-list li {
-      margin-bottom: 15px;
-      padding: 10px;
-      background: #f9f9f9;
-      border-radius: 4px;
+      margin-bottom: 16px;
+      padding: 16px;
+      background: linear-gradient(135deg, #f9f9fb 0%, #f5f5f7 100%);
+      border-radius: 14px;
+      border: 1px solid #e5e5e7;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04),
+                  0 1px 2px rgba(0, 0, 0, 0.02);
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+
+    .book-list li:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1),
+                  0 4px 10px rgba(0, 0, 0, 0.08);
+      border-color: #d1d1d6;
+      background: linear-gradient(135deg, #ffffff 0%, #f9f9fb 100%);
     }
 
     .book-list strong {
       color: #00c853;
       display: block;
-      margin-bottom: 5px;
+      margin-bottom: 6px;
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: -0.2px;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
     }
 
     .book-list span {
-      color: #666;
+      color: #6e6e73;
       font-size: 14px;
+      font-weight: 500;
+      display: block;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
     }
 
-     
+    /* Enhanced related articles list */
+    .sidebar-right ul {
+      list-style: none;
+      margin-top: 10px;
+    }
+
+    .sidebar-right ul li {
+      margin-bottom: 12px;
+    }
+
+    .sidebar-right ul li a {
+      color: #1d1d1f;
+      text-decoration: none;
+      padding: 14px 18px;
+      border-radius: 12px;
+      display: block;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      font-weight: 500;
+      font-size: 15px;
+      background: linear-gradient(135deg, #f9f9fb 0%, #f5f5f7 100%);
+      border: 1px solid #e5e5e7;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      hyphens: auto;
+    }
+    }
+
+    .sidebar-right ul li a:hover {
+      background: linear-gradient(135deg, #ffffff 0%, #f9f9fb 100%);
+      color: #00c853;
+      transform: translateX(4px) translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 200, 83, 0.15),
+                  0 2px 6px rgba(0, 0, 0, 0.08);
+      border-color: rgba(0, 200, 83, 0.3);
+    }
+
+    
     footer {
-      background: #333;
+      background: linear-gradient(135deg, #1d1d1f 0%, #2d2d2f 100%);
       color: white;
       text-align: center;
-      padding: 30px 0;
-      margin-top: 40px;
+      padding: 40px 0;
+      margin-top: 50px;
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
     }
 
     footer p {
-      color: #999;
+      color: #a1a1a6;
+      font-size: 15px;
+      margin: 5px 0;
+      font-weight: 500;
     }
 
-    /* 文章标签样式 */
-    .article-tags {
+    /* ========== 多媒体内容样式 ========== */
+
+    /* 图片样式 */
+    .article-content img,
+    .summary img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      margin: 20px 0;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+    }
+
+    .article-content img:hover,
+    .summary img:hover {
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+      transform: scale(1.01);
+    }
+
+    /* 图片容器 */
+    .image-container {
+      margin: 25px 0;
+      text-align: center;
+    }
+
+    .image-container img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    }
+
+    .image-caption {
+      font-size: 14px;
+      color: #86868b;
       margin-top: 10px;
-      padding: 8px;
-      background: #f8f9fa;
-      border-radius: 6px;
-      border-left: 3px solid #00c853;
+      font-style: italic;
     }
 
-    .article-tags .tag {
-      display: inline-block;
-      padding: 3px 10px;
-      margin: 2px;
-      background: linear-gradient(135deg, #00c853, #2196f3);
-      color: white;
-      border-radius: 12px;
-      font-size: 12px;
-      cursor: pointer;
-      transition: all 0.3s;
+    /* 视频样式 */
+    .video-container {
+      position: relative;
+      margin: 30px 0;
+      width: 100%;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    .article-tags .tag:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+    .video-container video,
+    .video-container iframe {
+      width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+      background: #000;
     }
 
-    /* 文章价格样式 */
-    .article-price {
-      margin-top: 8px;
-      display: flex;
-      gap: 8px;
+    .video-container iframe {
+      aspect-ratio: 16 / 9;
+    }
+
+    /* 音频样式 */
+    .audio-container {
+      margin: 25px 0;
+      padding: 20px;
+      background: linear-gradient(135deg, #f9f9fb 0%, #f5f5f7 100%);
+      border-radius: 14px;
+      border: 1px solid #e5e5e7;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    }
+
+    .audio-container audio {
+      width: 100%;
+      height: 40px;
+    }
+
+    .audio-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: #1d1d1f;
+      margin-bottom: 10px;
+    }
+
+    /* 多媒体播放按钮样式 */
+    .media-play-button {
+      display: inline-flex;
       align-items: center;
-    }
-
-    .price-tag {
-      display: inline-block;
-      padding: 4px 12px;
-      background: linear-gradient(135deg, #ff5722, #ff9800);
+      justify-content: center;
+      padding: 12px 24px;
+      background: linear-gradient(135deg, #00c853 0%, #009624 100%);
       color: white;
       border-radius: 12px;
-      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0, 200, 83, 0.3);
+      margin: 10px 0;
+      cursor: pointer;
+    }
+
+    .media-play-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 200, 83, 0.4);
+    }
+
+    /* 视频预览卡片 */
+    .video-preview-card {
+      position: relative;
+      cursor: pointer;
+      overflow: hidden;
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+    }
+
+    .video-preview-card:hover {
+      transform: scale(1.02);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    .video-preview-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .play-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80px;
+      height: 80px;
+      background: rgba(0, 0, 0, 0.7);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .play-icon::before {
+      content: '';
+      width: 0;
+      height: 0;
+      border-left: 30px solid white;
+      border-top: 18px solid transparent;
+      border-bottom: 18px solid transparent;
+      margin-left: 8px;
+    }
+
+    .video-preview-card:hover .play-icon {
+      background: rgba(0, 200, 83, 0.9);
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+
+    /* ========== 社交媒体区域样式 ========== */
+
+    .social-media-section {
+      background: linear-gradient(135deg, #ffffff 0%, #f5f7fa 100%);
+      padding: 60px 0;
+      margin: 50px 0;
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .social-media-section .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 32px;
+      color: #1d1d1f;
+      margin-bottom: 10px;
+      font-weight: 600;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .section-subtitle {
+      text-align: center;
+      font-size: 16px;
+      color: #86868b;
+      margin-bottom: 40px;
+    }
+
+    .social-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .social-card {
+      background: white;
+      border-radius: 16px;
+      padding: 30px 20px;
+      text-align: center;
+      text-decoration: none;
+      color: #1d1d1f;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06),
+                  0 1px 3px rgba(0, 0, 0, 0.04);
+      border: 1px solid #e5e5e7;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .social-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12),
+                  0 6px 16px rgba(0, 0, 0, 0.08);
+      border-color: #d1d1d6;
+    }
+
+    .social-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #00c853 0%, #2196f3 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .social-card:hover::before {
+      opacity: 1;
+    }
+
+    .social-icon {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .social-icon::after {
+      content: '';
+      position: absolute;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    /* 邮箱图标 */
+    .email-icon {
+      background: linear-gradient(135deg, #ff5722 0%, #f44336 100%);
+      color: white;
+      box-shadow: 0 4px 12px rgba(244, 67, 54, 0.3);
+    }
+    .email-icon::after {
+      content: '✉';
+    }
+
+    /* 微信公众号图标 */
+    .wechat-icon {
+      background: linear-gradient(135deg, #07c160 0%, #06ad56 100%);
+      color: white;
+      box-shadow: 0 4px 12px rgba(7, 193, 96, 0.3);
+    }
+    .wechat-icon::after {
+      content: '微';
+    }
+
+    /* 视频号图标 */
+    .video-icon {
+      background: linear-gradient(135deg, #faad14 0%, #f5923e 100%);
+      color: white;
+      box-shadow: 0 4px 12px rgba(250, 173, 20, 0.3);
+    }
+    .video-icon::after {
+      content: '▶';
+    }
+
+    /* B站图标 */
+    .bilibili-icon {
+      background: linear-gradient(135deg, #00a1d6 0%, #008bc2 100%);
+      color: white;
+      box-shadow: 0 4px 12px rgba(0, 161, 214, 0.3);
+    }
+    .bilibili-icon::after {
+      content: 'B';
+    }
+
+    /* 新浪微博图标 */
+    .weibo-icon {
+      background: linear-gradient(135deg, #e6162d 0%, #c9162d 100%);
+      color: white;
+      box-shadow: 0 4px 12px rgba(230, 22, 45, 0.3);
+    }
+    .weibo-icon::after {
+      content: 'W';
+    }
+
+    /* 豆瓣图标 */
+    .douban-icon {
+      background: linear-gradient(135deg, #007722 0%, #006018 100%);
+      color: white;
+      box-shadow: 0 4px 12px rgba(0, 119, 34, 0.3);
+    }
+    .douban-icon::after {
+      content: 'D';
+    }
+
+    /* 知识星球图标 */
+    .zhishixingqiu-icon {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+    }
+    .zhishixingqiu-icon::after {
+      content: '★';
+    }
+
+    /* ========== 新增国际社交媒体图标 ========== */
+
+    /* WhatsApp图标 */
+    .whatsapp-icon {
+      background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+      color: white;
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+    }
+    .whatsapp-icon::after {
+      content: '📱';
+      font-size: 32px;
+    }
+
+    /* Telegram图标 */
+    .telegram-icon {
+      background: linear-gradient(135deg, #0088cc 0%, #006699 100%);
+      color: white;
+      box-shadow: 0 4px 12px rgba(0, 136, 204, 0.3);
+    }
+    .telegram-icon::after {
+      content: '✈️';
+      font-size: 32px;
+    }
+
+    /* Messenger图标 */
+    .messenger-icon {
+      background: linear-gradient(135deg, #0084ff 0%, #0056b3 100%);
+      color: white;
+      box-shadow: 0 4px 12px rgba(0, 132, 255, 0.3);
+    }
+    .messenger-icon::after {
+      content: '💬';
+      font-size: 32px;
+    }
+
+    /* QQ图标 */
+    .qq-icon {
+      background: linear-gradient(135deg, #12b7f5 0%, #0e8fd8 100%);
+      color: white;
+      box-shadow: 0 4px 12px rgba(18, 183, 245, 0.3);
+    }
+    .qq-icon::after {
+      content: 'Q';
+      font-size: 32px;
+      font-weight: bold;
+    }
+
+    /* 小红书图标 */
+    .xiaohongshu-icon {
+      background: linear-gradient(135deg, #ff2442 0%, #ff6b6b 100%);
+      color: white;
+      box-shadow: 0 4px 12px rgba(255, 36, 66, 0.3);
+    }
+    .xiaohongshu-icon::after {
+      content: '红';
+    }
+
+    /* 抖音图标 */
+    .douyin-icon {
+      background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+      color: white;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    }
+    .douyin-icon::after {
+      content: '♪';
+    }
+
+    /* 今日头条图标 */
+    .toutiao-icon {
+      background: linear-gradient(135deg, #f85959 0%, #f23535 100%);
+      color: white;
+      box-shadow: 0 4px 12px rgba(248, 89, 89, 0.3);
+    }
+    .toutiao-icon::after {
+      content: '⚡';
+    }
+
+    .social-card h3 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #1d1d1f;
+    }
+
+    .social-card p {
+      font-size: 14px;
+      color: #6e6e73;
+      margin: 0;
+    }
+
+    .social-card:hover .social-icon {
+      transform: scale(1.1) rotate(5deg);
+    }
+
+    .qr-hint,
+    .add-hint {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 4px 12px;
+      background: linear-gradient(135deg, #00c853 0%, #009624 100%);
+      color: white;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    .add-hint {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      font-size: 11px;
+      padding: 6px 14px;
+    }
+
+    /* 二维码弹窗 */
+    .qr-modal {
+      display: none;
+      position: fixed;
+      z-index: 10000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      align-items: center;
+      justify-content: center;
+    }
+
+    .qr-modal.active {
+      display: flex;
+    }
+
+    .qr-modal-content {
+      background: white;
+      border-radius: 20px;
+      padding: 40px;
+      max-width: 400px;
+      width: 90%;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      animation: modalSlideIn 0.3s ease;
+    }
+
+    @keyframes modalSlideIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .qr-modal-content h3 {
+      font-size: 24px;
+      color: #1d1d1f;
+      margin-bottom: 25px;
       font-weight: 600;
     }
 
-    .series-badge {
-      display: inline-block;
-      padding: 4px 12px;
-      background: linear-gradient(135deg, #9c27b0, #673ab7);
-      color: white;
+    .qr-placeholder {
+      width: 250px;
+      height: 250px;
+      background: #f5f5f7;
+      border: 2px dashed #d1d1d6;
       border-radius: 12px;
-      font-size: 13px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto;
+      color: #86868b;
+    }
+
+    .qr-placeholder p {
+      font-size: 18px;
+      margin: 0;
       font-weight: 600;
     }
 
-    @media (max-width: 1024px) {
-      .main-content {
-        grid-template-columns: 1fr;
+    .qr-placeholder small {
+      font-size: 14px;
+      margin-top: 10px;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 32px;
+      color: #86868b;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      line-height: 1;
+    }
+
+    .close-btn:hover {
+      color: #1d1d1f;
+      transform: scale(1.1);
+    }
+
+    /* 增强的页脚样式 */
+    footer {
+      background: linear-gradient(135deg, #1d1d1f 0%, #2d2d2f 100%);
+      color: white;
+      padding: 60px 0 30px;
+      margin-top: 0;
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .footer-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-section h4 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: #ffffff;
+    }
+
+    .footer-section p {
+      color: #a1a1a6;
+      font-size: 14px;
+      line-height: 1.8;
+      margin: 10px 0;
+    }
+
+    .footer-section ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-section ul li {
+      margin: 12px 0;
+    }
+
+    .footer-section ul li a {
+      color: #a1a1a6;
+      text-decoration: none;
+      font-size: 14px;
+      transition: all 0.2s ease;
+    }
+
+    .footer-section ul li a:hover {
+      color: #ffffff;
+      padding-left: 5px;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .footer-social-link {
+      padding: 8px 16px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      color: #a1a1a6;
+      text-decoration: none;
+      font-size: 13px;
+      transition: all 0.2s ease;
+    }
+
+    .footer-social-link:hover {
+      background: rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .footer-bottom p {
+      color: #86868b;
+      font-size: 13px;
+      margin: 5px 0;
+    }
+
+    /* 响应式媒体查询 */
+    @media (max-width: 850px) {
+      .social-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
       }
 
-      .sidebar-left,
-      .sidebar-right {
-        display: none;
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      header h1 {
+        font-size: 26px;
+      }
+
+      .tagline {
+        font-size: 14px;
+        letter-spacing: 0.6px;
+      }
+
+      nav ul {
+        gap: 10px;
+      }
+
+      nav a {
+        font-size: 14px;
+        padding: 8px 14px;
       }
     }
   </style>
@@ -289,22 +1447,18 @@
   
   <header>
     <div class="container">
-      <h1>福库心理 - 身心神同调</h1>
+      <h1>福库身心同调</h1>
+      <div class="tagline">
+        按摩艾灸 · 心理咨询 · 系统排列 · 生命整合
+      </div>
       <nav>
         <ul>
-          
-            <li><a href="/fukuxinli/">首页</a></li>
-          
-            <li><a href="/fukuxinli/body/">身</a></li>
-          
-            <li><a href="/fukuxinli/mind/">心</a></li>
-          
-            <li><a href="/fukuxinli/spirit/">神</a></li>
-          
-            <li><a href="/fukuxinli/partnership/">伴侣关系</a></li>
-          
-            <li><a href="/fukuxinli/ai/">AI</a></li>
-          
+          <li><a href="/fukuxinli/">首页</a></li>
+          <li><a href="/fukuxinli/body/">身</a></li>
+          <li><a href="/fukuxinli/mind/">心</a></li>
+          <li><a href="/fukuxinli/spirit/">神</a></li>
+          <li><a href="/fukuxinli/partnership/">伴侣关系</a></li>
+          <li><a href="/fukuxinli/ai/">AI</a></li>
         </ul>
       </nav>
     </div>
@@ -325,6 +1479,33 @@
 
       <div class="search-box">
         <input type="text" placeholder="搜索文章..." id="searchInput">
+      </div>
+
+      <!-- 留言板 -->
+      <div class="guestbook">
+        <h3>📝 留言板</h3>
+        <div class="guestbook-form">
+          <input type="text" placeholder="您的称呼" class="guestbook-input" id="guestbook-name">
+          <textarea placeholder="请输入您的留言..." class="guestbook-textarea" id="guestbook-message"></textarea>
+          <button class="guestbook-submit" onclick="submitGuestbook()">提交留言</button>
+        </div>
+        <div class="guestbook-messages" id="guestbook-messages">
+          <!-- 最新留言 -->
+          <div class="guestbook-message">
+            <div class="message-header">
+              <span class="message-author">张先生</span>
+              <span class="message-time">2024-03-12</span>
+            </div>
+            <div class="message-content">心理咨询真的很有帮助，感谢福库老师的分享！</div>
+          </div>
+          <div class="guestbook-message">
+            <div class="message-header">
+              <span class="message-author">李女士</span>
+              <span class="message-time">2024-03-11</span>
+            </div>
+            <div class="message-content">文章内容很专业，学到了很多关于身心同调的知识。</div>
+          </div>
+        </div>
       </div>
     </aside>
 
@@ -390,7 +1571,7 @@
 <p><strong>身：</strong></p>
 <ul>
 <li>每天进行15分钟的呼吸练习</li>
-<li>学习简单的按摩手法，自我放松</li>
+<li>学习简单的推拿手法，自我放松</li>
 <li>规律作息，改善睡眠质量</li>
 </ul>
 <p><strong>心：</strong></p>
@@ -432,9 +1613,42 @@
 </ul>
 <h3 id="小明的话">小明的话</h3>
 <p>在最后一次咨询中，小明对我说：</p>
+
+            <!-- 文章评论区 -->
+            <div class="comments-section">
+              <h3>💬 文章评论 <span class="comment-count" id="comment-count-1">2</span></h3>
+              <div class="comment-form">
+                <div class="comment-input-group">
+                  <input type="text" class="comment-input" id="comment-name-1" placeholder="您的称呼">
+                </div>
+                <textarea class="comment-textarea" id="comment-message-1" placeholder="请输入您的评论..."></textarea>
+                <button class="comment-submit" onclick="submitComment(1)">发表评论</button>
+              </div>
+              <div class="comments-list" id="comments-list-1">
+                <div class="comment-item">
+                  <div class="comment-avatar">王</div>
+                  <div class="comment-content-wrapper">
+                    <div class="comment-header">
+                      <span class="comment-author">王女士</span>
+                      <span class="comment-time">2024-03-12 14:30</span>
+                    </div>
+                    <div class="comment-body">这篇文章写得太好了，非常专业的案例分析！</div>
+                  </div>
+                </div>
+                <div class="comment-item">
+                  <div class="comment-avatar">李</div>
+                  <div class="comment-content-wrapper">
+                    <div class="comment-header">
+                      <span class="comment-author">李老师</span>
+                      <span class="comment-time">2024-03-11 09:15</span>
+                    </div>
+                    <div class="comment-body">作为心理咨询师，我认为这个案例很有参考价值，感谢分享。</div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        
+
           <div class="article">
             <h3><a href="/fukuxinli/body/%E8%89%BE%E7%81%B8%E7%9A%84%E6%B8%A9%E6%9A%96%E7%96%97%E6%84%88/">艾灸的温暖疗愈</a></h3>
             <div class="meta">
@@ -535,11 +1749,146 @@
 <h2 id="视频演示">视频演示</h2>
 <p>下面是艾灸基本操作的演示视频（示例视频，实际使用时替换为您的B站或腾讯视频链接）：</p>
 <h3 id="示例视频嵌入代码">示例视频嵌入代码</h3>
-<p>如果您有B站的视频，可以使用以下格式插入：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;video-container&#34;</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;//player.bilibili.com/player.html?bvid=BV1xx411c7mD&#34;</span> <span class="na">scrolling</span><span class="o">=</span><span class="s">&#34;no&#34;</span> <span class="na">border</span><span class="o">=</span><span class="s">&#34;0&#34;</span> <span class="na">frameborder</span><span class="o">=</span><span class="s">&#34;no&#34;</span> <span class="na">framespacing</span><span class="o">=</span><span class="s">&#34;0&#34;</span> <span class="na">allowfullscreen</span><span class="o">=</span><span class="s">&#34;true&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</span></span></code></pre></div><p>如果是腾讯视频，使用以下格式：</p>
+
+<style>
+.video-embed-demo {
+  background: #1e1e1e;
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 20px 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.video-embed-header {
+  background: #2d2d2d;
+  padding: 12px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #3d3d3d;
+}
+.video-embed-header .platform {
+  color: #e6edf3;
+  font-size: 14px;
+  font-weight: 500;
+}
+.video-embed-header .platform .icon {
+  margin-right: 8px;
+  color: #8b949e;
+}
+.copy-embed-btn {
+  background: #238636;
+  color: white;
+  border: none;
+  padding: 6px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+.copy-embed-btn:hover {
+  background: #2ea043;
+}
+.copy-embed-btn.copied {
+  background: #3fb950;
+}
+.video-embed-code {
+  padding: 16px;
+  overflow-x: auto;
+  overflow-y: auto;
+  max-height: 180px;
+  font-family: "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, "Courier New", monospace;
+  font-size: 13px;
+  color: #e6edf3;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  word-break: break-all;
+  line-height: 1.5;
+}
+.video-embed-code::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.video-embed-code::-webkit-scrollbar-track {
+  background: #1e1e1e;
+}
+.video-embed-code::-webkit-scrollbar-thumb {
+  background: #424242;
+  border-radius: 4px;
+}
+.video-embed-code::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+@media (max-width: 768px) {
+  .video-embed-code {
+    font-size: 11px;
+    padding: 12px;
+  }
+  .video-embed-header {
+    padding: 10px 12px;
+  }
+}
+</style>
+
+<!-- B站视频嵌入代码 -->
+<div class="video-embed-demo">
+  <div class="video-embed-header">
+    <span class="platform">
+      <span class="icon">📺</span>B站视频嵌入码
+    </span>
+    <button class="copy-embed-btn" onclick="copyEmbedCode(this, 'bilibili')">复制</button>
+  </div>
+  <div class="video-embed-code" id="bilibili-embed-code">&lt;div class="video-container"&gt;
+  &lt;iframe src="//player.bilibili.com/player.html?bvid=BV1xx411c7mD"
+          scrolling="no"
+          border="0"
+          frameborder="no"
+          framespacing="0"
+          allowfullscreen="true"&gt;
+  &lt;/iframe&gt;
+&lt;/div&gt;</div>
+</div>
+
+<!-- 腾讯视频嵌入代码 -->
+<div class="video-embed-demo">
+  <div class="video-embed-header">
+    <span class="platform">
+      <span class="icon">🎬</span>腾讯视频嵌入码
+    </span>
+    <button class="copy-embed-btn" onclick="copyEmbedCode(this, 'tencent')">复制</button>
+  </div>
+  <div class="video-embed-code" id="tencent-embed-code">&lt;div class="video-container"&gt;
+  &lt;iframe src="https://v.qq.com/txp/iframe/player.html?vid=YOUR_VIDEO_ID"
+          frameborder="0"
+          allowFullScreen="true"&gt;
+  &lt;/iframe&gt;
+&lt;/div&gt;</div>
+</div>
+
+<script>
+function copyEmbedCode(btn, platform) {
+  const codeElement = document.getElementById(platform + '-embed-code');
+  const code = codeElement.textContent;
+
+  navigator.clipboard.writeText(code).then(() => {
+    const originalText = btn.textContent;
+    btn.textContent = '已复制!';
+    btn.classList.add('copied');
+
+    setTimeout(() => {
+      btn.textContent = originalText;
+      btn.classList.remove('copied');
+    }, 2000);
+  }).catch(err => {
+    console.error('复制失败:', err);
+    alert('复制失败，请手动复制');
+  });
+}
+</script>
+
+<p style="color: #86868b; font-size: 14px; margin-top: 20px;">
+  💡 <strong>提示：</strong>点击复制按钮即可将代码复制到剪贴板，然后粘贴到您的文章中。
+</p>
             </div>
           </div>
         
@@ -1023,21 +2372,310 @@
     </aside>
   </div>
 
-  
+
+  <!-- 社交媒体链接区域 -->
+  <section class="social-media-section">
+    <div class="container">
+      <h2 class="section-title">关注我们</h2>
+      <p class="section-subtitle">通过以下方式与福库身心同调保持联系</p>
+
+      <div class="social-grid">
+        <!-- 微信公众号 -->
+        <a href="#" class="social-card" onclick="return false;">
+          <div class="social-icon wechat-icon"></div>
+          <h3>微信公众号</h3>
+          <p>福库身心同调</p>
+          <span class="qr-hint">扫码关注</span>
+        </a>
+
+        <!-- 微信视频号 -->
+        <a href="#" class="social-card" onclick="return false;">
+          <div class="social-icon video-icon"></div>
+          <h3>微信视频号</h3>
+          <p>福库身心同调</p>
+          <span class="qr-hint">扫码观看</span>
+        </a>
+
+        <!-- B站 -->
+        <a href="https://space.bilibili.com/your-id" target="_blank" class="social-card">
+          <div class="social-icon bilibili-icon"></div>
+          <h3>B站</h3>
+          <p>福库身心同调</p>
+        </a>
+
+        <!-- 小红书 -->
+        <a href="https://www.xiaohongshu.com/user/profile/your-id" target="_blank" class="social-card">
+          <div class="social-icon xiaohongshu-icon"></div>
+          <h3>小红书</h3>
+          <p>福库身心同调</p>
+        </a>
+
+        <!-- 抖音 -->
+        <a href="https://www.douyin.com/user/your-id" target="_blank" class="social-card">
+          <div class="social-icon douyin-icon"></div>
+          <h3>抖音</h3>
+          <p>福库身心同调</p>
+        </a>
+
+        <!-- 今日头条 -->
+        <a href="https://www.toutiao.com/c/user/your-id" target="_blank" class="social-card">
+          <div class="social-icon toutiao-icon"></div>
+          <h3>今日头条</h3>
+          <p>福库身心同调</p>
+        </a>
+
+        <!-- 新浪微博 -->
+        <a href="https://weibo.com/your-id" target="_blank" class="social-card">
+          <div class="social-icon weibo-icon"></div>
+          <h3>新浪微博</h3>
+          <p>福库身心同调</p>
+        </a>
+
+        <!-- 豆瓣 -->
+        <a href="https://www.douban.com/people/your-id" target="_blank" class="social-card">
+          <div class="social-icon douban-icon"></div>
+          <h3>豆瓣</h3>
+          <p>福库身心同调</p>
+        </a>
+
+        <!-- 知识星球 -->
+        <a href="https://www.zsxq.com/your-id" target="_blank" class="social-card">
+          <div class="social-icon zhishixingqiu-icon"></div>
+          <h3>知识星球</h3>
+          <p>福库身心同调</p>
+        </a>
+
+        <!-- WhatsApp -->
+        <a href="https://wa.me/YOUR_PHONE_NUMBER" target="_blank" class="social-card">
+          <div class="social-icon whatsapp-icon"></div>
+          <h3>WhatsApp</h3>
+          <p>福库身心同调</p>
+          <span class="add-hint">点击链接添加</span>
+        </a>
+
+        <!-- Telegram -->
+        <a href="https://t.me/YOUR_USERNAME" target="_blank" class="social-card">
+          <div class="social-icon telegram-icon"></div>
+          <h3>Telegram</h3>
+          <p>福库身心同调</p>
+          <span class="add-hint">点击链接添加</span>
+        </a>
+
+        <!-- Messenger -->
+        <a href="https://m.me/YOUR_PAGE_ID" target="_blank" class="social-card">
+          <div class="social-icon messenger-icon"></div>
+          <h3>Messenger</h3>
+          <p>福库身心同调</p>
+          <span class="add-hint">点击链接添加</span>
+        </a>
+
+        <!-- QQ -->
+        <a href="tencent://message/?uin=304269115" target="_blank" class="social-card">
+          <div class="social-icon qq-icon"></div>
+          <h3>QQ</h3>
+          <p>福库身心同调</p>
+          <span class="add-hint">点击链接添加</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 二维码弹窗 -->
+  <div id="qrModal" class="qr-modal" onclick="closeQrModal(event)">
+    <div class="qr-modal-content">
+      <span class="close-btn" onclick="closeQrModal()">&times;</span>
+      <h3 id="qrTitle">扫码关注</h3>
+      <div class="qr-placeholder">
+        <p>二维码图片</p>
+        <small>请在此处放置您的二维码</small>
+      </div>
+    </div>
+  </div>
+
+  <!-- 增强的页脚 -->
   <footer>
-    <p>&copy; 2026 靳福库 - 福库身心同调</p>
-    <p>身心神同调，开启生命的新可能</p>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>福库身心同调</h4>
+        <p>身心神同调，开启生命的新可能</p>
+        <p>专业的心理咨询与身心整合服务</p>
+      </div>
+
+      <div class="footer-section">
+        <h4>快速链接</h4>
+        <ul>
+          <li><a href="/fukuxinli/body/">身（推拿、艾灸）</a></li>
+          <li><a href="/fukuxinli/mind/">心（心理咨询）</a></li>
+          <li><a href="/fukuxinli/spirit/">神（意识、生命整合）</a></li>
+          <li><a href="/fukuxinli/partnership/">伴侣关系</a></li>
+          <li><a href="/fukuxinli/ai/">AI（人工智能）</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>联系我们</h4>
+        <ul>
+          <li>📧 <a href="mailto:jinfuku@outlook.com" style="color: #a1a1a6; text-decoration: none;">jinfuku@outlook.com</a></li>
+          <li>📱 微信：16602677594</li>
+          <li>💬 QQ：304269115</li>
+          <li>📍 中国</li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>关注我们</h4>
+        <div class="footer-social">
+          <a href="#" class="footer-social-link" title="微信公众号">微信公众号</a>
+          <a href="#" class="footer-social-link" title="微信视频号">视频号</a>
+          <a href="https://space.bilibili.com/your-id" class="footer-social-link" title="B站" target="_blank">B站</a>
+          <a href="https://www.xiaohongshu.com/user/profile/your-id" class="footer-social-link" title="小红书" target="_blank">小红书</a>
+          <a href="https://www.douyin.com/user/your-id" class="footer-social-link" title="抖音" target="_blank">抖音</a>
+          <a href="https://www.toutiao.com/c/user/your-id" class="footer-social-link" title="今日头条" target="_blank">今日头条</a>
+          <a href="https://weibo.com/your-id" class="footer-social-link" title="新浪微博" target="_blank">微博</a>
+          <a href="https://www.zsxq.com/your-id" class="footer-social-link" title="知识星球" target="_blank">知识星球</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 靳福库 - 福库身心同调</p>
+      <p>身心神同调，开启生命的新可能</p>
+    </div>
   </footer>
 
-  
+
   <script>
-    
+    // 搜索功能
     document.getElementById('searchInput').addEventListener('keypress', function(e) {
       if (e.key === 'Enter') {
         const query = this.value;
         window.location.href = '/search/?q=' + encodeURIComponent(query);
       }
     });
+
+    // 二维码弹窗功能
+    function showQrModal(title) {
+      const modal = document.getElementById('qrModal');
+      const qrTitle = document.getElementById('qrTitle');
+      qrTitle.textContent = title;
+      modal.classList.add('active');
+    }
+
+    function closeQrModal(event) {
+      if (!event || event.target.id === 'qrModal') {
+        document.getElementById('qrModal').classList.remove('active');
+      }
+    }
+
+    // 为有二维码提示的卡片添加点击事件
+    document.querySelectorAll('.qr-hint').forEach(hint => {
+      hint.parentElement.addEventListener('click', function(e) {
+        e.preventDefault();
+        const title = this.querySelector('h3').textContent;
+        showQrModal('扫码' + title);
+      });
+    });
+
+    // ESC 键关闭弹窗
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeQrModal();
+      }
+    });
+
+    // 留言板功能
+    function submitGuestbook() {
+      const nameInput = document.getElementById('guestbook-name');
+      const messageInput = document.getElementById('guestbook-message');
+      const messagesContainer = document.getElementById('guestbook-messages');
+
+      const name = nameInput.value.trim();
+      const message = messageInput.value.trim();
+
+      if (!name || !message) {
+        alert('请填写称呼和留言内容');
+        return;
+      }
+
+      // 创建新留言
+      const now = new Date();
+      const dateStr = now.getFullYear() + '-' +
+                     String(now.getMonth() + 1).padStart(2, '0') + '-' +
+                     String(now.getDate()).padStart(2, '0');
+
+      const newMessage = document.createElement('div');
+      newMessage.className = 'guestbook-message';
+      newMessage.innerHTML = `
+        <div class="message-header">
+          <span class="message-author">${name}</span>
+          <span class="message-time">${dateStr}</span>
+        </div>
+        <div class="message-content">${message}</div>
+      `;
+
+      // 添加到留言列表顶部
+      messagesContainer.insertBefore(newMessage, messagesContainer.firstChild);
+
+      // 清空输入框
+      nameInput.value = '';
+      messageInput.value = '';
+
+      alert('留言提交成功！');
+    }
+
+    // 文章评论功能
+    function submitComment(articleId) {
+      const nameInput = document.getElementById('comment-name-' + articleId);
+      const messageInput = document.getElementById('comment-message-' + articleId);
+      const commentsContainer = document.getElementById('comments-list-' + articleId);
+      const commentCountElement = document.getElementById('comment-count-' + articleId);
+
+      const name = nameInput.value.trim();
+      const message = messageInput.value.trim();
+
+      if (!name || !message) {
+        alert('请填写称呼和评论内容');
+        return;
+      }
+
+      // 创建新评论
+      const now = new Date();
+      const dateStr = now.getFullYear() + '-' +
+                     String(now.getMonth() + 1).padStart(2, '0') + '-' +
+                     String(now.getDate()).padStart(2, '0') + ' ' +
+                     String(now.getHours()).padStart(2, '0') + ':' +
+                     String(now.getMinutes()).padStart(2, '0');
+
+      const newComment = document.createElement('div');
+      newComment.className = 'comment-item';
+      newComment.innerHTML = `
+        <div class="comment-avatar">
+          ${name.charAt(0).toUpperCase()}
+        </div>
+        <div class="comment-content-wrapper">
+          <div class="comment-header">
+            <span class="comment-author">${name}</span>
+            <span class="comment-time">${dateStr}</span>
+          </div>
+          <div class="comment-body">${message}</div>
+        </div>
+      `;
+
+      // 添加到评论列表
+      commentsContainer.insertBefore(newComment, commentsContainer.firstChild);
+
+      // 清空输入框
+      nameInput.value = '';
+      messageInput.value = '';
+
+      // 更新评论数
+      if (commentCountElement) {
+        const currentCount = parseInt(commentCountElement.textContent);
+        commentCountElement.textContent = currentCount + 1;
+      }
+
+      alert('评论提交成功！');
+    }
   </script>
 </body>
 </html>
