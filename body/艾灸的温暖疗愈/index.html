@@ -442,6 +442,18 @@
     /* 视频号图标 */
     .video-icon { background: linear-gradient(135deg,#faad14 0%,#f5923e 100%); color:white; box-shadow: 0 4px 12px rgba(250,173,20,0.3); }
     .video-icon::after { content:'▶'; }
+  
+    /* 防止 pre 代码块撑宽页面 */
+    .article-content pre {
+      overflow-x: auto;
+      white-space: pre-wrap;
+      word-break: break-all;
+      max-width: 100%;
+    }
+    .highlight {
+      overflow-x: auto;
+      max-width: 100%;
+    }
   </style>
   <meta content="福库心理 - 身心神同调，提供专业的心理咨询、中医理疗和意识整合服务。" name="description"/>
   <meta content="心理咨询, 中医, 意识整合, 系统排列, 内勒斯" name="keywords"/>
@@ -824,50 +836,7 @@
        治疗过程本身就是一种关怀
       </li>
      </ul>
-     <hr/>
-     <h2 id="视频演示">
-      视频演示
-     </h2>
-     <p>
-      下面是艾灸基本操作的演示视频（示例视频，实际使用时替换为您的B站或腾讯视频链接）：
-     </p>
-     <h3 id="示例视频嵌入代码">
-      示例视频嵌入代码
-     </h3>
-     <p>
-      如果您有B站的视频，可以使用以下格式插入：
-     </p>
-     <div class="highlight">
-      <pre class="chroma" tabindex="0"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"video-container"</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">"//player.bilibili.com/player.html?bvid=BV1xx411c7mD"</span> <span class="na">scrolling</span><span class="o">=</span><span class="s">"no"</span> <span class="na">border</span><span class="o">=</span><span class="s">"0"</span> <span class="na">frameborder</span><span class="o">=</span><span class="s">"no"</span> <span class="na">framespacing</span><span class="o">=</span><span class="s">"0"</span> <span class="na">allowfullscreen</span><span class="o">=</span><span class="s">"true"</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</span></span></code></pre>
-     </div>
-     <p>
-      如果是腾讯视频，使用以下格式：
-     </p>
-     <div class="highlight">
-      <pre class="chroma" tabindex="0"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"video-container"</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">"https://v.qq.com/txp/iframe/player.html?vid=YOUR_VIDEO_ID"</span> <span class="na">allowFullScreen</span><span class="o">=</span><span class="s">"true"</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</span></span></code></pre>
-     </div>
-     <h2 id="语音内容">
-      语音内容
-     </h2>
-     <p>
-      您也可以在文章中插入语音内容：
-     </p>
-     <div class="highlight">
-      <pre class="chroma" tabindex="0"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"audio-player"</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">audio</span> <span class="na">controls</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">source</span> <span class="na">src</span><span class="o">=</span><span class="s">"/audio/your-audio-file.mp3"</span> <span class="na">type</span><span class="o">=</span><span class="s">"audio/mpeg"</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">    您的浏览器不支持音频播放。
-</span></span><span class="line"><span class="cl">  <span class="p">&lt;/</span><span class="nt">audio</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</span></span></code></pre>
-     </div>
-     <hr/>
+     
      <h2 id="注意事项">
       注意事项
      </h2>
