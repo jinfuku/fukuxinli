@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>张成谈内勒斯影响 - 福库心理 - 身心神同调</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      background-color: #f5f5f7;
+      color: #1d1d1f;
+      line-height: 1.8;
+      letter-spacing: 0.02em;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    header {
+      background: linear-gradient(135deg, #00c853 0%, #2196f3 100%);
+      color: white;
+      padding: 15px 0 20px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12),
+                  0 1px 3px rgba(0, 0, 0, 0.08);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+
+    header .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 20px;
+      text-align: center;
+    }
+
+    .header-brand {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 15px;
+    }
+
+    .header-logo {
+      width: 70px;
+      height: 70px;
+      border-radius: 16px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .header-logo:hover {
+      transform: scale(1.05) rotate(3deg);
+    }
+
+    .header-text {
+      text-align: left;
+    }
+
+    header h1 {
+      font-size: 32px;
+      margin-bottom: 8px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 500;
+      padding: 10px 20px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      display: inline-block;
+    }
+
+    nav a:hover {
+      background: rgba(255, 255, 255, 0.28);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15),
+                  0 4px 8px rgba(0, 0, 0, 0.1),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    }
+
+    .main-content {
+      max-width: 1400px;
+      margin: 40px auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: 250px minmax(0, 1fr) 300px;
+      gap: 30px;
+    }
+
+    @media (max-width: 1024px) {
+      .main-content {
+        grid-template-columns: 1fr;
+      }
+      .sidebar-left, .sidebar-right {
+        display: none;
+      }
+    }
+
+    /* Left sidebar */
+    .sidebar-left {
+      background: white;
+      border-radius: 20px;
+      padding: 25px;
+      box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06),
+                  0 1px 4px rgba(0, 0, 0, 0.04);
+      height: fit-content;
+      transition: all 0.3s ease;
+    }
+
+    .sidebar-left:hover {
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08),
+                  0 4px 16px rgba(0, 0, 0, 0.06);
+    }
+
+    .sidebar-left h3 {
+      color: #00c853;
+      margin-bottom: 20px;
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .sidebar-left ul { list-style: none; }
+    .sidebar-left li { margin-bottom: 12px; }
+
+    .sidebar-left a {
+      color: #1d1d1f;
+      text-decoration: none;
+      padding: 12px 16px;
+      border-radius: 12px;
+      display: block;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      font-weight: 500;
+      border: 1px solid transparent;
+    }
+
+    .sidebar-left a:hover {
+      background: linear-gradient(135deg, #f0fff4 0%, #e3f2fd 100%);
+      color: #00c853;
+      transform: translateX(4px);
+      box-shadow: 0 2px 8px rgba(0, 200, 83, 0.1);
+      border-color: rgba(0, 200, 83, 0.2);
+    }
+
+    /* Article content */
+    .article-content-wrapper {
+      background: white;
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06),
+                  0 1px 4px rgba(0, 0, 0, 0.04);
+      transition: all 0.3s ease;
+    }
+
+    .article-content-wrapper:hover {
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08),
+                  0 4px 16px rgba(0, 0, 0, 0.06);
+    }
+
+    .article-header {
+      margin-bottom: 30px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid #e5e5e7;
+    }
+
+    .article-header h1 {
+      font-size: 30px;
+      font-weight: 700;
+      color: #1d1d1f;
+      letter-spacing: -0.5px;
+      margin-bottom: 14px;
+      line-height: 1.4;
+    }
+
+    .article-meta {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .article-meta span {
+      color: #86868b;
+      font-size: 14px;
+      font-weight: 500;
+      background: #f5f5f7;
+      padding: 4px 12px;
+      border-radius: 20px;
+    }
+
+    .article-meta .tag {
+      background: linear-gradient(135deg, #f0fff4 0%, #e3f2fd 100%);
+      color: #00c853;
+      border: 1px solid rgba(0, 200, 83, 0.2);
+    }
+
+    /* Article body */
+    .article-body {
+      font-size: 16px;
+      line-height: 1.9;
+      color: #1d1d1f;
+    }
+
+    .article-body p {
+      margin-bottom: 1.5em;
+      text-align: justify;
+      text-justify: inter-ideograph;
+    }
+
+    .article-body h2 {
+      font-size: 22px;
+      font-weight: 700;
+      color: #1d1d1f;
+      margin: 2.2em 0 1em;
+      letter-spacing: -0.3px;
+      position: relative;
+      padding-left: 16px;
+    }
+
+    .article-body h2::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 4px;
+      height: 1.2em;
+      background: linear-gradient(180deg, #00c853, #2196f3);
+      border-radius: 2px;
+    }
+
+    .article-body h3 {
+      font-size: 18px;
+      font-weight: 600;
+      color: #2196f3;
+      margin: 1.8em 0 0.8em;
+      letter-spacing: -0.2px;
+    }
+
+    .article-body strong {
+      font-weight: 600;
+      color: #1d1d1f;
+    }
+
+    .article-body em {
+      font-style: italic;
+      color: #424245;
+    }
+
+    /* Quote block */
+    .article-body blockquote {
+      margin: 2em 0;
+      padding: 20px 24px;
+      background: linear-gradient(135deg, #f0fff4 0%, #e3f2fd 100%);
+      border-left: 4px solid #00c853;
+      border-radius: 0 14px 14px 0;
+      color: #424245;
+      font-size: 15px;
+      line-height: 1.9;
+    }
+
+    .article-body blockquote p {
+      margin-bottom: 0;
+    }
+
+    /* Section cards */
+    .section-card {
+      margin: 2em 0;
+      padding: 24px 28px;
+      background: linear-gradient(135deg, #f9f9fb 0%, #f5f5f7 100%);
+      border-radius: 16px;
+      border: 1px solid #e5e5e7;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .section-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      border-color: #d1d1d6;
+    }
+
+    .section-card h3 {
+      margin-top: 0;
+      font-size: 17px;
+      color: #00c853;
+      margin-bottom: 12px;
+    }
+
+    .section-card p {
+      margin-bottom: 0.8em;
+      color: #424245;
+      font-size: 15px;
+    }
+
+    .section-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Right sidebar */
+    .sidebar-right {
+      background: white;
+      border-radius: 20px;
+      padding: 25px;
+      box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06),
+                  0 1px 4px rgba(0, 0, 0, 0.04);
+      height: fit-content;
+      transition: all 0.3s ease;
+    }
+
+    .sidebar-right:hover {
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08),
+                  0 4px 16px rgba(0, 0, 0, 0.06);
+    }
+
+    .sidebar-right h3 {
+      color: #2196f3;
+      margin-bottom: 20px;
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+      text-shadow: 0 2px 8px rgba(33, 150, 243, 0.15);
+    }
+
+    .book-list { list-style: none; }
+
+    .book-list li {
+      margin-bottom: 16px;
+      padding: 16px;
+      background: linear-gradient(135deg, #f9f9fb 0%, #f5f5f7 100%);
+      border-radius: 14px;
+      border: 1px solid #e5e5e7;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+    }
+
+    .book-list li:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      border-color: #d1d1d6;
+      background: linear-gradient(135deg, #ffffff 0%, #f9f9fb 100%);
+    }
+
+    .book-list strong {
+      color: #00c853;
+      display: block;
+      margin-bottom: 6px;
+      font-size: 15px;
+      font-weight: 600;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+
+    .book-list span {
+      color: #6e6e73;
+      font-size: 13px;
+      font-weight: 500;
+      display: block;
+      word-wrap: break-word;
+    }
+
+    footer {
+      background: linear-gradient(135deg, #1d1d1f 0%, #2c2c2e 100%);
+      color: #f5f5f7;
+      text-align: center;
+      padding: 30px 0;
+      margin-top: 40px;
+      font-size: 14px;
+      letter-spacing: 0.05em;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <div class="header-brand">
+        <img src="/fukuxinli/images/fuku-logo.png" alt="福库心理Logo" class="header-logo">
+        <div class="header-text"><h1>福库心理 - 身心神同调</h1></div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="/fukuxinli/">首页</a></li>
+          <li><a href="/fukuxinli/body/">身</a></li>
+          <li><a href="/fukuxinli/mind/">心</a></li>
+          <li><a href="/fukuxinli/spirit/">神</a></li>
+          <li><a href="/fukuxinli/partnership/">伴侣关系</a></li>
+          <li><a href="/fukuxinli/ai/">AI</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="main-content">
+
+    <aside class="sidebar-left">
+      <h3>分类目录</h3>
+      <ul>
+        <li><a href="/fukuxinli/body/">身（推拿、艾灸）</a></li>
+        <li><a href="/fukuxinli/mind/">心（心理咨询）</a></li>
+        <li><a href="/fukuxinli/spirit/">神（意识、生命整合）</a></li>
+        <li><a href="/fukuxinli/partnership/">伴侣关系</a></li>
+        <li><a href="/fukuxinli/ai/">AI（人工智能）</a></li>
+      </ul>
+    </aside>
+
+    <main class="article-content-wrapper">
+      <div class="article-header">
+        <h1>张成谈内勒斯影响</h1>
+        <div class="article-meta">
+          <span class="tag">[神 · 生命整合]</span>
+          <span>福库</span>
+          <span>2026-03-14</span>
+          <span>免费公开</span>
+        </div>
+      </div>
+
+      <div class="article-body">
+
+        <p>以下为张成老师分享的核心要点整理。✨</p>
+
+        <h2>一、与内勒斯老师交往的回忆与感悟</h2>
+
+        <div class="section-card">
+          <h3>结缘渊源</h3>
+          <p>2014年武汉第一次见到内勒斯老师，做完生命整合个案后结下缘分，之后长期担任翻译。做翻译必须全程专注接收内容，对知识点理解比普通学员更透彻，这也是多年后能独立开课的核心原因。</p>
+        </div>
+
+        <div class="section-card">
+          <h3>内勒斯老师的鲜活榜样</h3>
+          <p>北京堵车时，60多岁的内勒斯打开车门冒雨步行1公里多前往场地，步伐有力，充满鲜活的生命状态。</p>
+          <p>2015年北京工作坊结束后，打破从不做临时决定的习惯，破例满足70多位学员的请求加开一天专项课程。</p>
+        </div>
+
+        <div class="section-card">
+          <h3>职业平等观的触动</h3>
+          <p>内勒斯认为自己做的心理工作，和做油漆工的父亲没有高低之分，父亲的工作价值甚至更大。这份谦卑对张成触动很深。</p>
+        </div>
+
+        <div class="section-card">
+          <h3>跟老师学习的核心</h3>
+          <p>比起记知识框架、背笔记，更重要的是感受老师的生命状态，吸收老师散发的能量，这些有形无形的影响会潜移默化改变自己。</p>
+        </div>
+
+        <h2>二、生命流动的核心观点</h2>
+
+        <div class="section-card">
+          <h3>生命流动的本质</h3>
+          <p>生命本应像河流一样持续流动，多数人被过去的伤痛、经历卡住。本质不是事情本身没有过去，而是我们站在当下不断回忆、翻出旧事，给旧事裹上新的情绪，让已经结束的事情在当下重新"活"过来，阻碍了流动。</p>
+        </div>
+
+        <div class="section-card">
+          <h3>流动与规则的平衡</h3>
+          <p>生命同时有流动和规则两面，就像河流需要河岸约束，这符合中国阴阳思维。对应孔子所说「随心所欲不逾矩」：随心所欲是流动，不逾矩就是规则，这是生命通透圆熟的状态，需要用一辈子慢慢体会。</p>
+        </div>
+
+        <h2>三、「终始而非始终」的内涵解读</h2>
+
+        <div class="section-card">
+          <h3>核心区别</h3>
+          <p><strong>始终</strong>是线性的，从开始到结束，是封闭的句号；<strong>终始</strong>是循环往复的，终点就是新的起点，是开放的过程。</p>
+        </div>
+
+        <div class="section-card">
+          <h3>自然规律印证</h3>
+          <p>对应四季轮回，植物秋冬枯萎死亡，春天重新发芽；对应一天规律，夜晚睡觉结束一天，醒来就是新开始；中国传统大宅设计，最后不是一堵墙，而是后花园，预示结束就是新开始。</p>
+        </div>
+
+        <div class="section-card">
+          <h3>现实启发</h3>
+          <p>我们要有能力让过去的纠结、冲突当下终止，不把负面情绪带到下一段开始。比如多次求职不顺，也要让之前失败的情绪过去，像第一次求职一样保持热情重新出发。</p>
+        </div>
+
+        <h2>四、真实生命经验与成长</h2>
+
+        <div class="section-card">
+          <h3>经验对认知的作用</h3>
+          <p>单纯头脑层面学习的知识只会停留在表面，只有亲身经历过，才能对内容有深刻感受，真正做到感同身受。</p>
+        </div>
+
+        <div class="section-card">
+          <h3>经验沉淀的变化</h3>
+          <p>张成对比早年课程，发现近年表达看似更笨拙，但内容更厚重，因为有了更多生活沉淀，内容和自身经验结合得更紧密，传递出去也更有分量。</p>
+        </div>
+
+        <div class="section-card">
+          <h3>痛苦的价值</h3>
+          <p>有福报的人才会经历更多痛苦，这些痛苦是帮助我们层层领悟生命智慧的契机，精神的出生就像肉体出生一样，必然伴随着痛苦。穿越痛苦才能成为更好的自己。</p>
+        </div>
+
+        <div class="section-card">
+          <h3>个案学习的意义</h3>
+          <p>每个人只能体验自己版本的生命，通过看别人的个案，可以成倍拓宽自己的生命体验，不用亲身经历别人的痛苦，也能获得相应感悟，还能帮我们看清自己的问题并没有那么严重，放松心态。</p>
+        </div>
+
+        <h2>五、听众问题解答：40岁没有力量工作怎么办</h2>
+
+        <div class="section-card">
+          <h3>成因分析</h3>
+          <p>这是当下很普遍的现象，一方面是很多工作本身缺乏意义，无法让个人认同，很难调动兴趣热情；另一方面核心问题是个人能量状态偏低，低能量状态下很难匹配到合适的工作。</p>
+        </div>
+
+        <div class="section-card">
+          <h3>调整建议</h3>
+          <p>当务之急不是立刻找到工作，而是先调整自己的生命状态，哪怕每天只是买菜、散步、接触自然，也要把状态调整到饱满积极的水平。</p>
+        </div>
+
+        <div class="section-card">
+          <h3>快速调整方法</h3>
+          <p>低能量状态下，可以换环境、去见能量更高的人、参加工作坊，这是快速拉高自己能量的有效方式。状态调整好之后，合适的工作自然会匹配到来。</p>
+        </div>
+
+        <h2>六、结尾感悟</h2>
+
+        <p>张成老师引用内勒斯《让生命拥抱你》中的话作为总结：</p>
+
+        <blockquote>
+          <p>万物皆有时，瓜熟自然蒂落，其实我们能做的不多，成长以它自己的节奏自然的发生着。我们唯一能做的就是对这个过程不逃避、不阻止、不对抗。我们遇到的每一种人生境况，尤其是那些全新的境况，都蕴含着让我们成长的机遇。</p>
+          <p>——威尔菲德·内勒斯《让生命拥抱你》</p>
+        </blockquote>
+
+      </div>
+    </main>
+
+    <aside class="sidebar-right">
+      <h3>推荐书籍</h3>
+      <ul class="book-list">
+        <li>
+          <strong>《让生命拥抱你》</strong>
+          <span>威尔菲德·内勒斯 著</span>
+        </li>
+        <li>
+          <strong>《我们共同生活的世界——意识和精神之旅》</strong>
+          <span>威尔菲德·内勒斯 著</span>
+        </li>
+        <li>
+          <strong>《人生没有回头路》</strong>
+          <span>威尔菲德·内勒斯 著</span>
+        </li>
+      </ul>
+    </aside>
+
+  </div>
+
+  <footer>
+    <p>&copy; 2026 靳福库 - 福库心理 - 身心神同调</p>
+  </footer>
+
+</body>
+</html>
