@@ -346,6 +346,103 @@
       font-size: 14px;
       letter-spacing: 0.05em;
     }
+
+    /* ========== 关注我们区域样式 ========== */
+    .social-media-section {
+      background: linear-gradient(135deg, #ffffff 0%, #f5f7fa 100%);
+      padding: 50px 0;
+      margin-top: 40px;
+      box-shadow: 0 -4px 20px rgba(0,0,0,.05);
+    }
+    .social-media-section .container {
+      max-width: 1200px; margin: 0 auto; padding: 0 20px;
+    }
+    .section-title {
+      text-align: center; font-size: 28px; color: #1d1d1f;
+      margin-bottom: 8px; font-weight: 700;
+    }
+    .section-subtitle {
+      text-align: center; font-size: 15px; color: #86868b; margin-bottom: 36px;
+    }
+    .social-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 16px;
+    }
+    .social-card {
+      background: white; border-radius: 14px; padding: 22px 14px;
+      text-align: center; text-decoration: none; color: #1d1d1f;
+      transition: all .3s cubic-bezier(.4,0,.2,1);
+      box-shadow: 0 2px 10px rgba(0,0,0,.06), 0 1px 3px rgba(0,0,0,.04);
+      border: 1px solid #e5e5e7; position: relative; overflow: hidden;
+      display: block;
+    }
+    .social-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 28px rgba(0,0,0,.1), 0 6px 14px rgba(0,0,0,.07);
+      border-color: #d1d1d6;
+    }
+    .social-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, #00c853 0%, #2196f3 100%);
+      opacity: 0; transition: opacity .3s;
+    }
+    .social-card:hover::before { opacity: 1; }
+    .social-icon {
+      width: 56px; height: 56px; margin: 0 auto 14px;
+      border-radius: 50%; display: flex; align-items: center;
+      justify-content: center; font-size: 22px; transition: all .3s;
+      position: relative;
+    }
+    .social-icon::after {
+      content: ''; position: absolute; font-size: 22px; font-weight: bold;
+    }
+    .social-card:hover .social-icon { transform: scale(1.1) rotate(5deg); }
+    .qyweixin-icon  { background: linear-gradient(135deg,#07c160,#05a04f); box-shadow:0 4px 10px rgba(7,193,96,.3); }
+    .qyweixin-icon::after  { content:'企'; font-size:22px; font-weight:bold; color:white; }
+    .wechat-icon    { background: linear-gradient(135deg,#07c160,#06ad56); box-shadow:0 4px 10px rgba(7,193,96,.3); }
+    .wechat-icon::after    { content:'微'; color:white; }
+    .video-icon     { background: linear-gradient(135deg,#faad14,#f5923e); box-shadow:0 4px 10px rgba(250,173,20,.3); }
+    .video-icon::after     { content:'▶'; color:white; }
+    .bilibili-icon  { background: linear-gradient(135deg,#00a1d6,#008bc2); box-shadow:0 4px 10px rgba(0,161,214,.3); }
+    .bilibili-icon::after  { content:'B'; color:white; }
+    .xiaohongshu-icon { background: linear-gradient(135deg,#ff2442,#ff6b6b); box-shadow:0 4px 10px rgba(255,36,66,.3); }
+    .xiaohongshu-icon::after { content:'红'; color:white; }
+    .douyin-icon    { background: linear-gradient(135deg,#000,#1a1a1a); box-shadow:0 4px 10px rgba(0,0,0,.4); }
+    .douyin-icon::after    { content:'♪'; color:white; }
+    .toutiao-icon   { background: linear-gradient(135deg,#f85959,#f23535); box-shadow:0 4px 10px rgba(248,89,89,.3); }
+    .toutiao-icon::after   { content:'⚡'; color:white; }
+    .weibo-icon     { background: linear-gradient(135deg,#e6162d,#c9162d); box-shadow:0 4px 10px rgba(230,22,45,.3); }
+    .weibo-icon::after     { content:'W'; color:white; }
+    .douban-icon    { background: linear-gradient(135deg,#007722,#006018); box-shadow:0 4px 10px rgba(0,119,34,.3); }
+    .douban-icon::after    { content:'D'; color:white; }
+    .zhishixingqiu-icon { background: linear-gradient(135deg,#667eea,#764ba2); box-shadow:0 4px 10px rgba(102,126,234,.3); }
+    .zhishixingqiu-icon::after { content:'★'; color:white; }
+    .zhihu-icon     { background: linear-gradient(135deg,#0066ff,#0052cc); box-shadow:0 4px 10px rgba(0,102,255,.3); }
+    .zhihu-icon::after     { content:'知'; color:white; }
+    .ima-icon       { background: linear-gradient(135deg,#667eea,#764ba2); box-shadow:0 4px 10px rgba(102,126,234,.3); }
+    .ima-icon::after       { content:'i'; color:white; }
+    .get-icon       { background: linear-gradient(135deg,#f093fb,#f5576c); box-shadow:0 4px 10px rgba(240,147,251,.3); }
+    .get-icon::after       { content:'G'; color:white; }
+    .whatsapp-icon  { background: linear-gradient(135deg,#25d366,#128c7e); box-shadow:0 4px 10px rgba(37,211,102,.3); }
+    .whatsapp-icon::after  { content:'📱'; font-size:26px; }
+    .telegram-icon  { background: linear-gradient(135deg,#0088cc,#006699); box-shadow:0 4px 10px rgba(0,136,204,.3); }
+    .telegram-icon::after  { content:'✈️'; font-size:26px; }
+    .messenger-icon { background: linear-gradient(135deg,#0084ff,#0056b3); box-shadow:0 4px 10px rgba(0,132,255,.3); }
+    .messenger-icon::after { content:'💬'; font-size:26px; }
+    .qq-icon        { background: linear-gradient(135deg,#12b7f5,#0e8fd8); box-shadow:0 4px 10px rgba(18,183,245,.3); }
+    .qq-icon::after        { content:'Q'; font-size:26px; font-weight:bold; color:white; }
+    .feishu-icon    { background: linear-gradient(135deg,#1456f0,#0043ce); box-shadow:0 4px 10px rgba(20,86,240,.3); }
+    .feishu-icon::after    { content:'飞'; font-size:22px; font-weight:bold; color:white; }
+    .social-card h3 { font-size: 15px; font-weight: 600; margin-bottom: 5px; color: #1d1d1f; }
+    .social-card p  { font-size: 12px; color: #6e6e73; margin: 0; }
+    .qr-hint, .add-hint {
+      display: inline-block; margin-top: 8px; padding: 3px 10px;
+      background: linear-gradient(135deg,#00c853,#009624);
+      color: white; border-radius: 20px; font-size: 11px; font-weight: 500;
+    }
+    .add-hint { background: linear-gradient(135deg,#667eea,#764ba2); }
+
   </style>
 </head>
 <body>
@@ -379,14 +476,14 @@
   
   <div class="main-content">
     
-    <aside class="sidebar-left">
+        <aside class="sidebar-left">
       <h3>分类目录</h3>
       <ul>
-        <li><a href="/body/">身（推拿、艾灸）</a></li>
-        <li><a href="/mind/">心（心理咨询）</a></li>
-        <li><a href="/spirit/">神（意识、生命整合）</a></li>
-        <li><a href="/partnership/">伴侣关系</a></li>
-        <li><a href="/ai/">AI（人工智能）</a></li>
+        <li><a href="/fukuxinli/body/">身（推拿、艾灸）</a></li>
+        <li><a href="/fukuxinli/mind/">心（心理咨询）</a></li>
+        <li><a href="/fukuxinli/spirit/">神（意识、生命整合）</a></li>
+        <li><a href="/fukuxinli/partnership/">伴侣关系</a></li>
+        <li><a href="/fukuxinli/ai/">AI（人工智能）</a></li>
       </ul>
     </aside>
 
@@ -526,5 +623,61 @@
   <footer>
     <p>&copy; 2026 靳福库 - 福库心理 - 身心神同调</p>
   </footer>
+
+  <!-- 关注我们 -->
+  <section class="social-media-section">
+    <div class="container">
+      <h2 class="section-title">关注我们</h2>
+      <p class="section-subtitle">通过以下方式与福库身心同调保持联系</p>
+      <div class="social-grid">
+        <a href="https://work.weixin.qq.com/wework_admin/join?vcode=c3b06d1b6d64c93eeed3c9d43e315e91&r=copy_share_pc" target="_blank" class="social-card">
+          <div class="social-icon qyweixin-icon"></div><h3>企业微信</h3><p>靳福库生命整合</p><span class="add-hint">点击加入</span>
+        </a>
+        <a href="#" class="social-card" onclick="return false;">
+          <div class="social-icon wechat-icon"></div><h3>微信公众号</h3><p>福库身心同调</p><span class="qr-hint">扫码关注</span>
+        </a>
+        <a href="#" class="social-card" onclick="return false;">
+          <div class="social-icon video-icon"></div><h3>微信视频号</h3><p>福库身心同调</p><span class="qr-hint">扫码观看</span>
+        </a>
+        <a href="https://b23.tv/QePPHIL" target="_blank" class="social-card">
+          <div class="social-icon bilibili-icon"></div><h3>B站</h3><p>福库身心同调</p>
+        </a>
+        <a href="https://xhslink.com/m/7YE1S579Bci" target="_blank" class="social-card">
+          <div class="social-icon xiaohongshu-icon"></div><h3>小红书</h3><p>福库身心同调</p>
+        </a>
+        <a href="https://www.douyin.com/user/1110729819" target="_blank" class="social-card">
+          <div class="social-icon douyin-icon"></div><h3>抖音</h3><p>福库身心同调</p>
+        </a>
+        <a href="https://weibo.com/u/1285229442" target="_blank" class="social-card">
+          <div class="social-icon weibo-icon"></div><h3>新浪微博</h3><p>福库身心同调</p>
+        </a>
+        <a href="https://www.douban.com/people/jinfuku/?_i=3404240dK_7z6P" target="_blank" class="social-card">
+          <div class="social-icon douban-icon"></div><h3>豆瓣</h3><p>福库身心同调</p>
+        </a>
+        <a href="https://wx.zsxq.com/group/51115811242224" target="_blank" class="social-card">
+          <div class="social-icon zhishixingqiu-icon"></div><h3>知识星球</h3><p>福库身心同调</p>
+        </a>
+        <a href="https://www.zhihu.com/people/jinfuku8" target="_blank" class="social-card">
+          <div class="social-icon zhihu-icon"></div><h3>知乎</h3><p>福库心理</p>
+        </a>
+        <a href="#" class="social-card" onclick="alert('请在imaAPP中搜索：福库心理'); return false;">
+          <div class="social-icon ima-icon"></div><h3>ima知识号</h3><p>福库心理</p>
+        </a>
+        <a href="#" class="social-card" onclick="alert('请在get笔记APP中搜索：福库'); return false;">
+          <div class="social-icon get-icon"></div><h3>get笔记</h3><p>福库</p>
+        </a>
+        <a href="https://t.me/jinfuku6" target="_blank" class="social-card">
+          <div class="social-icon telegram-icon"></div><h3>Telegram</h3><p>福库身心同调</p><span class="add-hint">点击添加</span>
+        </a>
+        <a href="tencent://message/?uin=304269115" target="_blank" class="social-card">
+          <div class="social-icon qq-icon"></div><h3>QQ</h3><p>304269115</p><span class="add-hint">点击添加</span>
+        </a>
+        <a href="https://www.feishu.cn/invitation/page/add_contact/?token=776haaca-0cf4-4946-9a91-0d98df376d16&unique_id=n1LEkph6SSzEtCF3I_jgGA==" target="_blank" class="social-card">
+          <div class="social-icon feishu-icon"></div><h3>飞书</h3><p>福库身心同调</p><span class="add-hint">点击添加</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
 </body>
 </html>
