@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>内勒斯 | 生命整合过程排列（LIP） - 福库心理 - 身心神同调</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+      line-height: 1.8;
+    }
+
+    header {
+      background: linear-gradient(135deg, #00c853 0%, #2196f3 100%);
+      color: white;
+      padding: 20px 0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .header-brand {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 15px;
+    }
+    .header-logo {
+      width: 70px;
+      height: 70px;
+      border-radius: 16px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+    }
+    .header-logo:hover {
+      transform: scale(1.05) rotate(3deg);
+    }
+    .header-text {
+      text-align: left;
+    }
+
+    header .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    header h1 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      transition: opacity 0.3s;
+    }
+
+    nav a:hover {
+      opacity: 0.8;
+    }
+
+    .main-content {
+      max-width: 1400px;
+      margin: 30px auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: 250px 1fr 300px;
+      gap: 30px;
+    }
+
+    .sidebar-left {
+      background: white;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      height: fit-content;
+    }
+
+    .sidebar-left h3 {
+      color: #00c853;
+      margin-bottom: 15px;
+      font-size: 20px;
+    }
+
+    .sidebar-left ul {
+      list-style: none;
+    }
+
+    .sidebar-left li {
+      margin-bottom: 10px;
+    }
+
+    .sidebar-left a {
+      color: #333;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .sidebar-left a:hover {
+      color: #00c853;
+    }
+
+    .article-content {
+      background: white;
+      border-radius: 8px;
+      padding: 40px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .article-content h1 {
+      color: #2196f3;
+      margin-bottom: 20px;
+      font-size: 36px;
+    }
+
+    .article-meta {
+      color: #999;
+      font-size: 14px;
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .article-content h2 {
+      color: #00c853;
+      margin-top: 35px;
+      margin-bottom: 15px;
+      font-size: 26px;
+    }
+
+    .article-content h3 {
+      color: #2196f3;
+      margin-top: 25px;
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+
+    .article-content p {
+      margin-bottom: 15px;
+      line-height: 1.9;
+      font-size: 16px;
+    }
+
+    .article-content blockquote {
+      border-left: 4px solid #00c853;
+      padding: 15px 20px;
+      margin: 20px 0;
+      background: #f8fff8;
+      border-radius: 0 8px 8px 0;
+      color: #555;
+      font-style: italic;
+    }
+
+    .highlight-box {
+      background: linear-gradient(135deg, #e8f5e9 0%, #e3f2fd 100%);
+      border-left: 4px solid #00c853;
+      border-radius: 0 12px 12px 0;
+      padding: 20px 25px;
+      margin: 25px 0;
+      font-size: 15px;
+      line-height: 1.9;
+      color: #424245;
+    }
+
+    .highlight-box strong {
+      color: #00c853;
+    }
+
+    .stage-card {
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9f7ef 100%);
+      border: 1px solid #c8e6c9;
+      border-radius: 10px;
+      padding: 18px 22px;
+      margin: 12px 0;
+    }
+
+    .stage-card .stage-num {
+      display: inline-block;
+      background: linear-gradient(135deg, #00c853, #2196f3);
+      color: white;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 28px;
+      font-size: 14px;
+      font-weight: bold;
+      margin-right: 10px;
+      vertical-align: middle;
+    }
+
+    .stage-card .stage-title {
+      font-weight: 600;
+      font-size: 16px;
+      color: #1a1a2e;
+      vertical-align: middle;
+    }
+
+    .stage-card p {
+      margin: 8px 0 0 38px;
+      color: #555;
+      font-size: 15px;
+    }
+
+    .info-card {
+      background: #fff8e1;
+      border: 1px solid #ffe082;
+      border-radius: 10px;
+      padding: 18px 22px;
+      margin: 20px 0;
+    }
+
+    .info-card .info-title {
+      font-weight: 600;
+      color: #f57f17;
+      margin-bottom: 10px;
+      font-size: 15px;
+    }
+
+    .sidebar-right {
+      background: white;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      height: fit-content;
+    }
+
+    .sidebar-right h3 {
+      color: #2196f3;
+      margin-bottom: 15px;
+      font-size: 20px;
+    }
+
+    .related-articles ul {
+      list-style: none;
+    }
+
+    .related-articles li {
+      margin-bottom: 12px;
+      padding: 10px;
+      background: #f9f9f9;
+      border-radius: 4px;
+    }
+
+    .related-articles a {
+      color: #333;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .related-articles a:hover {
+      color: #00c853;
+    }
+
+    .back-button {
+      display: inline-block;
+      margin-bottom: 20px;
+      padding: 10px 20px;
+      background: #00c853;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: background 0.3s;
+    }
+
+    .back-button:hover {
+      background: #2196f3;
+    }
+
+    footer {
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 30px 0;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 1024px) {
+      .main-content {
+        grid-template-columns: 1fr;
+      }
+      .sidebar-left,
+      .sidebar-right {
+        display: none;
+      }
+    }
+  </style>
+  <meta content="生命整合过程排列（LIP）是威尔菲德·内勒斯基于七个生命与意识阶段所创立的排列治疗方法，聚焦当下，帮助个体接纳早期生命经历，激发内在潜力，走向整合与自由。" name="description"/>
+  <meta content="内勒斯, LIP, 生命整合, 系统排列, 生命阶段, 意识, 心理治疗, 靳福库" name="keywords"/>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="header-brand">
+        <img src="/fukuxinli/images/fuku-logo.png" alt="福库心理Logo" class="header-logo">
+        <div class="header-text">
+          <h1>福库心理 - 身心神同调</h1>
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="/fukuxinli/">首页</a></li>
+          <li><a href="/fukuxinli/body/">身</a></li>
+          <li><a href="/fukuxinli/mind/">心</a></li>
+          <li><a href="/fukuxinli/spirit/">神</a></li>
+          <li><a href="/fukuxinli/partnership/">伴侣关系</a></li>
+          <li><a href="/fukuxinli/ai/">AI</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="main-content">
+    <aside class="sidebar-left">
+      <h3>分类目录</h3>
+      <ul>
+        <li><a href="/fukuxinli/body/">身（推拿、艾灸）</a></li>
+        <li><a href="/fukuxinli/mind/">心（心理咨询）</a></li>
+        <li><a href="/fukuxinli/spirit/">神（意识、生命整合）</a></li>
+        <li><a href="/fukuxinli/partnership/">伴侣关系</a></li>
+        <li><a href="/fukuxinli/ai/">AI（人工智能）</a></li>
+      </ul>
+    </aside>
+
+    <main class="article-content">
+      <a class="back-button" href="/fukuxinli/spirit/">← 返回「神」目录</a>
+
+      <h1>内勒斯 | 生命整合过程排列（LIP）</h1>
+
+      <div class="article-meta">
+        <span>[神 · 生命整合]</span>
+        &nbsp;·&nbsp;
+        <span>2026-03-13</span>
+        &nbsp;·&nbsp;
+        <span>福库身心同调</span>
+      </div>
+
+      <!-- 内容简介 -->
+      <div style="
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border-left: 4px solid #00c853;
+        border-radius: 12px;
+        padding: 20px;
+        margin: 20px 0;
+        font-size: 15px;
+        line-height: 1.8;
+        color: #424245;
+      ">
+        <div style="font-weight: 600; color: #00c853; margin-bottom: 10px; font-size: 14px;">📝 内容简介</div>
+        <div>
+          生命整合过程排列（Lebensintegrationsprozess，简称 LIP）是威尔菲德·内勒斯（Wilfried Nelles）基于其七个生命与意识阶段理论所创立的排列治疗方法。与家庭系统排列不同，LIP 关注个体对自身生命历程的内在态度，通过聚焦当下，帮助来访者接纳并整合早期生命经历，从而激发内在潜力，走向更深层次的自由与整合。
+        </div>
+        <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:15px; padding-top:15px; border-top:1px dashed #dee2e6;">
+          <span style="background:linear-gradient(135deg,#00c853 0%,#2196f3 100%);color:white;padding:5px 14px;border-radius:20px;font-size:13px;font-weight:500;">#内勒斯</span>
+          <span style="background:linear-gradient(135deg,#00c853 0%,#2196f3 100%);color:white;padding:5px 14px;border-radius:20px;font-size:13px;font-weight:500;">#LIP</span>
+          <span style="background:linear-gradient(135deg,#00c853 0%,#2196f3 100%);color:white;padding:5px 14px;border-radius:20px;font-size:13px;font-weight:500;">#生命整合</span>
+          <span style="background:linear-gradient(135deg,#00c853 0%,#2196f3 100%);color:white;padding:5px 14px;border-radius:20px;font-size:13px;font-weight:500;">#系统排列</span>
+          <span style="background:linear-gradient(135deg,#00c853 0%,#2196f3 100%);color:white;padding:5px 14px;border-radius:20px;font-size:13px;font-weight:500;">#意识阶段</span>
+        </div>
+      </div>
+
+      <div class="article-body">
+
+        <h2>什么是生命整合过程排列（LIP）？</h2>
+
+        <p>
+          生命整合过程排列（Lebensintegrationsprozess，LIP）是由德国心理治疗师威尔菲德·内勒斯（Wilfried Nelles）所创立的一种独特的排列工作形式。它源自海灵格家庭系统排列，但在方向和重心上有着根本性的创新。
+        </p>
+
+        <div class="highlight-box">
+          <strong>LIP 的核心创新</strong>：与传统家庭排列关注个体与他人（父母、家族）的关系不同，LIP 的焦点转向了<strong>个体对自身生命历程的内在态度</strong>——即一个人如何看待、接纳或抗拒自己走过的每一个生命阶段。
+        </div>
+
+        <p>
+          在 LIP 工作中，代表位置是固定的，对应内勒斯所提出的<strong>七个生命与意识阶段</strong>，而非由家族成员构成的动态场域。这种设置使得排列的方向更加清晰，聚焦于来访者内在的整合而非外在的关系修复。
+        </p>
+
+        <h2>内勒斯的七个生命与意识阶段</h2>
+
+        <p>
+          内勒斯将人类的生命历程划分为七个阶段，每个阶段既是时间上的生命时期，也代表一种特定的意识状态与存在方式：
+        </p>
+
+        <div class="stage-card">
+          <span class="stage-num">1</span>
+          <span class="stage-title">共生合一意识（胎儿期）</span>
+          <p>与母亲完全融合的无分化状态，建立最原始的安全感与连接感。</p>
+        </div>
+
+        <div class="stage-card">
+          <span class="stage-num">2</span>
+          <span class="stage-title">团体意识（童年期）</span>
+          <p>以家庭为核心的归属认同，学习社会规则，建立基本的归属感和安全感。</p>
+        </div>
+
+        <div class="stage-card">
+          <span class="stage-num">3</span>
+          <span class="stage-title">自我意识（青少年期）</span>
+          <p>独立个性与分离需求涌现，强烈寻求自我认同和个性表达。</p>
+        </div>
+
+        <div class="stage-card">
+          <span class="stage-num">4</span>
+          <span class="stage-title">本我意识（成年期）</span>
+          <p>连接内在本质的成熟状态，认识到"自我"只是生命更广阔"本我"的一种表达，进入空性与自由。</p>
+        </div>
+
+        <div class="stage-card">
+          <span class="stage-num">5</span>
+          <span class="stage-title">灵性意识（成熟成年期）</span>
+          <p>深入体验生命的精神维度，超越个人视角，与更大的生命整体相连接。</p>
+        </div>
+
+        <div class="stage-card">
+          <span class="stage-num">6</span>
+          <span class="stage-title">了知合一意识（老年期）</span>
+          <p>万物一体的整体性体验，以智慧的眼光看待生命，超越二元对立。</p>
+        </div>
+
+        <div class="stage-card">
+          <span class="stage-num">7</span>
+          <span class="stage-title">无限意识（死亡）</span>
+          <p>回归无限本质的终极状态，与生命源头合一。</p>
+        </div>
+
+        <h2>LIP 的核心理念</h2>
+
+        <h3>过去只存在于当下的头脑中</h3>
+
+        <p>
+          内勒斯有一个根本性的观点：<strong>过去只存在于我们当下的头脑之中</strong>，真正的存在只有当下这一刻。因此，问题的根源并不在于过去发生了什么，而在于<strong>我们对过去所发生的事情持有怎样的态度</strong>。
+        </p>
+
+        <blockquote>
+          所有的生活经历都是"正确"的，都是不可替代的——无论它们看起来多么艰难或痛苦。每一个经历都是生命在那个特定时刻唯一可能发生的方式。
+        </blockquote>
+
+        <h3>接纳，而非改变</h3>
+
+        <p>
+          LIP 并不试图"修复"过去，而是帮助来访者<strong>改变对过去的内在态度</strong>——从抗拒、评判、遗憾，转向接纳与和解。当一个人真正接纳了自己走过的每一个阶段，固着的能量便得以释放，内在的潜力自然涌现。
+        </p>
+
+        <h2>LIP 的工作方式</h2>
+
+        <h3>排列的结构设置</h3>
+
+        <p>
+          在 LIP 排列中，场地上会设置代表七个意识阶段的固定位置。来访者通常站立于<strong>第四阶段（本我意识 / 成年期）</strong>的位置，以一个成熟成年人的视角，回望并凝视自己生命中的早期阶段（胎儿期、童年期、青少年期）。
+        </p>
+
+        <p>
+          通过这一凝视的过程，来访者可以：
+        </p>
+
+        <ul style="margin: 15px 0 15px 25px; line-height: 2;">
+          <li>感受到早期阶段中被压抑或固着的紧张感</li>
+          <li>在安全的场域中让这些感受自然呈现和流动</li>
+          <li>逐步释放对早期经历的抗拒</li>
+          <li>激发内在深层的潜力与生命力</li>
+        </ul>
+
+        <h3>灵活的工作形式</h3>
+
+        <div class="info-card">
+          <div class="info-title">💡 工作形式说明</div>
+          <p style="margin:0; font-size:15px; color:#555;">
+            LIP 通常以标准的生命整合过程排列形式进行。但在某些情况下，导师会根据来访者的具体需求，调整为家庭排列或主题排列（例如针对疾病、伴侣关系等特定议题）。最终的工作形式会在导师与来访者的充分沟通后共同决定。
+          </p>
+        </div>
+
+        <h2>LIP 与家庭系统排列的区别</h2>
+
+        <p>理解 LIP 与传统家庭系统排列的区别，有助于来访者选择最适合自己的工作方式：</p>
+
+        <div style="overflow-x:auto; margin: 20px 0;">
+          <table style="width:100%; border-collapse:collapse; font-size:15px;">
+            <thead>
+              <tr style="background:linear-gradient(135deg,#00c853,#2196f3); color:white;">
+                <th style="padding:12px 16px; text-align:left; border-radius:8px 0 0 0;">维度</th>
+                <th style="padding:12px 16px; text-align:left;">家庭系统排列</th>
+                <th style="padding:12px 16px; text-align:left; border-radius:0 8px 0 0;">生命整合过程排列（LIP）</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="background:#f9f9f9;">
+                <td style="padding:12px 16px; border-bottom:1px solid #eee; font-weight:600;">关注焦点</td>
+                <td style="padding:12px 16px; border-bottom:1px solid #eee;">个体与家族成员的关系</td>
+                <td style="padding:12px 16px; border-bottom:1px solid #eee;">个体对自身生命阶段的内在态度</td>
+              </tr>
+              <tr>
+                <td style="padding:12px 16px; border-bottom:1px solid #eee; font-weight:600;">代表位置</td>
+                <td style="padding:12px 16px; border-bottom:1px solid #eee;">动态，由家族成员构成</td>
+                <td style="padding:12px 16px; border-bottom:1px solid #eee;">固定，对应七个生命阶段</td>
+              </tr>
+              <tr style="background:#f9f9f9;">
+                <td style="padding:12px 16px; border-bottom:1px solid #eee; font-weight:600;">工作方向</td>
+                <td style="padding:12px 16px; border-bottom:1px solid #eee;">修复家族关系，找到归属</td>
+                <td style="padding:12px 16px; border-bottom:1px solid #eee;">接纳生命历程，整合内在</td>
+              </tr>
+              <tr>
+                <td style="padding:12px 16px; font-weight:600;">时间取向</td>
+                <td style="padding:12px 16px;">向过去追溯家族动力</td>
+                <td style="padding:12px 16px;">立足当下，观照生命全程</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>延伸资源</h2>
+
+        <p>如果你希望更深入了解内勒斯的生命整合理论，以下资源可供参考：</p>
+
+        <ul style="margin: 15px 0 15px 25px; line-height: 2.2;">
+          <li>📖 <strong>书籍</strong>：《生命如是发生——心理治疗与灵性的相遇》（Wilfried Nelles 著），书中有对 LIP 七个阶段的详细视觉呈现</li>
+          <li>🎧 <strong>音频</strong>：内勒斯的讲座录音，可通过福库心理相关渠道获取</li>
+          <li>🔗 <strong>伴侣关系</strong>：研究所亦提供"关系整合过程（BIP）"服务，专注于伴侣关系的深度整合</li>
+        </ul>
+
+        <div class="highlight-box" style="margin-top:30px;">
+          <strong>靳福库老师的工作</strong><br><br>
+          靳福库老师长期研习内勒斯生命整合理论，并将 LIP 工作与推拿、艾灸等身体疗愈相结合，形成独特的"身心神同调"工作方式。如果你对 LIP 工作感兴趣，欢迎通过网站联系方式与我们取得联系。
+        </div>
+
+      </div><!-- end article-body -->
+    </main>
+
+    <aside class="sidebar-right">
+      <div class="related-articles">
+        <h3>相关文章</h3>
+        <ul>
+          <li>
+            <a href="/fukuxinli/spirit/意识与生命整合的探索/">意识与生命整合的探索</a>
+          </li>
+          <li>
+            <a href="/fukuxinli/spirit/威尔菲德内勒斯核心概念术语翻译对照表/">威尔菲德·内勒斯核心概念术语翻译对照表</a>
+          </li>
+          <li>
+            <a href="/fukuxinli/spirit/">更多「神」类文章 →</a>
+          </li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+
+  <footer>
+    <p>© 2024 福库身心同调 · 按摩艾灸 · 心理咨询 · 系统排列 · 生命整合</p>
+    <p style="margin-top:8px; font-size:13px; color:#aaa;">福库心理 | 靳福库生命整合</p>
+  </footer>
+</body>
+</html>
