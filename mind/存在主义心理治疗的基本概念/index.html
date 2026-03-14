@@ -27,6 +27,11 @@
       color: white;
       padding: 20px 0;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
     }
 
     
@@ -62,22 +67,44 @@
       margin-bottom: 10px;
     }
 
+        /* Navigation with Apple-style glass cards */
     nav ul {
       list-style: none;
       display: flex;
-      gap: 20px;
+      gap: 15px;
       flex-wrap: wrap;
+      justify-content: center;
     }
 
     nav a {
       color: white;
       text-decoration: none;
-      font-size: 16px;
-      transition: opacity 0.3s;
+      font-size: 15px;
+      font-weight: 500;
+      padding: 10px 20px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      display: inline-block;
     }
 
     nav a:hover {
-      opacity: 0.8;
+      background: rgba(255, 255, 255, 0.25);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15),
+                  0 4px 8px rgba(0, 0, 0, 0.1),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    }
+
+    nav a:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1),
+                  inset 0 2px 4px rgba(0, 0, 0, 0.1);
     }
 
      
@@ -386,6 +413,35 @@
     }
     .add-hint { background: linear-gradient(135deg,#667eea,#764ba2); }
 
+  
+    /* 二维码弹窗 */
+    .qr-modal {
+      display: none; position: fixed; z-index: 10000;
+      left: 0; top: 0; width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.7);
+      backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px);
+      align-items: center; justify-content: center;
+    }
+    .qr-modal.active { display: flex; }
+    .qr-modal-content {
+      background: white; border-radius: 20px; padding: 40px;
+      max-width: 320px; width: 90%; text-align: center; position: relative;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      animation: modalIn 0.3s ease;
+    }
+    @keyframes modalIn { from { opacity:0; transform: translateY(-20px); } to { opacity:1; transform: translateY(0); } }
+    .qr-modal-content h3 { font-size: 20px; color: #1d1d1f; margin-bottom: 20px; font-weight: 600; }
+    .close-btn {
+      position: absolute; top: 14px; right: 18px;
+      font-size: 24px; cursor: pointer; color: #86868b; line-height: 1;
+    }
+    .close-btn:hover { color: #1d1d1f; }
+    /* 微信公众号图标 */
+    .wechat-icon { background: linear-gradient(135deg,#07c160 0%,#06ad56 100%); color:white; box-shadow: 0 4px 12px rgba(7,193,96,0.3); }
+    .wechat-icon::after { content:'微'; }
+    /* 视频号图标 */
+    .video-icon { background: linear-gradient(135deg,#faad14 0%,#f5923e 100%); color:white; box-shadow: 0 4px 12px rgba(250,173,20,0.3); }
+    .video-icon::after { content:'▶'; }
   </style>
   <meta content="福库心理 - 身心神同调，提供专业的心理咨询、中医理疗和意识整合服务。" name="description"/>
   <meta content="心理咨询, 中医, 意识整合, 系统排列, 内勒斯" name="keywords"/>
@@ -743,13 +799,11 @@
         <a href="https://work.weixin.qq.com/wework_admin/join?vcode=c3b06d1b6d64c93eeed3c9d43e315e91&r=copy_share_pc" target="_blank" class="social-card">
           <div class="social-icon qyweixin-icon"></div><h3>企业微信</h3><p>靳福库生命整合</p><span class="add-hint">点击加入</span>
         </a>
-        <a href="#" class="social-card qr-card" onclick="return false;" style="cursor:default;">
-          <div class="qr-img-wrap"><img src="/fukuxinli/images/qrcode-mp.jpg" alt="公众号二维码" class="qr-img"></div>
-          <h3>微信公众号</h3><p>福库身心同调</p><span class="qr-hint">扫码关注</span>
+        <a href="#" class="social-card" onclick="event.preventDefault();showQrModal('扫码关注微信公众号');">
+          <div class="social-icon wechat-icon"></div><h3>微信公众号</h3><p>福库身心同调</p><span class="qr-hint">点击扫码关注</span>
         </a>
-        <a href="#" class="social-card qr-card" onclick="return false;" style="cursor:default;">
-          <div class="qr-img-wrap"><img src="/fukuxinli/images/qrcode-video.jpg" alt="视频号二维码" class="qr-img"></div>
-          <h3>微信视频号</h3><p>福库身心同调</p><span class="qr-hint">扫码观看</span>
+        <a href="#" class="social-card" onclick="event.preventDefault();showQrModal('扫码观看微信视频号');">
+          <div class="social-icon video-icon"></div><h3>微信视频号</h3><p>福库身心同调</p><span class="qr-hint">点击扫码观看</span>
         </a>
         <a href="https://b23.tv/QePPHIL" target="_blank" class="social-card">
           <div class="social-icon bilibili-icon"></div><h3>B站</h3><p>福库身心同调</p>
@@ -793,5 +847,42 @@
 
 
 <script src="/fukuxinli/js/comments.js"></script>
+
+  <!-- 二维码弹窗 -->
+  <div id="qrModal" class="qr-modal" onclick="closeQrModal(event)">
+    <div class="qr-modal-content">
+      <span class="close-btn" onclick="closeQrModal()">&times;</span>
+      <h3 id="qrTitle">扫码关注</h3>
+      <img id="qrImage" src="/fukuxinli/images/qrcode-mp.jpg" alt="二维码" style="width:220px;height:220px;object-fit:contain;border-radius:12px;border:1px solid #e5e5e7;display:block;margin:0 auto 16px;">
+      <p id="qrDesc" style="color:#86868b;font-size:14px;margin:0;">打开微信，扫一扫即可关注</p>
+    </div>
+  </div>
+  <script>
+    function showQrModal(title) {
+      var modal = document.getElementById('qrModal');
+      var qrTitle = document.getElementById('qrTitle');
+      var qrImage = document.getElementById('qrImage');
+      var qrDesc  = document.getElementById('qrDesc');
+      qrTitle.textContent = title;
+      if (title && title.indexOf('视频号') !== -1) {
+        qrImage.src = '/fukuxinli/images/qrcode-video.jpg';
+        qrImage.alt = '视频号二维码';
+        qrDesc.textContent = '打开微信，扫一扫即可观看视频号';
+      } else {
+        qrImage.src = '/fukuxinli/images/qrcode-mp.jpg';
+        qrImage.alt = '公众号二维码';
+        qrDesc.textContent = '打开微信，扫一扫即可关注公众号';
+      }
+      modal.classList.add('active');
+    }
+    function closeQrModal(event) {
+      if (!event || event.target.id === 'qrModal') {
+        document.getElementById('qrModal').classList.remove('active');
+      }
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeQrModal();
+    });
+  </script>
 </body>
 </html>

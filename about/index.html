@@ -38,17 +38,45 @@
     .header-text h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.5px; }
     .tagline { font-size: 14px; opacity: .85; margin-top: 4px; letter-spacing: .5px; }
 
-    nav ul { list-style: none; display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
-    nav a {
-      color: white; text-decoration: none; font-size: 14px; font-weight: 500;
-      padding: 9px 18px; border-radius: 20px;
-      background: rgba(255,255,255,.15);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 4px 8px rgba(0,0,0,.1), inset 0 1px 0 rgba(255,255,255,.2);
-      border: 1px solid rgba(255,255,255,.2);
-      transition: all .25s ease;
+        /* Navigation with Apple-style glass cards */
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
     }
-    nav a:hover { background: rgba(255,255,255,.25); transform: translateY(-2px); }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 500;
+      padding: 10px 20px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      display: inline-block;
+    }
+
+    nav a:hover {
+      background: rgba(255, 255, 255, 0.25);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15),
+                  0 4px 8px rgba(0, 0, 0, 0.1),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    }
+
+    nav a:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1),
+                  inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
     nav a.active { background: rgba(255,255,255,.35); font-weight: 600; }
 
     /* ── Main layout ── */
@@ -208,6 +236,35 @@
       .philosophy-grid { grid-template-columns: 1fr; }
       .credentials-grid { grid-template-columns: repeat(2, 1fr); }
     }
+  
+    /* 二维码弹窗 */
+    .qr-modal {
+      display: none; position: fixed; z-index: 10000;
+      left: 0; top: 0; width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.7);
+      backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px);
+      align-items: center; justify-content: center;
+    }
+    .qr-modal.active { display: flex; }
+    .qr-modal-content {
+      background: white; border-radius: 20px; padding: 40px;
+      max-width: 320px; width: 90%; text-align: center; position: relative;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      animation: modalIn 0.3s ease;
+    }
+    @keyframes modalIn { from { opacity:0; transform: translateY(-20px); } to { opacity:1; transform: translateY(0); } }
+    .qr-modal-content h3 { font-size: 20px; color: #1d1d1f; margin-bottom: 20px; font-weight: 600; }
+    .close-btn {
+      position: absolute; top: 14px; right: 18px;
+      font-size: 24px; cursor: pointer; color: #86868b; line-height: 1;
+    }
+    .close-btn:hover { color: #1d1d1f; }
+    /* 微信公众号图标 */
+    .wechat-icon { background: linear-gradient(135deg,#07c160 0%,#06ad56 100%); color:white; box-shadow: 0 4px 12px rgba(7,193,96,0.3); }
+    .wechat-icon::after { content:'微'; }
+    /* 视频号图标 */
+    .video-icon { background: linear-gradient(135deg,#faad14 0%,#f5923e 100%); color:white; box-shadow: 0 4px 12px rgba(250,173,20,0.3); }
+    .video-icon::after { content:'▶'; }
   </style>
 </head>
 <body>
@@ -415,5 +472,42 @@
 
 
 <script src="/fukuxinli/js/comments.js"></script>
+
+  <!-- 二维码弹窗 -->
+  <div id="qrModal" class="qr-modal" onclick="closeQrModal(event)">
+    <div class="qr-modal-content">
+      <span class="close-btn" onclick="closeQrModal()">&times;</span>
+      <h3 id="qrTitle">扫码关注</h3>
+      <img id="qrImage" src="/fukuxinli/images/qrcode-mp.jpg" alt="二维码" style="width:220px;height:220px;object-fit:contain;border-radius:12px;border:1px solid #e5e5e7;display:block;margin:0 auto 16px;">
+      <p id="qrDesc" style="color:#86868b;font-size:14px;margin:0;">打开微信，扫一扫即可关注</p>
+    </div>
+  </div>
+  <script>
+    function showQrModal(title) {
+      var modal = document.getElementById('qrModal');
+      var qrTitle = document.getElementById('qrTitle');
+      var qrImage = document.getElementById('qrImage');
+      var qrDesc  = document.getElementById('qrDesc');
+      qrTitle.textContent = title;
+      if (title && title.indexOf('视频号') !== -1) {
+        qrImage.src = '/fukuxinli/images/qrcode-video.jpg';
+        qrImage.alt = '视频号二维码';
+        qrDesc.textContent = '打开微信，扫一扫即可观看视频号';
+      } else {
+        qrImage.src = '/fukuxinli/images/qrcode-mp.jpg';
+        qrImage.alt = '公众号二维码';
+        qrDesc.textContent = '打开微信，扫一扫即可关注公众号';
+      }
+      modal.classList.add('active');
+    }
+    function closeQrModal(event) {
+      if (!event || event.target.id === 'qrModal') {
+        document.getElementById('qrModal').classList.remove('active');
+      }
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeQrModal();
+    });
+  </script>
 </body>
 </html>
