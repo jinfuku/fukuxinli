@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>马尔特 | 伴侣关系整合过程排列（BIP） - 福库心理 - 身心神同调</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+      line-height: 1.8;
+    }
+
+    header {
+      background: linear-gradient(135deg, #00c853 0%, #2196f3 100%);
+      color: white;
+      padding: 20px 0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+
+    .header-brand {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 15px;
+    }
+    .header-logo {
+      width: 70px;
+      height: 70px;
+      border-radius: 16px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+    }
+    .header-logo:hover {
+      transform: scale(1.05) rotate(3deg);
+    }
+    .header-text {
+      text-align: left;
+    }
+
+    header .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    header h1 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+        /* Navigation with Apple-style glass cards */
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 500;
+      padding: 10px 20px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      display: inline-block;
+    }
+
+    nav a:hover {
+      background: rgba(255, 255, 255, 0.25);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15),
+                  0 4px 8px rgba(0, 0, 0, 0.1),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    }
+
+    nav a:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1),
+                  inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .article-container {
+      background: white;
+      border-radius: 16px;
+      padding: 40px;
+      margin: 30px auto;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+
+    .article-meta {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+      padding-bottom: 20px;
+      border-bottom: 2px solid #f0f0f0;
+    }
+
+    .article-meta span {
+      background: #e8f5e9;
+      color: #2e7d32;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 13px;
+    }
+
+    .article-meta .date {
+      background: #e3f2fd;
+      color: #1565c0;
+    }
+
+    h1.article-title {
+      font-size: 26px;
+      color: #1a1a1a;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+
+    .article-body h2 {
+      font-size: 20px;
+      color: #2e7d32;
+      margin: 32px 0 14px;
+      padding-left: 12px;
+      border-left: 4px solid #00c853;
+    }
+
+    .article-body h3 {
+      font-size: 17px;
+      color: #1565c0;
+      margin: 22px 0 10px;
+    }
+
+    .article-body p {
+      margin-bottom: 16px;
+      color: #444;
+      font-size: 16px;
+    }
+
+    .article-body ul, .article-body ol {
+      margin: 14px 0 18px 24px;
+    }
+
+    .article-body li {
+      margin-bottom: 8px;
+      color: #444;
+      font-size: 16px;
+    }
+
+    .highlight-box {
+      background: linear-gradient(135deg, #e8f5e9, #e3f2fd);
+      border-left: 4px solid #00c853;
+      border-radius: 10px;
+      padding: 20px 24px;
+      margin: 24px 0;
+    }
+
+    .highlight-box p {
+      margin: 0;
+      color: #2e7d32;
+      font-size: 15px;
+    }
+
+    .not-suitable-box {
+      background: #fff3e0;
+      border-left: 4px solid #ff9800;
+      border-radius: 10px;
+      padding: 20px 24px;
+      margin: 24px 0;
+    }
+
+    .not-suitable-box p {
+      margin: 0 0 8px;
+      color: #e65100;
+      font-size: 15px;
+    }
+
+    .person-card {
+      background: #f9f9f9;
+      border: 1px solid #e0e0e0;
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin: 16px 0;
+    }
+
+    .person-card h3 {
+      color: #2e7d32;
+      margin-top: 0;
+    }
+
+    .compare-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 24px 0;
+    }
+
+    .compare-card {
+      background: #f5f5f5;
+      border-radius: 10px;
+      padding: 18px 20px;
+    }
+
+    .compare-card h4 {
+      color: #1565c0;
+      margin-bottom: 12px;
+      font-size: 16px;
+    }
+
+    .compare-card ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin: 20px 0;
+      color: #2196f3;
+      text-decoration: none;
+      font-size: 15px;
+      padding: 8px 18px;
+      border: 1px solid #2196f3;
+      border-radius: 20px;
+      transition: all 0.2s;
+    }
+
+    .back-link:hover {
+      background: #2196f3;
+      color: white;
+    }
+
+    footer {
+      background: #1a1a2e;
+      color: #aaa;
+      text-align: center;
+      padding: 30px 20px;
+      margin-top: 40px;
+    }
+
+    footer a {
+      color: #81c784;
+      text-decoration: none;
+    }
+
+    @media (max-width: 600px) {
+      .article-container { padding: 22px 16px; }
+      h1.article-title { font-size: 21px; }
+      .compare-grid { grid-template-columns: 1fr; }
+    }
+  
+    /* ========== 关注我们区域样式 ========== */
+    .social-media-section {
+      background: linear-gradient(135deg, #ffffff 0%, #f5f7fa 100%);
+      padding: 50px 0;
+      margin-top: 40px;
+      box-shadow: 0 -4px 20px rgba(0,0,0,.05);
+    }
+    .social-media-section .container {
+      max-width: 1200px; margin: 0 auto; padding: 0 20px;
+    }
+    .section-title {
+      text-align: center; font-size: 28px; color: #1d1d1f;
+      margin-bottom: 8px; font-weight: 700;
+    }
+    .section-subtitle {
+      text-align: center; font-size: 15px; color: #86868b; margin-bottom: 36px;
+    }
+    .social-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 16px;
+    }
+    .social-card {
+      background: white; border-radius: 14px; padding: 22px 14px;
+      text-align: center; text-decoration: none; color: #1d1d1f;
+      transition: all .3s cubic-bezier(.4,0,.2,1);
+      box-shadow: 0 2px 10px rgba(0,0,0,.06), 0 1px 3px rgba(0,0,0,.04);
+      border: 1px solid #e5e5e7; position: relative; overflow: hidden;
+      display: block;
+    }
+    .social-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 28px rgba(0,0,0,.1), 0 6px 14px rgba(0,0,0,.07);
+      border-color: #d1d1d6;
+    }
+    .social-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, #00c853 0%, #2196f3 100%);
+      opacity: 0; transition: opacity .3s;
+    }
+    .social-card:hover::before { opacity: 1; }
+    .social-icon {
+      width: 56px; height: 56px; margin: 0 auto 14px;
+      border-radius: 50%; display: flex; align-items: center;
+      justify-content: center; font-size: 22px; transition: all .3s;
+      position: relative;
+    }
+    .social-icon::after {
+      content: ''; position: absolute; font-size: 22px; font-weight: bold;
+    }
+    .social-card:hover .social-icon { transform: scale(1.1) rotate(5deg); }
+    .qyweixin-icon  { background: linear-gradient(135deg,#07c160,#05a04f); box-shadow:0 4px 10px rgba(7,193,96,.3); }
+    .qyweixin-icon::after  { content:'企'; font-size:22px; font-weight:bold; color:white; }
+    .wechat-icon    { background: linear-gradient(135deg,#07c160,#06ad56); box-shadow:0 4px 10px rgba(7,193,96,.3); }
+    .wechat-icon::after    { content:'微'; color:white; }
+    .video-icon     { background: linear-gradient(135deg,#faad14,#f5923e); box-shadow:0 4px 10px rgba(250,173,20,.3); }
+    .video-icon::after     { content:'▶'; color:white; }
+    .bilibili-icon  { background: linear-gradient(135deg,#00a1d6,#008bc2); box-shadow:0 4px 10px rgba(0,161,214,.3); }
+    .bilibili-icon::after  { content:'B'; color:white; }
+    .xiaohongshu-icon { background: linear-gradient(135deg,#ff2442,#ff6b6b); box-shadow:0 4px 10px rgba(255,36,66,.3); }
+    .xiaohongshu-icon::after { content:'红'; color:white; }
+    .douyin-icon    { background: linear-gradient(135deg,#000,#1a1a1a); box-shadow:0 4px 10px rgba(0,0,0,.4); }
+    .douyin-icon::after    { content:'♪'; color:white; }
+    .toutiao-icon   { background: linear-gradient(135deg,#f85959,#f23535); box-shadow:0 4px 10px rgba(248,89,89,.3); }
+    .toutiao-icon::after   { content:'⚡'; color:white; }
+    .weibo-icon     { background: linear-gradient(135deg,#e6162d,#c9162d); box-shadow:0 4px 10px rgba(230,22,45,.3); }
+    .weibo-icon::after     { content:'W'; color:white; }
+    .douban-icon    { background: linear-gradient(135deg,#007722,#006018); box-shadow:0 4px 10px rgba(0,119,34,.3); }
+    .douban-icon::after    { content:'D'; color:white; }
+    .zhishixingqiu-icon { background: linear-gradient(135deg,#667eea,#764ba2); box-shadow:0 4px 10px rgba(102,126,234,.3); }
+    .zhishixingqiu-icon::after { content:'★'; color:white; }
+    .zhihu-icon     { background: linear-gradient(135deg,#0066ff,#0052cc); box-shadow:0 4px 10px rgba(0,102,255,.3); }
+    .zhihu-icon::after     { content:'知'; color:white; }
+    .ima-icon       { background: linear-gradient(135deg,#667eea,#764ba2); box-shadow:0 4px 10px rgba(102,126,234,.3); }
+    .ima-icon::after       { content:'i'; color:white; }
+    .get-icon       { background: linear-gradient(135deg,#f093fb,#f5576c); box-shadow:0 4px 10px rgba(240,147,251,.3); }
+    .get-icon::after       { content:'G'; color:white; }
+    .whatsapp-icon  { background: linear-gradient(135deg,#25d366,#128c7e); box-shadow:0 4px 10px rgba(37,211,102,.3); }
+    .whatsapp-icon::after  { content:'📱'; font-size:26px; }
+    .telegram-icon  { background: linear-gradient(135deg,#0088cc,#006699); box-shadow:0 4px 10px rgba(0,136,204,.3); }
+    .telegram-icon::after  { content:'✈️'; font-size:26px; }
+    .messenger-icon { background: linear-gradient(135deg,#0084ff,#0056b3); box-shadow:0 4px 10px rgba(0,132,255,.3); }
+    .messenger-icon::after { content:'💬'; font-size:26px; }
+    .qq-icon        { background: linear-gradient(135deg,#12b7f5,#0e8fd8); box-shadow:0 4px 10px rgba(18,183,245,.3); }
+    .qq-icon::after        { content:'Q'; font-size:26px; font-weight:bold; color:white; }
+    .feishu-icon    { background: linear-gradient(135deg,#1456f0,#0043ce); box-shadow:0 4px 10px rgba(20,86,240,.3); }
+    .feishu-icon::after    { content:'飞'; font-size:22px; font-weight:bold; color:white; }
+    .social-card h3 { font-size: 15px; font-weight: 600; margin-bottom: 5px; color: #1d1d1f; }
+    .social-card p  { font-size: 12px; color: #6e6e73; margin: 0; }
+    .qr-hint, .add-hint {
+      display: inline-block; margin-top: 8px; padding: 3px 10px;
+      background: linear-gradient(135deg,#00c853,#009624);
+      color: white; border-radius: 20px; font-size: 11px; font-weight: 500;
+    }
+    .add-hint { background: linear-gradient(135deg,#667eea,#764ba2); }
+
+  
+    /* 二维码弹窗 */
+    .qr-modal {
+      display: none; position: fixed; z-index: 10000;
+      left: 0; top: 0; width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.7);
+      backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px);
+      align-items: center; justify-content: center;
+    }
+    .qr-modal.active { display: flex; }
+    .qr-modal-content {
+      background: white; border-radius: 20px; padding: 40px;
+      max-width: 320px; width: 90%; text-align: center; position: relative;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      animation: modalIn 0.3s ease;
+    }
+    @keyframes modalIn { from { opacity:0; transform: translateY(-20px); } to { opacity:1; transform: translateY(0); } }
+    .qr-modal-content h3 { font-size: 20px; color: #1d1d1f; margin-bottom: 20px; font-weight: 600; }
+    .close-btn {
+      position: absolute; top: 14px; right: 18px;
+      font-size: 24px; cursor: pointer; color: #86868b; line-height: 1;
+    }
+    .close-btn:hover { color: #1d1d1f; }
+    /* 微信公众号图标 */
+    .wechat-icon { background: linear-gradient(135deg,#07c160 0%,#06ad56 100%); color:white; box-shadow: 0 4px 12px rgba(7,193,96,0.3); }
+    .wechat-icon::after { content:'微'; }
+    /* 视频号图标 */
+    .video-icon { background: linear-gradient(135deg,#faad14 0%,#f5923e 100%); color:white; box-shadow: 0 4px 12px rgba(250,173,20,0.3); }
+    .video-icon::after { content:'▶'; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="header-brand">
+      <img src="/fukuxinli/images/fuku-logo.png" alt="福库心理Logo" class="header-logo">
+      <div class="header-text">
+        <h1>福库心理 - 身心神同调</h1>
+      </div>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="/fukuxinli/">首页</a></li>
+        <li><a href="/fukuxinli/body/">身</a></li>
+        <li><a href="/fukuxinli/mind/">心</a></li>
+        <li><a href="/fukuxinli/spirit/">神</a></li>
+        <li><a href="/fukuxinli/partnership/">伴侣关系</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+  <a href="/fukuxinli/partnership/" class="back-link">← 返回伴侣关系</a>
+
+  <div class="article-container">
+    <h1 class="article-title">马尔特 | 伴侣关系整合过程排列（BIP）</h1>
+    <div class="article-meta">
+      <span>伴侣关系</span>
+      <span>生命整合</span>
+      <span>排列工作</span>
+      <span class="date">2026-03-14</span>
+    </div>
+
+    <div class="article-body">
+
+      <div class="highlight-box">
+        <p>关系整合过程（BIP）面向所有那些对在自己的伴侣关系中、与伴侣之间进行真正的相遇，以及对自己在爱情关系中的行为方式抱有真诚兴趣的人。</p>
+      </div>
+
+      <h2>伴侣关系整合过程排列</h2>
+      <p>伴侣和单身人士都有过参与 BIP 的经历，他们有着以下各类诉求和问题。</p>
+
+      <div class="person-card">
+        <h3>对于伴侣而言</h3>
+        <ul>
+          <li>你们在一起感觉仿佛已经度过了漫长的时光，并且在一段时间以来，你常常会问自己"究竟为什么会这样？"</li>
+          <li>你们彼此相爱，但却共同发展出了一种相处文化，而这种爱总是面临着破裂的威胁。</li>
+          <li>你们之间差异很大，并且在寻找一些方法，以便能更好地应对彼此不同的性格特质。</li>
+          <li>你们在寻找一种与对方充满活力的相遇方式，超越那些逃避、防御、争吵和指责的模式。</li>
+          <li>来自你们个人和共同生活经历的问题，常常阻碍你们在当下坦诚相待。</li>
+          <li>你们希望能一起坦诚地审视你们关系的真相，以及对方的本真状态。</li>
+          <li>关于组建家庭、健康、性、居住地点、财务、教育或者重组家庭等重要问题，消耗着你们的感情，并且需要新的视角。</li>
+          <li>你们正处于关系危机中，面临着抉择。</li>
+          <li>你们对彼此感兴趣，并且希望共同拥有一种紧密相连的、在某些情况下甚至是关乎生存意义的体验。</li>
+        </ul>
+      </div>
+
+      <div class="person-card">
+        <h3>对于单身人士而言</h3>
+        <ul>
+          <li>你对自己在伴侣关系中可能扮演的角色怀有真诚的兴趣。</li>
+          <li>你在寻找更多的自我认知，弄清楚为什么你的感情关系常常不成功。</li>
+          <li>在爱情方面，你内心被困在过去的感情关系中，或者幻想自己处于远离当下现实的遥远未来。</li>
+          <li>你有婚外情，或者你们之间存在很大的分歧，以至于你更愿意独自处理自己的问题。</li>
+          <li>你的伴侣（这也完全合理）对研讨会、治疗或类似的事情没有兴趣，但你却有兴趣。</li>
+        </ul>
+      </div>
+
+      <div class="not-suitable-box">
+        <p><strong>不适合的人群</strong></p>
+        <p>那些事先就自以为知道自己所有问题答案的人，或者那些想通过这个过程推行既定的古老或现代意识形态的人，或者那些对从自己的生活现实中学习毫无兴趣的人。</p>
+      </div>
+
+      <h2>关系整合过程的理论与方法</h2>
+      <p>BIP 是一个以实践为导向的模型，用于阐释生命力量在伴侣关系中的作用，同时也是一种排列方法，借助它人们能够意识到这些生命力量在自己伴侣关系中的存在。</p>
+      <p>BIP 的基础是一个矩阵，它将伴侣治疗、心理学和排列工作等不同传统领域（例如生命整合过程（LIP）、分化理论、荣格精神分析以及人本主义心理学）的关键认知，整合在一个简洁的模型中。</p>
+      <p>其基本理念在于，将伴侣关系中发生的事情理解为极性生命力量之间的相互作用。在此过程中，我们会遇到两组对立关系，它们塑造了两个人之间的爱情和关系文化。</p>
+
+      <h2>生活经历与潜力</h2>
+      <p>没有人是一张白纸般地进入一段关系的，无论愿不愿意，每个人都会带着自己的家庭和生活经历，以及自己成长所处时代的印记。这包括我们在原生家庭中的情感联结经历、创伤、过往恋爱关系中的经验等等。</p>
+      <p>除了那些塑造我们的痛苦经历之外，这里面也包含了我们带入到当下感情关系生活中的所有积极经历。</p>
+      <p>然而，一个人不仅仅是其生活经历的产物。每一个男人和女人不仅在基因上，而且在性格上都是独一无二的，并且因此拥有一种独特的潜力，一种面向未来的内在力量。从主观上来说，我们以渴望、内心的指引以及持续的精神转变过程的形式，来体验这种力量。</p>
+      <p>在一段伴侣关系中，因此就会有两个有着不同生活经历和不同个人潜力的人相遇。在 BIP 中，这些会由小组中相应的代表来呈现。</p>
+
+      <h2>个体性与共同性</h2>
+      <p>伴侣关系中的每个人都面临着一个难以解决的冲突，即一方面渴望与伴侣在一起，而另一方面同时又有保持自我的需求。</p>
+      <p>每一段伴侣关系都会以自己的方式来应对这种亲密与个体性之间的冲突，而这种应对方式会深刻地影响着关系的发展以及伴侣双方在其中的体验方式。</p>
+      <p>就如同伴侣双方在关系中都承载着独特的生活经历和独一无二的潜力一样，每一段伴侣关系也都有一段共同的历史和一种内在起作用的潜力，这赋予了它独特的特征。</p>
+      <p>在 BIP 中，我们会为此安排代表来呈现伴侣关系的历史和共同的潜力。其中包含了伴侣双方相遇时的所有关键问题，比如关系中的危机、为人父母的共同体验或者想要共同生育孩子的愿望，以及最终那种将两个人维系在一起的爱，或者是他们彼此痛苦地怀念的那种爱。</p>
+
+      <h2>BIP 的实践</h2>
+      <p>BIP 并不以解决冲突或消除伴侣之间的差异为目标，而是完全且始终致力于让伴侣真正地相互看见。</p>
+      <p>治愈、联结或和解等效果，常常会作为间接的附带效果而出现。</p>
+
+      <div class="compare-grid">
+        <div class="compare-card">
+          <h4>BIP 适用场景</h4>
+          <ul>
+            <li>关系处于危机中的伴侣</li>
+            <li>想了解自身情感模式的单身人士</li>
+            <li>异性恋与同性恋伴侣</li>
+            <li>不同文化背景的伴侣</li>
+            <li>想在关系中实现真正相遇的伴侣</li>
+          </ul>
+        </div>
+        <div class="compare-card">
+          <h4>BIP 核心目标</h4>
+          <ul>
+            <li>让伴侣真正地相互看见</li>
+            <li>超越防御、逃避与指责模式</li>
+            <li>理解极性生命力量的相互作用</li>
+            <li>整合个人历史与关系潜力</li>
+            <li>创造真实的情感相遇</li>
+          </ul>
+        </div>
+      </div>
+
+      <p>在以往的实践中，BIP 已经应用于伴侣、处于伴侣关系中的个人、想要了解自己情感模式的单身人士、异性恋伴侣和同性恋伴侣，以及不同的文化背景中。</p>
+
+
+      <div style="margin:32px 0 0;padding:28px 24px;background:linear-gradient(135deg,#e8f5e9,#e3f2fd);border-radius:16px;text-align:center;border:1px solid rgba(0,200,83,0.15);">
+        <p style="font-size:15px;color:#2e7d32;font-weight:600;margin:0 0 16px;">📱 关注福库身心同调公众号，获取更多内容</p>
+        <img src="/fukuxinli/images/qrcode-mp.jpg" alt="福库身心同调公众号二维码" style="width:180px;height:180px;object-fit:contain;border-radius:12px;border:2px solid rgba(0,200,83,0.2);display:block;margin:0 auto 14px;box-shadow:0 4px 16px rgba(0,0,0,0.1);">
+        <p style="font-size:13px;color:#86868b;margin:0;">打开微信，扫一扫即可关注</p>
+        <p style="font-size:12px;color:#aaa;margin:8px 0 0;">本文由内勒斯博士授权翻译，更多内容请关注公众号</p>
+      </div>
+
+      <div class="highlight-box">
+        <p><strong>关于马尔特·内勒斯（Malte Nelles）</strong><br>
+        德国系统排列协会（DGfS）认证排列师及导师，内勒斯生命整合学院执行院长，柏林 Eurasys 创始人。主要开展现象治疗、系统排列和生命整合工作，被认为是深入走向内在自己的一次旅行，面对生命和关系的力量，畅享在每个人生命面前展开的未来。</p>
+      </div>
+
+    </div>
+  </div>
+
+  <a href="/fukuxinli/partnership/" class="back-link">← 返回伴侣关系</a>
+</div>
+
+<footer>
+  <p>© 2024 福库心理 · 身心神同调 | <a href="/fukuxinli/">返回首页</a></p>
+  <p style="margin-top:8px; font-size:13px;">本文由内勒斯博士授权翻译，发布于福库身心同调公众号</p>
+</footer>
+
+
+  <!-- 关注我们 -->
+  <section class="social-media-section">
+    <div class="container">
+      <h2 class="section-title">关注我们</h2>
+      <p class="section-subtitle">通过以下方式与福库身心同调保持联系</p>
+      <div class="social-grid">
+        <a href="https://work.weixin.qq.com/wework_admin/join?vcode=c3b06d1b6d64c93eeed3c9d43e315e91&r=copy_share_pc" target="_blank" class="social-card">
+          <div class="social-icon qyweixin-icon"></div><h3>企业微信</h3><p>靳福库生命整合</p><span class="add-hint">点击加入</span>
+        </a>
+        <a href="#" class="social-card" onclick="event.preventDefault();showQrModal('扫码关注微信公众号');">
+          <div class="social-icon wechat-icon"></div><h3>微信公众号</h3><p>福库身心同调</p><span class="qr-hint">点击扫码关注</span>
+        </a>
+        <a href="#" class="social-card" onclick="event.preventDefault();showQrModal('扫码观看微信视频号');">
+          <div class="social-icon video-icon"></div><h3>微信视频号</h3><p>福库身心同调</p><span class="qr-hint">点击扫码观看</span>
+        </a>
+        <a href="https://b23.tv/QePPHIL" target="_blank" class="social-card">
+          <div class="social-icon bilibili-icon"></div><h3>B站</h3><p>福库身心同调</p>
+        </a>
+        <a href="https://xhslink.com/m/7YE1S579Bci" target="_blank" class="social-card">
+          <div class="social-icon xiaohongshu-icon"></div><h3>小红书</h3><p>福库身心同调</p>
+        </a>
+        <a href="https://www.douyin.com/user/1110729819" target="_blank" class="social-card">
+          <div class="social-icon douyin-icon"></div><h3>抖音</h3><p>福库身心同调</p>
+        </a>
+        <a href="https://weibo.com/u/1285229442" target="_blank" class="social-card">
+          <div class="social-icon weibo-icon"></div><h3>新浪微博</h3><p>福库身心同调</p>
+        </a>
+        <a href="https://www.douban.com/people/jinfuku/?_i=3404240dK_7z6P" target="_blank" class="social-card">
+          <div class="social-icon douban-icon"></div><h3>豆瓣</h3><p>福库身心同调</p>
+        </a>
+        <a href="https://wx.zsxq.com/group/51115811242224" target="_blank" class="social-card">
+          <div class="social-icon zhishixingqiu-icon"></div><h3>知识星球</h3><p>福库身心同调</p>
+        </a>
+        <a href="https://www.zhihu.com/people/jinfuku8" target="_blank" class="social-card">
+          <div class="social-icon zhihu-icon"></div><h3>知乎</h3><p>福库心理</p>
+        </a>
+        <a href="#" class="social-card" onclick="alert('请在imaAPP中搜索：福库心理'); return false;">
+          <div class="social-icon ima-icon"></div><h3>ima知识号</h3><p>福库心理</p>
+        </a>
+        <a href="#" class="social-card" onclick="alert('请在get笔记APP中搜索：福库'); return false;">
+          <div class="social-icon get-icon"></div><h3>get笔记</h3><p>福库</p>
+        </a>
+        <a href="https://t.me/jinfuku6" target="_blank" class="social-card">
+          <div class="social-icon telegram-icon"></div><h3>Telegram</h3><p>福库身心同调</p><span class="add-hint">点击添加</span>
+        </a>
+        <a href="tencent://message/?uin=304269115" target="_blank" class="social-card">
+          <div class="social-icon qq-icon"></div><h3>QQ</h3><p>304269115</p><span class="add-hint">点击添加</span>
+        </a>
+        <a href="https://www.feishu.cn/invitation/page/add_contact/?token=776haaca-0cf4-4946-9a91-0d98df376d16&unique_id=n1LEkph6SSzEtCF3I_jgGA==" target="_blank" class="social-card">
+          <div class="social-icon feishu-icon"></div><h3>飞书</h3><p>福库身心同调</p><span class="add-hint">点击添加</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+<script src="/fukuxinli/js/comments.js"></script>
+
+  <!-- 二维码弹窗 -->
+  <div id="qrModal" class="qr-modal" onclick="closeQrModal(event)">
+    <div class="qr-modal-content">
+      <span class="close-btn" onclick="closeQrModal()">&times;</span>
+      <h3 id="qrTitle">扫码关注</h3>
+      <img id="qrImage" src="/fukuxinli/images/qrcode-mp.jpg" alt="二维码" style="width:220px;height:220px;object-fit:contain;border-radius:12px;border:1px solid #e5e5e7;display:block;margin:0 auto 16px;">
+      <p id="qrDesc" style="color:#86868b;font-size:14px;margin:0;">打开微信，扫一扫即可关注</p>
+    </div>
+  </div>
+  <script>
+    function showQrModal(title) {
+      var modal = document.getElementById('qrModal');
+      var qrTitle = document.getElementById('qrTitle');
+      var qrImage = document.getElementById('qrImage');
+      var qrDesc  = document.getElementById('qrDesc');
+      qrTitle.textContent = title;
+      if (title && title.indexOf('视频号') !== -1) {
+        qrImage.src = '/fukuxinli/images/qrcode-video.jpg';
+        qrImage.alt = '视频号二维码';
+        qrDesc.textContent = '打开微信，扫一扫即可观看视频号';
+      } else {
+        qrImage.src = '/fukuxinli/images/qrcode-mp.jpg';
+        qrImage.alt = '公众号二维码';
+        qrDesc.textContent = '打开微信，扫一扫即可关注公众号';
+      }
+      modal.classList.add('active');
+    }
+    function closeQrModal(event) {
+      if (!event || event.target.id === 'qrModal') {
+        document.getElementById('qrModal').classList.remove('active');
+      }
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeQrModal();
+    });
+  </script>
+</body>
+</html>
