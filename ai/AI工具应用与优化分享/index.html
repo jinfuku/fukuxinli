@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI工具应用与优化分享 - 福库心理 - 身心神同调</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang SC", "Microsoft YaHei", sans-serif;
+      background-color: #f5f5f7;
+      color: #1d1d1f;
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #00c853 0%, #2196f3 100%);
+      color: white;
+      padding: 15px 0 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.12), 0 1px 3px rgba(0,0,0,0.08);
+    }
+
+    header .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 20px;
+      text-align: center;
+    }
+
+    .header-brand {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 15px;
+    }
+
+    .header-logo {
+      width: 70px; height: 70px;
+      border-radius: 16px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+      flex-shrink: 0;
+    }
+    .header-logo:hover { transform: scale(1.05) rotate(3deg); }
+
+    .header-text { text-align: left; }
+
+    header h1 {
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+
+    /* Navigation glass cards */
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 500;
+      padding: 10px 20px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.2);
+      display: inline-block;
+    }
+    nav a:hover {
+      background: rgba(255,255,255,0.25);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15), 0 4px 8px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.3);
+    }
+    nav a:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1), inset 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    /* Layout */
+    .main-content {
+      max-width: 1400px;
+      margin: 30px auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: 250px 1fr 300px;
+      gap: 30px;
+    }
+
+    /* Sidebar left */
+    .sidebar-left {
+      background: white;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+      height: fit-content;
+      position: sticky;
+      top: 110px;
+    }
+    .sidebar-left h3 { color: #00c853; margin-bottom: 16px; font-size: 18px; }
+    .sidebar-left ul { list-style: none; }
+    .sidebar-left li { margin-bottom: 10px; }
+    .sidebar-left a {
+      color: #1d1d1f;
+      text-decoration: none;
+      padding: 8px 12px;
+      border-radius: 8px;
+      display: block;
+      transition: all 0.2s;
+      font-size: 15px;
+    }
+    .sidebar-left a:hover { background: linear-gradient(135deg,#f0fff4,#e3f2fd); color: #00c853; transform: translateX(4px); }
+
+    /* Article content */
+    .article-content {
+      background: white;
+      border-radius: 20px;
+      padding: 44px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+      min-width: 0;
+    }
+
+    .article-content > h1 {
+      color: #1d1d1f;
+      font-size: 34px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      line-height: 1.3;
+    }
+
+    .article-meta {
+      color: #86868b;
+      font-size: 14px;
+      margin-bottom: 28px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #f0f0f0;
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .article-meta .meta-tag {
+      background: linear-gradient(135deg,#00c853,#2196f3);
+      color: white;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    /* Summary box */
+    .article-summary {
+      background: linear-gradient(135deg,#f0fff4 0%,#e3f2fd 100%);
+      border-left: 4px solid #00c853;
+      border-radius: 12px;
+      padding: 22px 24px;
+      margin: 0 0 32px;
+      font-size: 15px;
+      line-height: 1.85;
+      color: #424245;
+    }
+    .article-summary .label {
+      font-weight: 700;
+      color: #00c853;
+      margin-bottom: 10px;
+      font-size: 14px;
+      display: block;
+    }
+    .article-summary .conclusion {
+      font-weight: 600;
+      color: #1d1d1f;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    /* Tags */
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px dashed #d0f0dc;
+    }
+    .tag {
+      background: linear-gradient(135deg,#00c853,#2196f3);
+      color: white;
+      padding: 5px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    /* Body headings */
+    .article-body h2 {
+      color: #00c853;
+      font-size: 24px;
+      font-weight: 700;
+      margin: 36px 0 14px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #e8f9f0;
+    }
+    .article-body h3 {
+      color: #2196f3;
+      font-size: 19px;
+      font-weight: 600;
+      margin: 24px 0 10px;
+    }
+    .article-body p {
+      font-size: 16px;
+      line-height: 1.9;
+      margin-bottom: 16px;
+      color: #3a3a3c;
+    }
+    .article-body ul, .article-body ol {
+      padding-left: 24px;
+      margin-bottom: 16px;
+    }
+    .article-body li {
+      font-size: 16px;
+      line-height: 1.85;
+      margin-bottom: 8px;
+      color: #3a3a3c;
+    }
+    .article-body blockquote {
+      border-left: 4px solid #00c853;
+      background: #f8fffe;
+      padding: 16px 20px;
+      margin: 20px 0;
+      border-radius: 0 12px 12px 0;
+      color: #5a5a5e;
+      font-style: italic;
+    }
+
+    /* Insight boxes */
+    .insight-box {
+      background: linear-gradient(135deg,#fff8e1,#fff3e0);
+      border-left: 4px solid #faad14;
+      border-radius: 12px;
+      padding: 20px 22px;
+      margin: 24px 0;
+      font-size: 15px;
+    }
+    .insight-box .insight-title {
+      font-weight: 700;
+      color: #e65100;
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+
+    /* Back button */
+    .back-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 24px;
+      padding: 10px 20px;
+      background: linear-gradient(135deg,#00c853,#2196f3);
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 500;
+      transition: all 0.3s;
+      box-shadow: 0 2px 8px rgba(0,200,83,0.3);
+    }
+    .back-button:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,200,83,0.4); }
+
+    /* Right sidebar */
+    .sidebar-right {
+      background: white;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+      height: fit-content;
+      position: sticky;
+      top: 110px;
+    }
+    .sidebar-right h3 { color: #2196f3; margin-bottom: 16px; font-size: 18px; }
+    .sidebar-right ul { list-style: none; }
+    .sidebar-right li { margin-bottom: 12px; padding: 10px 12px; background: #f9f9fb; border-radius: 10px; }
+    .sidebar-right a { color: #1d1d1f; text-decoration: none; font-size: 14px; line-height: 1.5; transition: color 0.2s; }
+    .sidebar-right a:hover { color: #00c853; }
+
+    /* Footer */
+    footer {
+      background: linear-gradient(135deg,#1d1d1f,#2c2c2e);
+      color: #f5f5f7;
+      text-align: center;
+      padding: 30px 0;
+      margin-top: 40px;
+      font-size: 14px;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .main-content { grid-template-columns: 1fr; }
+      .sidebar-left, .sidebar-right { display: none; }
+    }
+    @media (max-width: 768px) {
+      .article-content { padding: 24px 18px; }
+      .article-content > h1 { font-size: 26px; }
+    }
+
+    /* ===== 关注我们 ===== */
+    .social-media-section {
+      background: linear-gradient(135deg,#ffffff 0%,#f5f7fa 100%);
+      padding: 50px 0; margin-top: 40px;
+      box-shadow: 0 -4px 20px rgba(0,0,0,.05);
+    }
+    .social-media-section .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    .section-title { text-align: center; font-size: 28px; color: #1d1d1f; margin-bottom: 8px; font-weight: 700; }
+    .section-subtitle { text-align: center; font-size: 15px; color: #86868b; margin-bottom: 36px; }
+    .social-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 16px;
+    }
+    .social-card {
+      background: white; border-radius: 14px; padding: 22px 14px;
+      text-align: center; text-decoration: none; color: #1d1d1f;
+      transition: all .3s cubic-bezier(.4,0,.2,1);
+      box-shadow: 0 2px 10px rgba(0,0,0,.06), 0 1px 3px rgba(0,0,0,.04);
+      border: 1px solid #e5e5e7; position: relative; overflow: hidden; display: block;
+    }
+    .social-card:hover { transform: translateY(-6px); box-shadow: 0 10px 28px rgba(0,0,0,.1); border-color: #d1d1d6; }
+    .social-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg,#00c853 0%,#2196f3 100%);
+      opacity: 0; transition: opacity .3s;
+    }
+    .social-card:hover::before { opacity: 1; }
+    .social-icon {
+      width: 56px; height: 56px; margin: 0 auto 14px;
+      border-radius: 50%; display: flex; align-items: center;
+      justify-content: center; font-size: 22px; transition: all .3s; position: relative;
+    }
+    .social-icon::after { content:''; position:absolute; font-size:22px; font-weight:bold; }
+    .social-card:hover .social-icon { transform: scale(1.1) rotate(5deg); }
+    .social-card h3 { font-size: 15px; font-weight: 600; margin-bottom: 5px; color: #1d1d1f; }
+    .social-card p  { font-size: 12px; color: #6e6e73; margin: 0; }
+    .qr-hint, .add-hint {
+      display: inline-block; margin-top: 10px;
+      background: linear-gradient(135deg,#00c853,#2196f3);
+      color: white; border-radius: 20px; font-size: 12px; padding: 5px 14px; font-weight: 500;
+    }
+    .add-hint { background: linear-gradient(135deg,#667eea,#764ba2); }
+    .qyweixin-icon  { background: linear-gradient(135deg,#07c160,#05a04f); box-shadow:0 4px 10px rgba(7,193,96,.3); }
+    .qyweixin-icon::after  { content:'企'; font-size:22px; font-weight:bold; color:white; }
+    .wechat-icon    { background: linear-gradient(135deg,#07c160,#06ad56); box-shadow:0 4px 10px rgba(7,193,96,.3); }
+    .wechat-icon::after    { content:'微'; color:white; }
+    .video-icon     { background: linear-gradient(135deg,#faad14,#f5923e); box-shadow:0 4px 10px rgba(250,173,20,.3); }
+    .video-icon::after     { content:'▶'; color:white; }
+    .bilibili-icon  { background: linear-gradient(135deg,#00a1d6,#008bc2); box-shadow:0 4px 10px rgba(0,161,214,.3); }
+    .bilibili-icon::after  { content:'B'; color:white; }
+    .xiaohongshu-icon { background: linear-gradient(135deg,#ff2442,#ff6b6b); box-shadow:0 4px 10px rgba(255,36,66,.3); }
+    .xiaohongshu-icon::after { content:'红'; color:white; }
+    .douyin-icon    { background: linear-gradient(135deg,#000,#1a1a1a); box-shadow:0 4px 10px rgba(0,0,0,.4); }
+    .douyin-icon::after    { content:'♪'; color:white; }
+    .toutiao-icon   { background: linear-gradient(135deg,#f85959,#f23535); box-shadow:0 4px 10px rgba(248,89,89,.3); }
+    .toutiao-icon::after   { content:'⚡'; color:white; }
+    .weibo-icon     { background: linear-gradient(135deg,#e6162d,#c9162d); box-shadow:0 4px 10px rgba(230,22,45,.3); }
+    .weibo-icon::after     { content:'W'; color:white; }
+    .zhishixingqiu-icon { background: linear-gradient(135deg,#667eea,#764ba2); box-shadow:0 4px 10px rgba(102,126,234,.3); }
+    .zhishixingqiu-icon::after { content:'★'; color:white; }
+    .zhihu-icon     { background: linear-gradient(135deg,#0066ff,#0052cc); box-shadow:0 4px 10px rgba(0,102,255,.3); }
+    .zhihu-icon::after     { content:'知'; color:white; }
+
+    /* 二维码弹窗 */
+    .qr-modal {
+      display: none; position: fixed; z-index: 10000;
+      left: 0; top: 0; width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.7);
+      backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px);
+      align-items: center; justify-content: center;
+    }
+    .qr-modal.active { display: flex; }
+    .qr-modal-content {
+      background: white; border-radius: 20px; padding: 40px;
+      max-width: 320px; width: 90%; text-align: center; position: relative;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      animation: modalIn 0.3s ease;
+    }
+    @keyframes modalIn { from{opacity:0;transform:translateY(-20px);}to{opacity:1;transform:translateY(0);} }
+    .qr-modal-content h3 { font-size: 20px; color: #1d1d1f; margin-bottom: 20px; font-weight: 600; }
+    .close-btn { position:absolute;top:14px;right:18px;font-size:24px;cursor:pointer;color:#86868b;line-height:1; }
+    .close-btn:hover { color: #1d1d1f; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <div class="header-brand">
+        <img src="/fukuxinli/images/fuku-logo.png" alt="福库心理Logo" class="header-logo">
+        <div class="header-text">
+          <h1>福库身心同调</h1>
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="/fukuxinli/">首页</a></li>
+          <li><a href="/fukuxinli/body/">身</a></li>
+          <li><a href="/fukuxinli/mind/">心</a></li>
+          <li><a href="/fukuxinli/spirit/">神</a></li>
+          <li><a href="/fukuxinli/partnership/">伴侣关系</a></li>
+          <li><a href="/fukuxinli/ai/">AI</a></li>
+          <li><a href="/fukuxinli/about/">关于</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="main-content">
+
+    <!-- 左侧边栏：分类目录 -->
+    <aside class="sidebar-left">
+      <h3>分类目录</h3>
+      <ul>
+        <li><a href="/fukuxinli/body/">身（推拿、艾灸）</a></li>
+        <li><a href="/fukuxinli/mind/">心（心理咨询）</a></li>
+        <li><a href="/fukuxinli/spirit/">神（意识、生命整合）</a></li>
+        <li><a href="/fukuxinli/partnership/">伴侣关系</a></li>
+        <li><a href="/fukuxinli/ai/">AI（人工智能）</a></li>
+      </ul>
+    </aside>
+
+    <!-- 正文 -->
+    <main class="article-content">
+      <a class="back-button" href="/fukuxinli/ai/">← 返回 AI 分类</a>
+
+      <h1>AI工具应用与优化分享</h1>
+
+      <div class="article-meta">
+        <span class="meta-tag">AI</span>
+        <span>🕐 2026年03月14日 21:53</span>
+        <span>📖 分享会纪要</span>
+      </div>
+
+      <!-- 核心结论摘要框 -->
+      <div class="article-summary">
+        <span class="label">💡 核心结论</span>
+        <p class="conclusion">AI是提升效率的强大工具，但其本质是计算与概率的产物，无法替代人类基于身体、情感和主体性意识所创造的独特价值。未来的人机协作，应是让AI处理程序化工作，人类则专注于更具创造性与深度的领域。</p>
+        <div class="tags">
+          <span class="tag">#AI工具</span>
+          <span class="tag">#人机协作</span>
+          <span class="tag">#工作流优化</span>
+          <span class="tag">#人类意识</span>
+          <span class="tag">#效率提升</span>
+        </div>
+      </div>
+
+      <div class="article-body">
+
+        <!-- 第一章 -->
+        <h2>一、AI作为效率工具：应用方法与优势</h2>
+
+        <p>本次会议首先探讨了如何将AI工具深度融入工作流，以释放生产力。</p>
+
+        <h3>1. 多功能集成平台</h3>
+        <p>以"Tree"等工具为例，现代AI工作台已能集录音、实时转写、多语言翻译、内容总结、文章撰写与一键发布等功能于一体，实现了从信息输入到成品输出的无缝闭环，极大提升了内容创作与知识管理的效率。</p>
+
+        <h3>2. 工作流的定制与固化</h3>
+        <p>AI的强大之处在于其可塑性和交互性。用户可以通过自然语言对话，将复杂任务（如"按照某某风格修改这份文档"）转化为可重复调用的"技能"或自动化工作流。用户只需提出清晰、具体的指令，AI便能执行修改、优化、甚至识别和处理报错信息，将人类从重复性、程序化的劳动中解放出来。</p>
+
+        <h3>3. 辅助创作与设计</h3>
+        <p>会议现场演示了AI在辅助创作方面的能力，例如快速生成PPT演示大纲、根据要求调整知识卡片的视觉样式等。这证明了AI在理解意图、遵循规则并生成结构化内容方面，已成为高效的"副驾驶"。</p>
+
+        <!-- 第二章 -->
+        <h2>二、洞察本质：AI与人类意识的核心差异</h2>
+
+        <p>在畅享工具便利性的同时，会议更深入地辨析了AI与人类智能的根本不同，这是合理应用AI的前提。</p>
+
+        <div class="insight-box">
+          <div class="insight-title">🔍 根源不同</div>
+          AI是计算与数据概率的产物；而人类意识是身体感知、情绪波动、自我反思与生命记忆共同交织形成的复杂整体。AI没有这个"身体—情感—记忆"的基础。
+        </div>
+
+        <div class="insight-box">
+          <div class="insight-title">🌊 体验的鸿沟</div>
+          AI可以描述"疼痛"，但无法真正体验神经末梢传来的细微痛感及其伴随的情感涟漪。因此，在需要深度共情、身体直觉和情境化感知的工作（如心理咨询、艺术创作、复杂护理）中，AI难以替代人类。
+        </div>
+
+        <div class="insight-box">
+          <div class="insight-title">🧠 主体性的缺失</div>
+          人类拥有"我"的主体性、体验性与整合性，能够从自身经历中构建独特的意义与叙事。AI没有"自我"，它不"理解"自己处理的信息，只是在执行模式匹配与优化，不具备内在体验和意义生成能力。
+        </div>
+
+        <div class="insight-box">
+          <div class="insight-title">⚖️ 道德与责任的空白</div>
+          AI的行为由算法和训练数据驱动，没有道德观念、良知或责任感。在涉及伦理判断、法律责任和需要承担后果的决策领域，AI无法成为责任主体，人类必须保持最终的主导与监督。
+        </div>
+
+        <!-- 第三章 -->
+        <h2>三、未来方向：人机协作与人类价值的再确认</h2>
+
+        <p>基于以上认知，会议明确了未来的发展方向：</p>
+
+        <h3>1. 明确人机分工</h3>
+        <p>理想的模式是将重复、程序化、高计算量的任务委托给AI。而人类应将节省下来的时间和精力，更多地投入到需要创意、战略思考、情感连接、道德判断以及身体感知的领域。</p>
+
+        <h3>2. 回归人类的本质优势</h3>
+        <p>人类的核心价值在于AI无法触及的层面——即对自身身体的敏锐觉察、内在信念的探索、灵性层面的追求以及对生命意义的持续追问。这提示我们，在AI时代，深化这些属于人类的独特体验，比以往任何时候都更为重要。</p>
+
+        <blockquote>
+          让AI处理程序化的工作，让人类回归到更有深度、更有温度的创造性领域——这才是人机协作最理想的形态。
+        </blockquote>
+
+      </div>
+    </main>
+
+    <!-- 右侧边栏 -->
+    <aside class="sidebar-right">
+      <h3>相关文章</h3>
+      <ul>
+        <li><a href="/fukuxinli/ai/ai在心理咨询中的辅助作用/">AI在心理咨询中的辅助作用</a></li>
+        <li><a href="/fukuxinli/spirit/意识与生命整合的探索/">意识与生命整合的探索</a></li>
+        <li><a href="/fukuxinli/mind/存在主义心理治疗的基本概念/">存在主义心理治疗的基本概念</a></li>
+      </ul>
+      <div style="margin-top:28px;padding-top:20px;border-top:1px solid #f0f0f0;">
+        <h3>关于作者</h3>
+        <p style="font-size:14px;color:#6e6e73;line-height:1.7;margin-top:10px;">靳福库，心理咨询师，身心神同调整合实践者。致力于将AI工具与心理咨询深度融合，探索人类意识与技术协作的新边界。</p>
+      </div>
+    </aside>
+
+  </div>
+
+  <footer>
+    <p>&copy; 2026 靳福库 - 福库心理 - 身心神同调</p>
+  </footer>
+
+  <!-- 关注我们 -->
+  <section class="social-media-section">
+    <div class="container">
+      <h2 class="section-title">关注我们</h2>
+      <p class="section-subtitle">通过以下方式与福库身心同调保持联系</p>
+      <div class="social-grid">
+        <a href="https://work.weixin.qq.com/wework_admin/join?vcode=c3b06d1b6d64c93eeed3c9d43e315e91&r=copy_share_pc" target="_blank" class="social-card">
+          <div class="social-icon qyweixin-icon"></div><h3>企业微信</h3><p>靳福库生命整合</p><span class="add-hint">点击加入</span>
+        </a>
+        <a href="#" class="social-card" onclick="event.preventDefault();showQrModal('扫码关注微信公众号');">
+          <div class="social-icon wechat-icon"></div><h3>微信公众号</h3><p>福库身心同调</p><span class="qr-hint">点击扫码关注</span>
+        </a>
+        <a href="#" class="social-card" onclick="event.preventDefault();showQrModal('扫码观看微信视频号');">
+          <div class="social-icon video-icon"></div><h3>微信视频号</h3><p>福库身心同调</p><span class="qr-hint">点击扫码观看</span>
+        </a>
+        <a href="https://b23.tv/QePPHIL" target="_blank" class="social-card">
+          <div class="social-icon bilibili-icon"></div><h3>B站</h3><p>福库身心同调</p>
+        </a>
+        <a href="https://xhslink.com/m/7YE1S579Bci" target="_blank" class="social-card">
+          <div class="social-icon xiaohongshu-icon"></div><h3>小红书</h3><p>福库身心同调</p>
+        </a>
+        <a href="https://www.douyin.com/user/1110729819" target="_blank" class="social-card">
+          <div class="social-icon douyin-icon"></div><h3>抖音</h3><p>福库身心同调</p>
+        </a>
+        <a href="https://weibo.com/u/1285229442" target="_blank" class="social-card">
+          <div class="social-icon weibo-icon"></div><h3>微博</h3><p>福库身心同调</p>
+        </a>
+        <a href="https://wx.zsxq.com/group/51115811242224" target="_blank" class="social-card">
+          <div class="social-icon zhishixingqiu-icon"></div><h3>知识星球</h3><p>靳福库生命整合</p>
+        </a>
+        <a href="https://www.zhihu.com/people/jinfuku8" target="_blank" class="social-card">
+          <div class="social-icon zhihu-icon"></div><h3>知乎</h3><p>福库身心同调</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 二维码弹窗 -->
+  <div id="qrModal" class="qr-modal" onclick="closeQrModal(event)">
+    <div class="qr-modal-content">
+      <span class="close-btn" onclick="closeQrModal()">&times;</span>
+      <h3 id="qrTitle">扫码关注</h3>
+      <img id="qrImage" src="/fukuxinli/images/qrcode-mp.jpg" alt="二维码" style="width:220px;height:220px;object-fit:contain;border-radius:12px;border:1px solid #e5e5e7;display:block;margin:0 auto 16px;">
+      <p id="qrDesc" style="color:#86868b;font-size:14px;margin:0;">打开微信，扫一扫即可关注</p>
+    </div>
+  </div>
+
+  <script src="/fukuxinli/js/comments.js"></script>
+  <script>
+    function showQrModal(title) {
+      var modal = document.getElementById('qrModal');
+      document.getElementById('qrTitle').textContent = title;
+      var img = document.getElementById('qrImage');
+      var desc = document.getElementById('qrDesc');
+      if (title && title.indexOf('视频号') !== -1) {
+        img.src = '/fukuxinli/images/qrcode-video.jpg';
+        img.alt = '视频号二维码';
+        desc.textContent = '打开微信，扫一扫即可观看视频号';
+      } else {
+        img.src = '/fukuxinli/images/qrcode-mp.jpg';
+        img.alt = '公众号二维码';
+        desc.textContent = '打开微信，扫一扫即可关注公众号';
+      }
+      modal.classList.add('active');
+    }
+    function closeQrModal(event) {
+      if (!event || event.target.id === 'qrModal') {
+        document.getElementById('qrModal').classList.remove('active');
+      }
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeQrModal();
+    });
+  </script>
+
+</body>
+</html>
