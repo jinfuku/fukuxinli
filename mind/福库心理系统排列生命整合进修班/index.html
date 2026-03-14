@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>福库心理系统排列&生命整合进修班 - 福库心理 - 身心神同调</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif;
+      background-color: #f5f5f5; color: #333; line-height: 1.8;
+    }
+    header {
+      background: linear-gradient(135deg, #00c853 0%, #2196f3 100%);
+      color: white; padding: 20px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .header-brand {
+      display: flex; align-items: center; justify-content: center;
+      gap: 20px; margin-bottom: 15px;
+    }
+    .header-logo {
+      width: 70px; height: 70px; border-radius: 16px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: transform 0.3s ease;
+    }
+    .header-logo:hover { transform: scale(1.05) rotate(3deg); }
+    .header-text { text-align: left; }
+    header .container { max-width: 1400px; margin: 0 auto; padding: 0 20px; }
+    header h1 { font-size: 28px; margin-bottom: 10px; }
+    nav ul { list-style: none; display: flex; gap: 20px; flex-wrap: wrap; }
+    nav a {
+      color: rgba(255,255,255,0.9); text-decoration: none; font-size: 15px;
+      padding: 4px 10px; border-radius: 20px; transition: background 0.2s;
+    }
+    nav a:hover { background: rgba(255,255,255,0.2); }
+    .container { max-width: 860px; margin: 0 auto; padding: 0 20px; }
+    .article-container {
+      background: white; border-radius: 16px; padding: 40px;
+      margin: 30px auto; box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+    .article-meta {
+      display: flex; gap: 15px; flex-wrap: wrap;
+      margin-bottom: 28px; padding-bottom: 20px; border-bottom: 2px solid #f0f0f0;
+    }
+    .article-meta span {
+      background: #e8f5e9; color: #2e7d32;
+      padding: 4px 12px; border-radius: 20px; font-size: 13px;
+    }
+    .article-meta .date { background: #e3f2fd; color: #1565c0; }
+    h1.article-title { font-size: 24px; color: #1a1a1a; line-height: 1.5; margin-bottom: 20px; }
+    .article-body h2 {
+      font-size: 20px; color: #2e7d32; margin: 32px 0 14px;
+      padding-left: 12px; border-left: 4px solid #00c853;
+    }
+    .article-body h3 { font-size: 17px; color: #1565c0; margin: 22px 0 10px; }
+    .article-body p { margin-bottom: 16px; color: #444; font-size: 16px; }
+    .article-body ul, .article-body ol { margin: 14px 0 18px 24px; }
+    .article-body li { margin-bottom: 8px; color: #444; font-size: 16px; }
+    .highlight-box {
+      background: linear-gradient(135deg, #e8f5e9, #e3f2fd);
+      border-left: 4px solid #00c853; border-radius: 10px;
+      padding: 20px 24px; margin: 24px 0;
+    }
+    .highlight-box p { margin: 4px 0; color: #2e7d32; font-size: 15px; }
+    .teacher-card {
+      background: #f0f7ff; border-left: 4px solid #2196f3;
+      border-radius: 10px; padding: 20px 24px; margin: 16px 0;
+    }
+    .teacher-card h3 { color: #1565c0; margin-bottom: 10px; }
+    .teacher-card ul { padding-left: 20px; }
+    .teacher-card li { margin-bottom: 6px; color: #444; }
+    .module-card {
+      background: white; border: 1px solid #e8f5e9;
+      border-left: 4px solid #00c853; border-radius: 10px;
+      padding: 18px 22px; margin: 14px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    .module-card h3 { color: #2e7d32; margin-bottom: 10px; font-size: 16px; }
+    .module-card ul { padding-left: 20px; }
+    .module-card li { margin-bottom: 5px; color: #555; font-size: 14px; }
+    .back-link {
+      display: inline-block; margin: 20px 0; color: #2196f3; text-decoration: none;
+      font-size: 15px; padding: 8px 18px; border: 1px solid #2196f3;
+      border-radius: 20px; transition: all 0.2s;
+    }
+    .back-link:hover { background: #2196f3; color: white; }
+    footer {
+      background: #1a1a2e; color: #aaa; text-align: center;
+      padding: 30px 20px; margin-top: 40px;
+    }
+    footer a { color: #81c784; text-decoration: none; }
+    @media (max-width: 600px) {
+      .article-container { padding: 22px 16px; }
+      h1.article-title { font-size: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="header-brand">
+      <img src="/fukuxinli/images/fuku-logo.png" alt="福库心理Logo" class="header-logo">
+      <div class="header-text">
+        <h1>福库心理 - 身心神同调</h1>
+      </div>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="/fukuxinli/">首页</a></li>
+        <li><a href="/fukuxinli/body/">身</a></li>
+        <li><a href="/fukuxinli/mind/">心</a></li>
+        <li><a href="/fukuxinli/spirit/">神</a></li>
+        <li><a href="/fukuxinli/partnership/">伴侣关系</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+  <a href="/fukuxinli/mind/" class="back-link">← 返回意识</a>
+
+  <div class="article-container">
+    <h1 class="article-title">福库心理系统排列&生命整合进修班</h1>
+    <div class="article-meta">
+      <span>意识</span>
+      <span>系统排列</span>
+      <span>生命整合</span>
+      <span>进修课程</span>
+      <span class="date">2026-03-14</span>
+    </div>
+
+    <div class="article-body">
+
+      <div class="highlight-box">
+        <p>此课程为早期欧洲系统排列教材的主要编写者——内勒斯博士（Dr. Wilfried Nelles），最新编写出的系统排列&生命整合继续教育课程。这是目前在世界系统排列领域较为先进的课程！</p>
+      </div>
+
+      <h2>课程设计导师</h2>
+
+      <div class="teacher-card">
+        <h3>威尔菲德·内勒斯（Wilfried Nelles）</h3>
+        <ul>
+          <li>生命整合创始人</li>
+          <li>国际顶级系统排列大师</li>
+          <li>欧洲系统排列学院创始人之一</li>
+          <li>欧洲系统排列早期教材主要编写者</li>
+          <li>曾任欧洲系统排列学会会长</li>
+          <li>第五届（2005）国际系统排列大会主席</li>
+        </ul>
+        <p style="margin-top:10px; color:#555; font-size:14px;">国内外众多系统排列导师都参加过内勒斯老师的课程，同时给予了很高的评价。</p>
+      </div>
+
+      <div class="teacher-card">
+        <h3>马尔特·内勒斯（Malte Nelles）</h3>
+        <ul>
+          <li>德国系统排列协会（DGfS）认证的排列师及导师</li>
+          <li>内勒斯生命整合学院执行院长</li>
+          <li>主要开展现象治疗、系统排列和生命整合工作</li>
+          <li>德国系统排列协会（DGfS）柏林地区和东德地区发言人</li>
+          <li>柏林 Eurasys 的创始人和负责人</li>
+        </ul>
+        <p style="margin-top:10px; color:#555; font-size:14px;">马尔特治疗和排列工作被认为是深入走向内在自己的一次旅行，面对生命和关系的力量，畅享在每个人生命面前展开的未来。</p>
+      </div>
+
+      <h2>工作主调</h2>
+      <p>疗愈对于我们来说，意味着遵循生命的流向，陪伴人们成为或认识到他们核心中一直都是的本真——无论这个本真是什么样子。我们的工作由如下三个角度确定：</p>
+      <ul>
+        <li><strong>现象学的态度：</strong>其特点是对现实无目的爱和对当下表象的一个入口</li>
+        <li><strong>现象学和代表的方法：</strong>使灵魂的以及人与人之间的动态能够外在并完整地表现出来</li>
+        <li><strong>意识发展的理论模式：</strong>生命整合程序的实践使我们获得了解人们个体和集体发展的视角</li>
+      </ul>
+      <p>我们工作的主调在于，感知灵魂的律动，生命内在的逻辑和人们意识的运动。了解它们、认识它们，尽可能地去理解和学习作为治疗师如何对其进行处理和工作。</p>
+
+      <h2>课程设计</h2>
+      <ul>
+        <li>课程时长：<strong>16小时</strong>，培训课程时间为1年（1年内），包括8个单元，每个单元2小时</li>
+        <li>每隔1-2个月讲1个单元，1年内讲完，轮流开班，课程以线上为主</li>
+        <li>1小时讲理论，1小时答疑</li>
+        <li>赠送2个个案：1个线上或线下一对一个案，1个一对多的线上或线下个案咨询（1年内用完）</li>
+        <li>培训师为靳福库，内勒斯生命整合学院授权导师，已从第一届生命整合导师班和督导班毕业</li>
+      </ul>
+
+      <h2>具体课程内容</h2>
+
+      <div class="module-card">
+        <h3>模块一：培训导论 · 共生（同体）意识（阶段1）</h3>
+        <ul>
+          <li>生命的内在和外在——意识和生命阶段</li>
+          <li>个人和集体的意识发展</li>
+          <li>未出生（婴孩）的世界基准：共生统一意识</li>
+          <li>出生——世界变换和生命之门</li>
+          <li>分化：统一、连接、分离</li>
+          <li>出生创伤和产前创伤；堕胎相关议题；人工受精、代孕等议题</li>
+        </ul>
+      </div>
+
+      <div class="module-card">
+        <h3>模块二：童年——集体意识（阶段2）</h3>
+        <ul>
+          <li>作为第二子宫的家庭</li>
+          <li>集体意识：孩童的"我"，归属感和孩童的良心</li>
+          <li>潜力和环境</li>
+          <li>神经可塑性——现代发展心理学模式的理念</li>
+          <li>孩童式的现实和成人神经官能症</li>
+          <li>被中断的趋向：发展断裂之创伤</li>
+        </ul>
+      </div>
+
+      <div class="module-card">
+        <h3>模块三：疗愈、排列工作与现象学的态度</h3>
+        <ul>
+          <li>现象学和科学的态度；现象学和建构主义</li>
+          <li>引导排列和被引导；代表现象</li>
+          <li>发现、编造或被发现；排列中的真相</li>
+          <li>共鸣和运动；静态和动态的排列</li>
+        </ul>
+      </div>
+
+      <div class="module-card">
+        <h3>模块四：青少年——自我意识（阶段3）</h3>
+        <ul>
+          <li>诞生为成年人的青少年</li>
+          <li>对父母说不；性爱的力量</li>
+          <li>青少年的基本冲突：自由、依赖和个性化</li>
+          <li>性格盔甲和面具；青少年作为集体的时代精神</li>
+          <li>配偶关系作为自我经历</li>
+        </ul>
+      </div>
+
+      <div class="module-card">
+        <h3>模块五：成年——自信意识（阶段4）</h3>
+        <ul>
+          <li>精神上的出生：作为成年人步入开放</li>
+          <li>从自我意识到自信意识（我——自身——个性化）</li>
+          <li>成人之爱：大地之爱，对现实的爱</li>
+          <li>现象学心理学的导论</li>
+          <li>配偶关系作为自我体验；伴侣关系整合程序（BIP）</li>
+        </ul>
+      </div>
+
+      <div class="module-card">
+        <h3>模块六：症状和疗愈</h3>
+        <ul>
+          <li>症状：灵魂的语言；疾病与意识发展</li>
+          <li>抑郁的根本冲突：依赖与个性</li>
+          <li>心身医学：与身体的友谊与敌对</li>
+          <li>创伤：现象学、疗愈和危险</li>
+          <li>治疗的质量：专注、爱、真诚</li>
+          <li>工作中的移情与反移情</li>
+        </ul>
+      </div>
+
+      <div class="module-card">
+        <h3>模块七：爱与性；配偶关系</h3>
+        <ul>
+          <li>爱与性：灵魂的旷野</li>
+          <li>对自身的爱；对别人的爱（配偶关系）</li>
+          <li>性与道德；爱的成熟阶段</li>
+          <li>在关系中成长；作为爱的治疗</li>
+        </ul>
+      </div>
+
+      <div class="module-card">
+        <h3>模块八：老年期与死亡（阶段5-7）</h3>
+        <ul>
+          <li>更年期：从身体至灵性的再现</li>
+          <li>灵性意识的世界基准：观察（+认知+思考+感知+感觉）</li>
+          <li>独处与孤独；当孩子们离开家——成熟的配偶关系与爱</li>
+          <li>智慧：创建的和谐</li>
+          <li>死亡和意愿；死亡和爱；"启示"</li>
+        </ul>
+      </div>
+
+      <div class="highlight-box">
+        <p>有意参加进修班，欢迎联系靳福库了解详情。</p>
+      </div>
+
+    </div>
+  </div>
+
+  <a href="/fukuxinli/mind/" class="back-link">← 返回意识</a>
+</div>
+
+<footer>
+  <p>© 2024 福库心理 · 身心神同调 | <a href="/fukuxinli/">返回首页</a></p>
+  <p style="margin-top:8px; font-size:13px;">发布于福库身心同调公众号 · 靳福库</p>
+</footer>
+
+</body>
+</html>
