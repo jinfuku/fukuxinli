@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>谭少卿深度调研报告·AI方法论与产品思路 - 福库心理 - 身心神同调</title>
+  <link href="/css/password-protection.css" rel="stylesheet"/>
+  <style>
+   * {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+   }
+
+   body {
+     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif;
+     background-color: #f5f5f5;
+     color: #333;
+     line-height: 1.8;
+   }
+
+   header {
+     background: linear-gradient(135deg, #00c853 0%, #2196f3 100%);
+     color: white;
+     padding: 20px 0;
+     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+     position: sticky;
+     top: 0;
+     z-index: 1000;
+     backdrop-filter: blur(20px);
+     -webkit-backdrop-filter: blur(20px);
+   }
+
+   .header-brand {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     gap: 20px;
+     margin-bottom: 15px;
+   }
+   .header-logo {
+     width: 70px;
+     height: 70px;
+     border-radius: 16px;
+     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+     transition: transform 0.3s ease;
+   }
+   .header-logo:hover {
+     transform: scale(1.05) rotate(3deg);
+   }
+   .header-text {
+     text-align: left;
+   }
+
+   header .container {
+     max-width: 1400px;
+     margin: 0 auto;
+     padding: 0 20px;
+   }
+
+   header h1 {
+     font-size: 28px;
+     margin-bottom: 10px;
+   }
+
+   nav ul {
+     list-style: none;
+     display: flex;
+     gap: 15px;
+     flex-wrap: wrap;
+     justify-content: center;
+   }
+
+   nav a {
+     color: white;
+     text-decoration: none;
+     font-size: 15px;
+     font-weight: 500;
+     padding: 10px 20px;
+     border-radius: 12px;
+     background: rgba(255, 255, 255, 0.15);
+     backdrop-filter: blur(10px);
+     -webkit-backdrop-filter: blur(10px);
+     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1),
+                 inset 0 1px 0 rgba(255, 255, 255, 0.2);
+     border: 1px solid rgba(255, 255, 255, 0.2);
+     display: inline-block;
+   }
+
+   nav a:hover {
+     background: rgba(255, 255, 255, 0.25);
+     transform: translateY(-2px);
+     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15),
+                 0 4px 8px rgba(0, 0, 0, 0.1),
+                 inset 0 1px 0 rgba(255, 255, 255, 0.3);
+   }
+
+   nav a:active {
+     transform: translateY(0);
+     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1),
+                 inset 0 2px 4px rgba(0, 0, 0, 0.1);
+   }
+
+   .main-content {
+     max-width: 1400px;
+     margin: 30px auto;
+     padding: 0 20px;
+     display: grid;
+     grid-template-columns: 250px 1fr 300px;
+     gap: 30px;
+   }
+
+   .sidebar-left {
+     background: white;
+     border-radius: 8px;
+     padding: 20px;
+     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+     height: fit-content;
+   }
+
+   .sidebar-left h3 {
+     color: #00c853;
+     margin-bottom: 15px;
+     font-size: 20px;
+   }
+
+   .sidebar-left ul {
+     list-style: none;
+   }
+
+   .sidebar-left li {
+     margin-bottom: 10px;
+   }
+
+   .sidebar-left a {
+     color: #333;
+     text-decoration: none;
+     transition: color 0.3s;
+   }
+
+   .sidebar-left a:hover {
+     color: #00c853;
+   }
+
+   .article-content {
+     background: white;
+     border-radius: 8px;
+     padding: 40px;
+     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+   }
+
+   .article-content h1 {
+     color: #2196f3;
+     margin-bottom: 20px;
+     font-size: 32px;
+     line-height: 1.3;
+   }
+
+   .article-meta {
+     color: #999;
+     font-size: 14px;
+     margin-bottom: 30px;
+     padding-bottom: 20px;
+     border-bottom: 1px solid #eee;
+   }
+
+   .article-content h2 {
+     color: #00c853;
+     margin-top: 36px;
+     margin-bottom: 16px;
+     font-size: 24px;
+   }
+
+   .article-content h3 {
+     color: #2196f3;
+     margin-top: 24px;
+     margin-bottom: 10px;
+     font-size: 20px;
+   }
+
+   .article-content h4 {
+     color: #333;
+     margin-top: 18px;
+     margin-bottom: 8px;
+     font-size: 17px;
+     font-weight: 700;
+   }
+
+   .article-content p {
+     margin-bottom: 14px;
+     line-height: 1.85;
+     font-size: 16px;
+   }
+
+   .article-content ul, .article-content ol {
+     padding-left: 22px;
+     margin-bottom: 14px;
+   }
+
+   .article-content li {
+     margin-bottom: 6px;
+     font-size: 15px;
+     line-height: 1.8;
+   }
+
+   .article-content img {
+     max-width: 100%;
+     height: auto;
+     border-radius: 8px;
+     margin: 20px 0;
+     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+   }
+
+   .article-content blockquote {
+     border-left: 4px solid #00c853;
+     padding: 12px 20px;
+     margin: 20px 0;
+     color: #555;
+     font-style: italic;
+     background: #f9fdf9;
+     border-radius: 0 8px 8px 0;
+   }
+
+   .article-content table {
+     width: 100%;
+     border-collapse: collapse;
+     margin: 20px 0;
+     font-size: 14px;
+   }
+   .article-content th, .article-content td {
+     padding: 10px 14px;
+     text-align: left;
+     border-bottom: 1px solid #eee;
+   }
+   .article-content th {
+     background: #f0faf4;
+     color: #00c853;
+     font-weight: 600;
+   }
+   .article-content tr:hover td {
+     background: #fafafa;
+   }
+
+   .back-button {
+     display: inline-block;
+     margin-bottom: 20px;
+     padding: 10px 20px;
+     background: #00c853;
+     color: white;
+     text-decoration: none;
+     border-radius: 4px;
+     transition: background 0.3s;
+   }
+
+   .back-button:hover {
+     background: #2196f3;
+   }
+
+   /* 卡片组件 */
+   .fk-card {
+     background: #f8fbff;
+     border: 1px solid #e3f0ff;
+     border-radius: 12px;
+     padding: 20px 22px;
+     margin: 16px 0;
+   }
+
+   /* 标注框 */
+   .fk-callout {
+     border-radius: 12px;
+     padding: 16px 20px;
+     margin: 18px 0;
+     border-left: 4px solid;
+   }
+   .fk-callout-green {
+     background: #f0faf4;
+     border-color: #00c853;
+   }
+   .fk-callout-blue {
+     background: #e8f4fd;
+     border-color: #2196f3;
+   }
+   .fk-callout-orange {
+     background: #fff8e1;
+     border-color: #ff9800;
+   }
+   .fk-callout-red {
+     background: #fef0ef;
+     border-color: #f44336;
+   }
+   .fk-callout-title {
+     font-weight: 700;
+     font-size: 15px;
+     margin-bottom: 8px;
+     color: #333;
+   }
+   .fk-callout p {
+     font-size: 14px;
+     color: #555;
+     margin: 0;
+   }
+
+   /* 引用块 */
+   .fk-quote {
+     background: linear-gradient(135deg, #f0faf4, #e8f4fd);
+     border: 1px solid #c8e6c9;
+     border-radius: 10px;
+     padding: 18px 22px;
+     margin: 16px 0;
+     position: relative;
+   }
+   .fk-quote::before {
+     content: '"';
+     position: absolute; top: -8px; left: 16px;
+     font-size: 3.5rem; color: #00c853; line-height: 1; opacity: 0.5;
+   }
+   .fk-quote-text {
+     font-size: 16px; font-style: italic; color: #333;
+     margin-bottom: 8px; padding-top: 8px;
+   }
+   .fk-quote-src {
+     font-size: 13px; color: #888;
+   }
+
+   /* 标签徽章 */
+   .fk-badge {
+     display: inline-flex; align-items: center;
+     border-radius: 20px; padding: 4px 12px;
+     font-size: 13px; font-weight: 500;
+     margin: 2px;
+   }
+   .fk-badge-green { background: #e8f5e9; color: #2e7d32; border: 1px solid #a5d6a7; }
+   .fk-badge-blue  { background: #e3f2fd; color: #1565c0; border: 1px solid #90caf9; }
+   .fk-badge-orange { background: #fff3e0; color: #e65100; border: 1px solid #ffcc80; }
+   .fk-badge-red  { background: #ffebee; color: #c62828; border: 1px solid #ef9a9a; }
+
+   /* 信息格子 */
+   .fk-grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; margin: 16px 0; }
+   .fk-grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin: 16px 0; }
+   .fk-grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin: 16px 0; }
+
+   /* 统计格 */
+   .fk-stat {
+     background: linear-gradient(135deg, #f0faf4, #e8f4fd);
+     border: 1px solid #c8e6c9;
+     border-radius: 10px; padding: 16px; text-align: center;
+   }
+   .fk-stat-num {
+     font-size: 1.9rem; font-weight: 800; line-height: 1.1;
+     background: linear-gradient(135deg, #00c853, #2196f3);
+     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+     background-clip: text;
+   }
+   .fk-stat-label { font-size: 13px; color: #666; margin-top: 4px; }
+
+   /* 时间轴 */
+   .fk-timeline { position: relative; padding-left: 24px; }
+   .fk-timeline::before {
+     content: '';
+     position: absolute; left: 7px; top: 8px; bottom: 8px; width: 2px;
+     background: linear-gradient(to bottom, #00c853, #2196f3, transparent);
+   }
+   .fk-tl-item { position: relative; margin-bottom: 22px; }
+   .fk-tl-dot {
+     position: absolute; left: -21px; top: 6px;
+     width: 12px; height: 12px; border-radius: 50%;
+     background: #00c853; border: 2px solid #f5f5f5;
+     box-shadow: 0 0 6px rgba(0, 200, 83, 0.5);
+   }
+   .fk-tl-year { font-size: 12px; color: #2196f3; font-weight: 600; letter-spacing: .5px; margin-bottom: 3px; }
+   .fk-tl-title { font-size: 15px; font-weight: 600; margin-bottom: 4px; color: #1d1d1f; }
+   .fk-tl-desc { font-size: 14px; color: #666; }
+
+   /* 方法卡片 */
+   .fk-method-card {
+     background: white;
+     border: 1px solid #e3f0ff;
+     border-radius: 12px; padding: 20px;
+     position: relative; overflow: hidden;
+     box-shadow: 0 2px 8px rgba(33, 150, 243, 0.06);
+   }
+   .fk-method-card::before {
+     content: attr(data-num);
+     position: absolute; right: 14px; top: 10px;
+     font-size: 3rem; font-weight: 900;
+     color: rgba(0, 200, 83, 0.08); line-height: 1;
+   }
+   .fk-method-card h4 {
+     font-size: 16px; font-weight: 700; margin-bottom: 8px;
+     color: #2196f3;
+   }
+   .fk-method-card p { font-size: 14px; color: #555; line-height: 1.75; }
+   .fk-method-skills { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 6px; }
+   .fk-skill-tag {
+     font-size: 12px; padding: 3px 10px; border-radius: 6px;
+     background: #e8f5e9; border: 1px solid #a5d6a7; color: #2e7d32;
+   }
+
+   /* 洞见面板 */
+   .fk-insight {
+     background: linear-gradient(135deg, #f0faf4, #e8f4fd);
+     border: 1px solid #c8e6c9;
+     border-radius: 12px; padding: 22px; margin: 16px 0;
+   }
+   .fk-insight h4 { font-size: 15px; font-weight: 700; margin-bottom: 12px; color: #2196f3; }
+
+   /* 产品特性 */
+   .fk-feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-top: 18px; }
+   .fk-feature-item {
+     background: #f8fbff;
+     border: 1px solid #e3f0ff; border-radius: 10px; padding: 14px;
+   }
+   .fk-fi-icon { font-size: 20px; margin-bottom: 6px; }
+   .fk-feature-item h5 { font-size: 14px; font-weight: 600; margin-bottom: 4px; color: #1d1d1f; }
+   .fk-feature-item p { font-size: 13px; color: #666; }
+
+   .sidebar-right {
+     background: white;
+     border-radius: 8px;
+     padding: 20px;
+     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+     height: fit-content;
+   }
+
+   .sidebar-right h3 {
+     color: #2196f3;
+     margin-bottom: 15px;
+     font-size: 20px;
+   }
+
+   .related-articles ul {
+     list-style: none;
+   }
+
+   .related-articles li {
+     margin-bottom: 12px;
+     padding: 10px;
+     background: #f9f9f9;
+     border-radius: 4px;
+   }
+
+   .related-articles a {
+     color: #333;
+     text-decoration: none;
+     transition: color 0.3s;
+   }
+
+   .related-articles a:hover {
+     color: #00c853;
+   }
+
+   footer {
+     background: #333;
+     color: white;
+     text-align: center;
+     padding: 30px 0;
+     margin-top: 40px;
+   }
+
+   @media (max-width: 1024px) {
+     .main-content {
+       grid-template-columns: 1fr;
+     }
+     .sidebar-left,
+     .sidebar-right {
+       display: none;
+     }
+   }
+  </style>
+ </head>
+ <body>
+  <header>
+   <div class="container">
+    <h1>
+     福库心理 - 身心神同调
+    </h1>
+    <nav>
+     <ul>
+      <li><a href="/fukuxinli/">首页</a></li>
+      <li><a href="/fukuxinli/body/">身</a></li>
+      <li><a href="/fukuxinli/mind/">心</a></li>
+      <li><a href="/fukuxinli/spirit/">神</a></li>
+      <li><a href="/fukuxinli/partnership/">伴侣关系</a></li>
+      <li><a href="/fukuxinli/ai/">AI</a></li>
+     </ul>
+    </nav>
+   </div>
+  </header>
+
+  <div class="main-content">
+   <!-- 左侧边栏 -->
+   <aside class="sidebar-left">
+    <h3>分类目录</h3>
+    <ul>
+     <li><a href="/fukuxinli/body/">身（推拿、艾灸）</a></li>
+     <li><a href="/fukuxinli/mind/">心（心理咨询）</a></li>
+     <li><a href="/fukuxinli/spirit/">神（意识、生命整合）</a></li>
+     <li><a href="/fukuxinli/partnership/">伴侣关系</a></li>
+     <li><a href="/fukuxinli/ai/">AI（人工智能）</a></li>
+    </ul>
+   </aside>
+
+   <!-- 正文 -->
+   <main class="article-content">
+    <a class="back-button" href="/fukuxinli/">← 返回首页</a>
+
+    <h1>谭少卿深度调研报告·AI方法论与产品思路</h1>
+
+    <div class="article-meta">
+     <span>[AI]</span>&nbsp;&nbsp;
+     <span>2026-03-17</span>&nbsp;&nbsp;
+     <span>作者：福库心理整理</span>
+    </div>
+
+    <!-- 内容简介 -->
+    <div class="article-summary-auto" style="
+        background: linear-gradient(135deg, #f0faf4 0%, #e8f4fd 100%);
+        border-left: 4px solid #00c853;
+        border-radius: 12px;
+        padding: 20px;
+        margin: 20px 0;
+        font-size: 15px;
+        line-height: 1.8;
+        color: #424245;
+    ">
+     <div style="font-weight: 600; color: #00c853; margin-bottom: 10px; font-size: 14px;">
+      📝 内容简介
+     </div>
+     <div>
+      谭少卿是中国AI领域的资深创业者与产品专家，拥有11年AI从业经验，产品服务用户超5亿。他贯通哲学与算法，将苏格拉底辩证法与AI交互方法深度融合，提出了系统化的"四大召唤术"方法论，著有《AI帮你赢》（周鸿祎作序）等书，目前创立floatboat.ai——首款面向"一人公司"的AI工作空间产品。本报告深度解析其思想体系、方法论与产品野心。
+     </div>
+     <div class="article-tags-auto" style="
+         display: flex;
+         flex-wrap: wrap;
+         gap: 8px;
+         margin-top: 15px;
+         padding-top: 15px;
+         border-top: 1px dashed #dee2e6;
+     ">
+      <span class="auto-tag" style="background: linear-gradient(135deg, #00c853 0%, #2196f3 100%); color: white; padding: 5px 14px; border-radius: 20px; font-size: 13px; font-weight: 500;">#谭少卿</span>
+      <span class="auto-tag" style="background: linear-gradient(135deg, #00c853 0%, #2196f3 100%); color: white; padding: 5px 14px; border-radius: 20px; font-size: 13px; font-weight: 500;">#AI方法论</span>
+      <span class="auto-tag" style="background: linear-gradient(135deg, #00c853 0%, #2196f3 100%); color: white; padding: 5px 14px; border-radius: 20px; font-size: 13px; font-weight: 500;">#floatboat</span>
+      <span class="auto-tag" style="background: linear-gradient(135deg, #00c853 0%, #2196f3 100%); color: white; padding: 5px 14px; border-radius: 20px; font-size: 13px; font-weight: 500;">#召唤术</span>
+      <span class="auto-tag" style="background: linear-gradient(135deg, #00c853 0%, #2196f3 100%); color: white; padding: 5px 14px; border-radius: 20px; font-size: 13px; font-weight: 500;">#超级个体</span>
+      <span class="auto-tag" style="background: linear-gradient(135deg, #00c853 0%, #2196f3 100%); color: white; padding: 5px 14px; border-radius: 20px; font-size: 13px; font-weight: 500;">#苏格拉底</span>
+     </div>
+    </div>
+
+    <!-- 正文内容 -->
+    <div class="article-body">
+
+     <!-- ── 01 人物画像 ── -->
+     <h2>01 · 人物画像</h2>
+
+     <div class="fk-card" style="display:flex; gap:20px; align-items:flex-start; margin-bottom:24px;">
+      <div style="width:76px; height:76px; border-radius:50%; flex-shrink:0; background:linear-gradient(135deg,#00c853,#2196f3); display:flex; align-items:center; justify-content:center; font-size:2.2rem; box-shadow:0 0 0 4px rgba(0,200,83,0.2);">🧠</div>
+      <div>
+       <h3 style="margin-top:0; margin-bottom:8px;">谭少卿 Tan Shaoqing</h3>
+       <div style="margin:8px 0;">
+        <span class="fk-badge fk-badge-green">AI实战专家</span>
+        <span class="fk-badge fk-badge-blue">方法论开创者</span>
+        <span class="fk-badge fk-badge-green">产品副总裁</span>
+        <span class="fk-badge fk-badge-blue">创业者</span>
+        <span class="fk-badge fk-badge-orange">作家</span>
+        <span class="fk-badge fk-badge-blue">floatboat.ai 创始人</span>
+       </div>
+       <p style="font-size:14px; color:#555; margin:0;">谭少卿是中国AI领域的资深创业者与产品专家，有着十余年的AI产品开发经历。他贯通哲学与算法，善于从人文视角解读技术变革，将复杂的AI技术用深入浅出的方式传递给大众。其设计的移动端智能产品覆盖数亿用户，多项专利加身。目前是 floatboat.ai 的创始人，也是"AI方法论"这一概念的重要推广者。</p>
+      </div>
+     </div>
+
+     <div class="fk-grid-4">
+      <div class="fk-stat"><div class="fk-stat-num">11+</div><div class="fk-stat-label">年AI从业经验</div></div>
+      <div class="fk-stat"><div class="fk-stat-num">5亿+</div><div class="fk-stat-label">产品覆盖用户</div></div>
+      <div class="fk-stat"><div class="fk-stat-num">2</div><div class="fk-stat-label">已出版书籍</div></div>
+      <div class="fk-stat"><div class="fk-stat-num">多项</div><div class="fk-stat-label">发明专利</div></div>
+      <div class="fk-stat"><div class="fk-stat-num">6.8</div><div class="fk-stat-label">豆瓣评分(主著)</div></div>
+     </div>
+
+     <!-- ── 02 成长轨迹 ── -->
+     <h2>02 · 成长轨迹</h2>
+
+     <div class="fk-card">
+      <div class="fk-timeline">
+       <div class="fk-tl-item">
+        <div class="fk-tl-dot" style="background:#00c853"></div>
+        <div class="fk-tl-year">早期 · 技术积累阶段</div>
+        <div class="fk-tl-title">🔬 亲历AI完整技术链</div>
+        <div class="fk-tl-desc">亲历专家系统、经典算法、机器学习、预训练大语言模型等技术链的完整发展历程，深刻洞察科学技术与现实工程之间的鸿沟，以及二者深度结合的价值。这段经历让他能站在宏观视角审视AI的发展脉络。</div>
+       </div>
+       <div class="fk-tl-item">
+        <div class="fk-tl-dot" style="background:#2196f3"></div>
+        <div class="fk-tl-year">产品经理阶段</div>
+        <div class="fk-tl-title">🛡️ 360安全卫士 · 产品经理</div>
+        <div class="fk-tl-desc">在360安全卫士担任产品经理，积累了大C端（用户端）产品开发的丰富经验。这段经历让他深刻理解普通用户的使用痛点，培养了以用户为中心的产品思维。</div>
+       </div>
+       <div class="fk-tl-item">
+        <div class="fk-tl-dot" style="background:#ff9800"></div>
+        <div class="fk-tl-year">创业深耕阶段</div>
+        <div class="fk-tl-title">🐼 北京泰迪未来科技 · 联合创始人兼产品副总裁</div>
+        <div class="fk-tl-desc">创立并深耕"泰迪未来科技"（后更名为"泰来科技"），打造了多款移动端OS级别的AI产品，服务国内各大手机厂商，产品覆盖数亿用户，部分产品成为行业事实标准。兼具大C端与大B端的完整产品服务经验。</div>
+       </div>
+       <div class="fk-tl-item">
+        <div class="fk-tl-dot" style="background:#00c853"></div>
+        <div class="fk-tl-year">跨界洞见阶段</div>
+        <div class="fk-tl-title">📚 IT × 教育的跨界融合</div>
+        <div class="fk-tl-desc">横跨IT与教育领域的跨界交流经历，使其在AI"认知心理学"方面形成独特见解。同时，女儿诞生之初的夜晚成为《AI帮你赢》的主要创作时段，赋予了这部作品特殊的人文温度。</div>
+       </div>
+       <div class="fk-tl-item">
+        <div class="fk-tl-dot" style="background:#2196f3"></div>
+        <div class="fk-tl-year">2024年底</div>
+        <div class="fk-tl-title">📖 出版《AI帮你赢》</div>
+        <div class="fk-tl-desc">出版代表作《AI帮你赢：人人都能用的AI方法论》，由周鸿祎（360创始人）亲自作序推荐。书籍上市后登上京东IT新书榜、得到App榜单前列，成为AI普及领域的标杆作品。</div>
+       </div>
+       <div class="fk-tl-item">
+        <div class="fk-tl-dot" style="background:#00c853"></div>
+        <div class="fk-tl-year">2025年4月</div>
+        <div class="fk-tl-title">📖 出版《AI导航式提问法》</div>
+        <div class="fk-tl-desc">与超参数团队联合推出口袋书《AI导航式提问法》，聚焦DeepSeek、腾讯元宝等国内AI工具的实用提问技巧，更贴近普通用户的日常需求。</div>
+       </div>
+       <div class="fk-tl-item">
+        <div class="fk-tl-dot" style="background:#2196f3"></div>
+        <div class="fk-tl-year">最新动态</div>
+        <div class="fk-tl-title">🚢 floatboat.ai · 创始人</div>
+        <div class="fk-tl-desc">开启全新创业征程，创立 floatboat.ai ——面向"一人公司"的AI工作空间产品。将其多年的AI产品经验、方法论思想，以及对未来工作方式的判断，全部凝结进这款产品中。</div>
+       </div>
+      </div>
+     </div>
+
+     <!-- ── 03 核心思想 ── -->
+     <h2>03 · 核心思想体系</h2>
+
+     <div class="fk-callout fk-callout-green">
+      <div class="fk-callout-title">🧩 核心命题：把AI作为方法（AI as a Method）</div>
+      <p>这是谭少卿整个思想体系的总纲。他认为AI不是"技术"，也不是"职业"，而是一种<strong>解决问题的方法论工具</strong>。就像驾驶技术从专业技能变成大众技能一样，所有技术终将社会化，AI的使命是让"使用工具"的门槛归零，使"普通人"能调用原本只有专家才具备的认知能力。</p>
+     </div>
+
+     <div class="fk-quote">
+      <div class="fk-quote-text">技术进步是神速的，技巧是速朽的，如果要学，也要学一法破万法。</div>
+      <div class="fk-quote-src">—— 谭少卿 · 吴晓波直播间演讲</div>
+     </div>
+
+     <div class="fk-grid-2">
+      <div class="fk-card">
+       <h4>🌊 技术社会化是不可逆的浪潮</h4>
+       <p style="font-size:14px; color:#555;">从汽车驾驶到手机打字，所有技术终将社会化。AI的使命不是淘汰人类，而是让"使用工具"的门槛归零。GPT-3.5的突破性在于将<strong>专业问题转化为对话问题</strong>，通过压缩人类千年知识实现"技术平权"。</p>
+      </div>
+      <div class="fk-card">
+       <h4>🎯 会提问的人掌握核心竞争力</h4>
+       <p style="font-size:14px; color:#555;">当AI能调用所有行业智慧时，<strong>会提问的人就掌握了核心竞争力</strong>。AI是你的镜子，它反映的是你的水平。用户应从"使用者"升维为"驾驭者"，从"被动接受"转变为"主动引导"。</p>
+      </div>
+      <div class="fk-card">
+       <h4>🤔 独立思考，拒绝盲从</h4>
+       <p style="font-size:14px; color:#555;">谭少卿反复强调保持独立思考，避免成为"镰下之韭"或"瓮中之鳖"。AI时代，<strong>限制你的只有你的想象力</strong>。人文精神与技术能力同等重要，必须以哲学思辨驾驭工具。</p>
+      </div>
+      <div class="fk-card">
+       <h4>👑 超级个体时代来临</h4>
+       <p style="font-size:14px; color:#555;">AI使"一人公司"成为可能。过去需要整个团队的能力，现在一个人借助AI智囊团就可以实现。他把这种人称为<strong>超级个体</strong>——用AI将自己变成一支会思考、会执行、会迭代的队伍。</p>
+      </div>
+     </div>
+
+     <!-- 哲学内核 -->
+     <h3>哲学内核：苏格拉底辩证法 × AI</h3>
+
+     <div class="fk-callout fk-callout-blue">
+      <div class="fk-callout-title">💎 最深刻的洞见：算法与哲学的贯通</div>
+      <p>谭少卿发现，预训练大语言模型与苏格拉底辩证法之间存在"奇妙契合"。苏格拉底相信"知识存在于每个人的内心"，只需通过精妙的提问将其引导出来（精神助产术）。同理，大语言模型已压缩了人类千年的知识，你的提示词就是那把"钥匙"，通过辩证式对话可以<strong>把AI内部的知识精准召唤出来</strong>。</p>
+     </div>
+
+     <div class="fk-insight">
+      <h4>辩证法三大操作手法（对应AI对话方法）</h4>
+      <div class="fk-grid-3" style="margin-top:0;">
+       <div>
+        <div style="font-size:18px; margin-bottom:6px;">⬆️ 升维</div>
+        <div style="font-size:14px; font-weight:600; color:#1d1d1f; margin-bottom:4px;">将概念展开为具体语言</div>
+        <div style="font-size:13px; color:#666;">把一个模糊的词语/概念，展开成完整的场景描述、具体方法、细节要求。让AI获得更丰富的上下文，从而输出更精准的结果。</div>
+       </div>
+       <div>
+        <div style="font-size:18px; margin-bottom:6px;">⬇️ 降维</div>
+        <div style="font-size:14px; font-weight:600; color:#1d1d1f; margin-bottom:4px;">将语言凝练为核心概念</div>
+        <div style="font-size:13px; color:#666;">把一段复杂的、零散的信息，提炼浓缩成核心关键词或概念。用于让AI抓住重点，避免在冗余信息中迷失方向。</div>
+       </div>
+       <div>
+        <div style="font-size:18px; margin-bottom:6px;">↔️ 转移</div>
+        <div style="font-size:14px; font-weight:600; color:#1d1d1f; margin-bottom:4px;">在同维度间转换概念</div>
+        <div style="font-size:13px; color:#666;">在相同维度上横向迁移概念或语言，比如从一个领域的方法迁移到另一领域。这是跨学科应用AI能力的核心操作。</div>
+       </div>
+      </div>
+     </div>
+
+     <div class="fk-callout fk-callout-orange">
+      <div class="fk-callout-title">🔑 核心对话原则：对话而非说话，提示而非提问</div>
+      <p>这是谭少卿最核心的AI交互哲学。"说话"是单向输出，"对话"是双向引导；"提问"期待答案，"提示"是在激活AI已有的知识体系。真正高手的Prompt不是命令，而是<strong>和AI共同推进问题求解的辩证过程</strong>。</p>
+     </div>
+
+     <!-- ── 04 方法论体系 ── -->
+     <h2>04 · 方法论体系：四大召唤术</h2>
+
+     <div class="fk-callout fk-callout-green">
+      <div class="fk-callout-title">📐 整体框架：1种哲学思维 + 10种原生方法 + 4套召唤术 + 13项技能 + 19个案例</div>
+      <p>谭少卿将方法论分为两层：<strong>哲学思维层</strong>（苏格拉底辩证法的三大操作）提供底层的"元方法"；<strong>实践操作层</strong>（四大召唤术）将抽象哲学落地成可执行的具体技能。</p>
+     </div>
+
+     <div class="fk-grid-2">
+      <div class="fk-method-card" data-num="1">
+       <h4>召唤术一：拟人化</h4>
+       <p>为AI赋予明确的专家角色，创造属于你的专家级助理。核心逻辑是：当你明确告诉AI"你是XXX领域的专家"，AI会激活其训练数据中对应领域的专业知识体系，输出质量远超普通提问。</p>
+       <div class="fk-method-skills">
+        <span class="fk-skill-tag">技能1：结构化提示词召唤</span>
+        <span class="fk-skill-tag">技能2：非结构化提示词召唤</span>
+        <span class="fk-skill-tag">技能3：召唤专家级团队</span>
+       </div>
+      </div>
+      <div class="fk-method-card" data-num="2">
+       <h4>召唤术二：白话-黑话-对话</h4>
+       <p>谭少卿认为最"元"的元方法。先用白话（日常语言）描述你的问题，再通过AI或自己的思考把它"翻译"成领域黑话（专业术语），最后用黑话和AI展开深度对话，获得超越自身水平的专业答案。</p>
+       <div class="fk-method-skills">
+        <span class="fk-skill-tag">技能4：定义未知的AI角色</span>
+        <span class="fk-skill-tag">技能5：解锁领域能力</span>
+        <span class="fk-skill-tag">技能6：无中生有</span>
+       </div>
+      </div>
+      <div class="fk-method-card" data-num="3">
+       <h4>召唤术三：从自然语言到程序语言</h4>
+       <p>最革命性的一套召唤术——通过对话，将自然语言直接转化为可执行的程序代码。"对话即服务（CaaS）"，让不懂编程的人也能借助AI实现软件工具的创造。这预示着未来软件开发范式的根本变革。</p>
+       <div class="fk-method-skills">
+        <span class="fk-skill-tag">技能7：对话即程序</span>
+        <span class="fk-skill-tag">技能8：生成前端程序</span>
+        <span class="fk-skill-tag">技能9：用黑话生成前端</span>
+        <span class="fk-skill-tag">技能10：生成终端程序</span>
+        <span class="fk-skill-tag">技能11：生成客户端程序</span>
+       </div>
+      </div>
+      <div class="fk-method-card" data-num="4">
+       <h4>召唤术四：让专家团队协作与迭代</h4>
+       <p>最高级的召唤术，也是最接近"AI公司"愿景的实践。让多个AI专家角色分工协作，共同解决复杂问题；同时让AI具备自我迭代能力，不断优化自身的输出质量。这是构建"个人AI智囊团"的核心路径。</p>
+       <div class="fk-method-skills">
+        <span class="fk-skill-tag">技能12：让专家团队协作</span>
+        <span class="fk-skill-tag">技能13：让AI自我迭代</span>
+       </div>
+      </div>
+     </div>
+
+     <!-- 白话黑话详解 -->
+     <div class="fk-card">
+      <h4>🔍 白话-黑话-对话 · 案例拆解</h4>
+      <table>
+       <thead>
+        <tr><th>阶段</th><th>用户输入示例</th><th>目的</th></tr>
+       </thead>
+       <tbody>
+        <tr>
+         <td><span class="fk-badge fk-badge-orange">白话</span></td>
+         <td>"我的产品在微博上没什么热度，怎么办？"</td>
+         <td>用自己的原始语言描述困惑</td>
+        </tr>
+        <tr>
+         <td><span class="fk-badge fk-badge-blue">中介层（问方法）</span></td>
+         <td>"一个专业的社交媒体运营经理会用什么方法分析这个问题？"</td>
+         <td>获取专业方法，而非直接要答案</td>
+        </tr>
+        <tr>
+         <td><span class="fk-badge fk-badge-green">黑话对话</span></td>
+         <td>"请用内容矩阵分析法 + 用户画像框架，帮我制定微博增长策略"</td>
+         <td>用专业术语驱动AI给出深度答案</td>
+        </tr>
+       </tbody>
+      </table>
+      <div class="fk-callout fk-callout-blue" style="margin-top:14px;">
+       <p><strong>核心洞见：</strong>模型是一个形式简单的输入输出系统，你的一次输入决定了模型的一次输出。当你问"专业人士如何解决"，模型就会输出专业方法；再用那个专业方法作为输入，你立刻拿到了超越自身水平的专业答案。</p>
+      </div>
+     </div>
+
+     <!-- ── 05 四个视角 ── -->
+     <h2>05 · 构建AI方法论的四个视角</h2>
+
+     <div class="fk-grid-2">
+      <div class="fk-card">
+       <div style="font-size:26px; margin-bottom:8px;">👤</div>
+       <h4>普通用户视角</h4>
+       <ul>
+        <li><strong>核心需求：</strong>消除AI焦虑，快速上手</li>
+        <li><strong>使用门槛：</strong>无需技术背景，对话即可</li>
+        <li><strong>目标：</strong>让AI成为自己的专家顾问团</li>
+        <li><strong>价值：</strong>技术平权，获取原来只有专家才有的认知能力</li>
+       </ul>
+      </div>
+      <div class="fk-card">
+       <div style="font-size:26px; margin-bottom:8px;">🏗️</div>
+       <h4>产品视角</h4>
+       <ul>
+        <li><strong>核心问题：</strong>如何设计AI原生产品</li>
+        <li><strong>设计原则：</strong>对话即服务，自然语言即界面</li>
+        <li><strong>产品方向：</strong>从"功能产品"到"智能体产品"</li>
+        <li><strong>未来形态：</strong>AI工作空间，而非AI工具集合</li>
+       </ul>
+      </div>
+      <div class="fk-card">
+       <div style="font-size:26px; margin-bottom:8px;">🚀</div>
+       <h4>创业者视角</h4>
+       <ul>
+        <li><strong>机会判断：</strong>一人公司时代来临</li>
+        <li><strong>竞争优势：</strong>谁能把AI真正落地给用户</li>
+        <li><strong>商业逻辑：</strong>把重复劳动转化为可复用的AI技能</li>
+        <li><strong>核心壁垒：</strong>用户工作方式的数据与学习</li>
+       </ul>
+      </div>
+      <div class="fk-card">
+       <div style="font-size:26px; margin-bottom:8px;">🏢</div>
+       <h4>管理者视角</h4>
+       <ul>
+        <li><strong>组织变革：</strong>用AI工具提升团队效率</li>
+        <li><strong>人才策略：</strong>培养"会提问的人"比培养"会编码的人"更重要</li>
+        <li><strong>决策支持：</strong>让AI成为决策的数据与洞察来源</li>
+        <li><strong>风险意识：</strong>不主动拥抱AI的团队将面临淘汰</li>
+       </ul>
+      </div>
+     </div>
+
+     <!-- ── 06 人机关系 ── -->
+     <h2>06 · 人机关系演进：三阶段模型</h2>
+
+     <div class="fk-card">
+      <p style="font-size:14px; color:#666; margin-bottom:18px;">谭少卿在ThinkPad"亲密人机"主题沙龙（2025年1月）中，基于OpenAI对AI能力L1-L5的分级，提出了人与AI关系演进的三阶段模型：</p>
+      <div class="fk-grid-3">
+       <div style="background:#f0faf4; border:1px solid #c8e6c9; border-radius:10px; padding:16px; text-align:center;">
+        <div style="font-size:1.8rem; margin-bottom:8px;">🔧</div>
+        <h5 style="font-size:14px; font-weight:700; margin-bottom:8px; color:#00c853;">阶段一：方法阶段</h5>
+        <p style="font-size:13px; color:#666;">AI作为工具和方法，帮助人类简化流程、提升效率。企业通过AI实现业务线上化，个人通过AI提升工作产出。<strong>（当前主流阶段）</strong></p>
+       </div>
+       <div style="background:#e8f4fd; border:1px solid #90caf9; border-radius:10px; padding:16px; text-align:center;">
+        <div style="font-size:1.8rem; margin-bottom:8px;">🤝</div>
+        <h5 style="font-size:14px; font-weight:700; margin-bottom:8px; color:#2196f3;">阶段二：协同阶段</h5>
+        <p style="font-size:13px; color:#666;">AI与人类双向互动，共同解决复杂问题、激发创新灵感。AI不再是被动响应，而是主动参与协作。<strong>（正在进入阶段）</strong></p>
+       </div>
+       <div style="background:#fff8e1; border:1px solid #ffcc80; border-radius:10px; padding:16px; text-align:center;">
+        <div style="font-size:1.8rem; margin-bottom:8px;">🌐</div>
+        <h5 style="font-size:14px; font-weight:700; margin-bottom:8px; color:#ff9800;">阶段三：共生阶段</h5>
+        <p style="font-size:13px; color:#666;">人机深度融合，可能重塑社会系统。AI成为人类认知的延伸，而非外部工具。<strong>（仍在探索的未来）</strong></p>
+       </div>
+      </div>
+      <div class="fk-callout fk-callout-green" style="margin-top:14px;">
+       <div class="fk-callout-title">🎯 四个关键态度（谭少卿提出）</div>
+       <p>① 把AI作为方法　② 把一切事务注入AI　③ 把AI视为连接工具的工具　④ 把AI当作时刻同在的伙伴</p>
+      </div>
+     </div>
+
+     <!-- ── 07 著作体系 ── -->
+     <h2>07 · 著作体系</h2>
+
+     <div class="fk-grid-2">
+      <div class="fk-card" style="border-color:#a5d6a7;">
+       <div style="display:flex; align-items:center; gap:12px; margin-bottom:14px;">
+        <div style="font-size:2.2rem;">📗</div>
+        <div>
+         <h4 style="margin:0 0 4px;">AI帮你赢</h4>
+         <div style="font-size:13px; color:#666;">人人都能用的AI方法论</div>
+        </div>
+       </div>
+       <ul>
+        <li><strong>出版：</strong>2024年12月 · 人民邮电出版社</li>
+        <li><strong>页数：</strong>239页 · 定价69.8元</li>
+        <li><strong>推荐序：</strong>周鸿祎（360创始人）</li>
+        <li><strong>豆瓣评分：</strong>6.8分（185人评价）</li>
+        <li><strong>核心内容：</strong>1哲学思维 + 10原生方法 + 4召唤术 + 13技能 + 19案例</li>
+        <li><strong>成就：</strong>登上京东IT新书榜、得到App榜单前列</li>
+       </ul>
+       <div style="margin-top:10px;">
+        <span class="fk-badge fk-badge-green">哲学与思维篇</span>
+        <span class="fk-badge fk-badge-blue">案例与实践篇</span>
+        <span class="fk-badge fk-badge-orange">全彩知识导图</span>
+       </div>
+      </div>
+      <div class="fk-card" style="border-color:#90caf9;">
+       <div style="display:flex; align-items:center; gap:12px; margin-bottom:14px;">
+        <div style="font-size:2.2rem;">📘</div>
+        <div>
+         <h4 style="margin:0 0 4px;">AI导航式提问法</h4>
+         <div style="font-size:13px; color:#666;">谭少卿 · 超参数团队</div>
+        </div>
+       </div>
+       <ul>
+        <li><strong>出版：</strong>2025年4月 · 人民邮电出版社·异步图书</li>
+        <li><strong>页数：</strong>116页（口袋书）· 定价29.8元</li>
+        <li><strong>合著：</strong>与超参数团队联合创作</li>
+        <li><strong>定位：</strong>帮你激发AI工具效能的"口袋魔法书"</li>
+        <li><strong>核心工具：</strong>DeepSeek、腾讯元宝等国内AI工具</li>
+        <li><strong>覆盖场景：</strong>高效办公、轻松学习、惬意生活</li>
+       </ul>
+       <div style="margin-top:10px;">
+        <span class="fk-badge fk-badge-blue">导航式提问法</span>
+        <span class="fk-badge fk-badge-green">通用版vs深度思考版</span>
+        <span class="fk-badge fk-badge-red">实用场景清单</span>
+       </div>
+      </div>
+     </div>
+
+     <div class="fk-card">
+      <h4>📖 《AI帮你赢》完整目录</h4>
+      <div class="fk-grid-2">
+       <div>
+        <div style="font-size:13px; font-weight:600; color:#ff9800; margin-bottom:6px;">第一部分：哲学与思维篇</div>
+        <ul style="font-size:14px;">
+         <li>序章：现在，你必须做出选择</li>
+         <li>第1章：把AI作为方法的必然性及必要性</li>
+         <li>└ 技术进步必使技术变成方法</li>
+         <li>└ 你无须知道万物的细节</li>
+         <li>└ 从ChatGPT开始认识AI</li>
+         <li>第2章：算法与哲学的贯通</li>
+         <li>└ 一法破万法：苏格拉底辩证法</li>
+         <li>└ 获得与AI互动的"原生方法"</li>
+        </ul>
+       </div>
+       <div>
+        <div style="font-size:13px; font-weight:600; color:#ff9800; margin-bottom:6px;">第二部分：案例与实践篇</div>
+        <ul style="font-size:14px;">
+         <li>第3章：召唤出独属于你的智囊团</li>
+         <li>第4章：召唤术一·拟人化（技能1-3）</li>
+         <li>第5章：召唤术二·白话-黑话-对话（技能4-6）</li>
+         <li>第6章：召唤术三·自然语言→程序语言（技能7-11）</li>
+         <li>第7章：召唤术四·团队协作与迭代（技能12-13）</li>
+         <li>附录：AI作为学习/工作/生活的方法</li>
+        </ul>
+       </div>
+      </div>
+     </div>
+
+     <!-- ── 08 floatboat.ai ── -->
+     <h2>08 · 当前核心产品：floatboat.ai</h2>
+
+     <div class="fk-card" style="border-color:#a5d6a7; background:linear-gradient(135deg,#f0faf4,#e8f4fd);">
+      <h3 style="font-size:22px; font-weight:800; margin-bottom:6px; background:linear-gradient(135deg,#00c853,#2196f3); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">Floatboat</h3>
+      <div style="font-size:15px; color:#666; margin-bottom:14px;">One Boat Is a Whole Fleet · 首款面向一人公司的AI工作空间</div>
+      <div style="margin-bottom:12px;">
+       <span class="fk-badge fk-badge-green">floatboat.ai</span>
+       <span class="fk-badge fk-badge-blue">Mac / Windows</span>
+       <span class="fk-badge fk-badge-orange">AI Workspace</span>
+       <span class="fk-badge fk-badge-red">一人公司赛道</span>
+      </div>
+      <p style="font-size:15px; line-height:1.85; color:#444;">Floatboat 的核心使命：<strong>帮助一人公司的运营者，将个人工作方式转化为个性化的AI团队</strong>。它让AI学习你如何运营业务，并将可重复的工作转化为可复用的技能，从而无需招聘即可扩展业务。</p>
+     </div>
+
+     <div class="fk-feature-grid">
+      <div class="fk-feature-item">
+       <div class="fk-fi-icon">🧠</div>
+       <h5>Tacit Engine™（隐性知识引擎）</h5>
+       <p>通过观察用户的编辑、决策和执行方式，学习用户的业务运营模式，持续优化以适应其工作习惯和标准。</p>
+      </div>
+      <div class="fk-feature-item">
+       <div class="fk-fi-icon">⚡</div>
+       <h5>Combo Skills（组合技能）</h5>
+       <p>用户可将聊天记录和规范文件打包成专属、可复用的"组合技能"，无需编程，AI会根据上下文主动推荐。</p>
+      </div>
+      <div class="fk-feature-item">
+       <div class="fk-fi-icon">🔗</div>
+       <h5>3500+工具集成</h5>
+       <p>即时集成超过3500种本地及云端工具（Slack、Google Drive等），同时支持macOS原生系统功能调用。</p>
+      </div>
+      <div class="fk-feature-item">
+       <div class="fk-fi-icon">🌊</div>
+       <h5>无缝上下文流转</h5>
+       <p>拖拽浏览器内容、文件直接注入AI对话；内置浏览器控制，AI代理可自动导航和收集信息。</p>
+      </div>
+      <div class="fk-feature-item">
+       <div class="fk-fi-icon">📊</div>
+       <h5>渐进式工作空间</h5>
+       <p>从简单聊天界面开始，根据需要扩展为包含文件管理器、浏览器等模块的定制化工作空间。</p>
+      </div>
+      <div class="fk-feature-item">
+       <div class="fk-fi-icon">✨</div>
+       <h5>"Selfware"概念</h5>
+       <p>根据具体任务、上下文和业务目标动态生成个性化工作流程，无需购买多个软件订阅或雇佣员工。</p>
+      </div>
+     </div>
+
+     <div class="fk-callout fk-callout-green" style="margin-top:18px;">
+      <div class="fk-callout-title">🔍 产品设计背后的思想逻辑</div>
+      <p>floatboat.ai 是谭少卿方法论的产品化实现。他书中提出的"召唤术四：让专家团队协作与迭代"，在 Floatboat 里变成了 Combo Skills 和 Tacit Engine；"白话-黑话-对话"变成了3500+工具的自然语言接入；"超级个体"概念变成了产品定位——<strong>一艘船就是一支舰队</strong>。这款产品是他思想最完整的落地形态。</p>
+     </div>
+
+     <div class="fk-card">
+      <h4>🎯 三个典型应用场景</h4>
+      <div class="fk-grid-3">
+       <div>
+        <div style="font-size:14px; font-weight:600; color:#1d1d1f; margin-bottom:6px;">🎤 销售/创始人</div>
+        <p style="font-size:13px; color:#666;">将语音笔记、通话录音快速转化为结构清晰的客户演示文稿，一人完成整个销售周期。</p>
+       </div>
+       <div>
+        <div style="font-size:14px; font-weight:600; color:#1d1d1f; margin-bottom:6px;">✍️ 创作者/作家</div>
+        <p style="font-size:13px; color:#666;">将杂乱草稿、研究链接批量处理为符合个人风格的平台就绪内容，多平台同步发布。</p>
+       </div>
+       <div>
+        <div style="font-size:14px; font-weight:600; color:#1d1d1f; margin-bottom:6px;">⚖️ 小企业主</div>
+        <p style="font-size:13px; color:#666;">分析合同草案，识别风险点，并提供具有谈判优势的修改建议，无需外包给律师。</p>
+       </div>
+      </div>
+     </div>
+
+     <!-- ── 09 金句精选 ── -->
+     <h2>09 · 关键观点金句精选</h2>
+
+     <div class="fk-grid-2">
+      <div class="fk-quote">
+       <div class="fk-quote-text">技术进步是神速的，技巧是速朽的，如果要学，也要学一法破万法。</div>
+       <div class="fk-quote-src">—— 吴晓波直播间演讲</div>
+      </div>
+      <div class="fk-quote">
+       <div class="fk-quote-text">AI是你的镜子，它反映的是你的水平。</div>
+       <div class="fk-quote-src">—— 《AI帮你赢》</div>
+      </div>
+      <div class="fk-quote">
+       <div class="fk-quote-text">在AI时代，限制你的只有你的想象力。</div>
+       <div class="fk-quote-src">—— 《AI帮你赢》</div>
+      </div>
+      <div class="fk-quote">
+       <div class="fk-quote-text">当AI能调用所有行业智慧时，会提问的人就掌握了核心竞争力。</div>
+       <div class="fk-quote-src">—— 吴晓波直播间演讲</div>
+      </div>
+      <div class="fk-quote">
+       <div class="fk-quote-text">技术的进步必然会使技术变成解决问题的方法，进而使职业技能变成通用技能。</div>
+       <div class="fk-quote-src">—— 《AI帮你赢》序章</div>
+      </div>
+      <div class="fk-quote">
+       <div class="fk-quote-text">对话而非说话，提示而非提问。</div>
+       <div class="fk-quote-src">—— 《AI帮你赢》核心原则</div>
+      </div>
+     </div>
+
+     <!-- ── 10 外部评价 ── -->
+     <h2>10 · 外部评价与影响力</h2>
+
+     <div class="fk-grid-2">
+      <div class="fk-card">
+       <h4 style="color:#00c853;">👍 正面评价与认可</h4>
+       <ul>
+        <li><strong>周鸿祎（360创始人）</strong>亲自作序推荐，高度肯定其方法论价值</li>
+        <li><strong>京东IT新书榜、得到App榜单</strong>前列，销量与关注度双优</li>
+        <li>读者高度评价<strong>哲学思辨部分的启发性</strong>，认为将苏格拉底辩证法与AI结合是真正的创新</li>
+        <li>"白话-黑话-对话"被豆瓣用户评为<strong>"看似邪修，实则正道"</strong>的元方法</li>
+        <li>被邀请赴<strong>2026全球软件研发技术大会</strong>发表演讲</li>
+        <li>受邀为<strong>北京海淀区万寿路街道80余名居民</strong>授课，影响力向大众延伸</li>
+        <li>多次登上<strong>吴晓波直播间、ThinkPad主题沙龙</strong>等高影响力平台</li>
+       </ul>
+      </div>
+      <div class="fk-card">
+       <h4 style="color:#f44336;">🔄 质疑与不同声音</h4>
+       <ul>
+        <li>部分读者认为<strong>后半部分实践案例较浅</strong>，有凑字数之嫌</li>
+        <li>有评论认为"把AI包装成哲学，本质是已知的AI使用常识"，<strong>创新性存疑</strong></li>
+        <li>对于不熟悉哲学的读者，<strong>苏格拉底辩证法的映射关系</strong>可能难以快速理解</li>
+        <li>召唤术三（程序语言）在技术快速迭代背景下，<strong>部分示例已显过时</strong></li>
+        <li>豆瓣评分<strong>6.8分</strong>，低于读者预期，说明执行层面还有提升空间</li>
+       </ul>
+      </div>
+     </div>
+
+     <!-- ── 11 综合研判 ── -->
+     <h2>11 · 综合研判：谭少卿的价值与局限</h2>
+
+     <div class="fk-insight">
+      <h4>🎯 谭少卿的核心价值所在</h4>
+      <p style="font-size:14px; color:#555; margin-bottom:14px;">他的独特价值在于<strong>横跨哲学、产品、技术三个维度</strong>，能将深奥的苏格拉底辩证法与AI交互实践打通，用产品经理的思维把它系统化、可执行化。这在国内AI科普领域中是相对稀缺的视角。</p>
+      <div class="fk-grid-2" style="margin-top:0;">
+       <div>
+        <div style="font-size:13px; font-weight:600; color:#2e7d32; margin-bottom:6px;">✅ 核心优势</div>
+        <ul style="font-size:14px;">
+         <li><strong>哲学视角独特：</strong>把苏格拉底辩证法和AI打通，有真正的思想深度</li>
+         <li><strong>产品思维清晰：</strong>从方法论到产品的路径一脉相承</li>
+         <li><strong>实战经验丰富：</strong>11年AI从业、5亿用户覆盖，不是纯理论家</li>
+         <li><strong>时代节奏准确：</strong>对"一人公司""超级个体""技术社会化"的判断契合趋势</li>
+         <li><strong>教育普及意识：</strong>不仅做产品，也做知识传播，具备思想领袖潜质</li>
+        </ul>
+       </div>
+       <div>
+        <div style="font-size:13px; font-weight:600; color:#c62828; margin-bottom:6px;">⚠️ 值得关注的局限</div>
+        <ul style="font-size:14px;">
+         <li><strong>方法论深度：</strong>核心框架创新度高，但部分案例实践层相对薄弱</li>
+         <li><strong>floatboat.ai 尚早期：</strong>产品愿景宏大，但落地成熟度、商业验证尚待观察</li>
+         <li><strong>国际竞争激烈：</strong>一人公司AI workspace 赛道，海外有多款产品在竞争</li>
+         <li><strong>哲学基础要求：</strong>方法论的底层需要苏格拉底辩证法的认知基础，受众可能受限</li>
+        </ul>
+       </div>
+      </div>
+     </div>
+
+     <div class="fk-callout fk-callout-green">
+      <div class="fk-callout-title">🧭 对于你（调研者）的启发价值</div>
+      <p>谭少卿的思想体系对心理学、哲学、AI应用高度感兴趣的实践者尤其有价值：<strong>① 苏格拉底辩证法×AI的路径</strong>，本质上和心理咨询的"苏格拉底式提问"同源，值得深挖；<strong>② 白话-黑话-对话框架</strong>，是可以直接落地到AI写作、AI咨询、内容创业的方法；<strong>③ 一人公司×AI智囊团</strong>的愿景，与"身心神同调+知行合一+赚钱"的个人发展路径高度契合，floatboat.ai 值得持续关注和体验。</p>
+     </div>
+
+     <!-- ── 12 延伸资源 ── -->
+     <h2>12 · 延伸学习资源地图</h2>
+
+     <div class="fk-card">
+      <table>
+       <thead>
+        <tr><th>资源类型</th><th>名称/内容</th><th>入口</th><th>推荐指数</th></tr>
+       </thead>
+       <tbody>
+        <tr>
+         <td><span class="fk-badge fk-badge-green">核心著作</span></td>
+         <td>《AI帮你赢：人人都能用的AI方法论》</td>
+         <td>京东/得到App/微信读书</td>
+         <td>⭐⭐⭐⭐⭐</td>
+        </tr>
+        <tr>
+         <td><span class="fk-badge fk-badge-blue">口袋书</span></td>
+         <td>《AI导航式提问法》</td>
+         <td>京东/当当</td>
+         <td>⭐⭐⭐⭐</td>
+        </tr>
+        <tr>
+         <td><span class="fk-badge fk-badge-orange">产品体验</span></td>
+         <td>floatboat.ai（Mac/Windows客户端）</td>
+         <td>floatboat.ai 官网</td>
+         <td>⭐⭐⭐⭐⭐</td>
+        </tr>
+        <tr>
+         <td><span class="fk-badge fk-badge-red">官方博客</span></td>
+         <td>19个案例全文（书配案例库）</td>
+         <td>blog.shaoqing.fun</td>
+         <td>⭐⭐⭐⭐</td>
+        </tr>
+        <tr>
+         <td><span class="fk-badge fk-badge-green">演讲视频</span></td>
+         <td>谭少卿×吴晓波直播间（DeepSeek与AI赢）</td>
+         <td>zhuanlan.zhihu.com/p/24106720629</td>
+         <td>⭐⭐⭐⭐⭐</td>
+        </tr>
+        <tr>
+         <td><span class="fk-badge fk-badge-blue">活动演讲</span></td>
+         <td>ThinkPad亲密人机主题沙龙（2025.1.17）</td>
+         <td>搜狐IT频道</td>
+         <td>⭐⭐⭐⭐</td>
+        </tr>
+        <tr>
+         <td><span class="fk-badge fk-badge-orange">行业会议</span></td>
+         <td>2026全球软件研发技术大会演讲</td>
+         <td>pm-summit.org/speaker/1135</td>
+         <td>⭐⭐⭐</td>
+        </tr>
+        <tr>
+         <td><span class="fk-badge fk-badge-red">豆瓣读者讨论</span></td>
+         <td>书评与方法论深度解读</td>
+         <td>book.douban.com/subject/37152637/</td>
+         <td>⭐⭐⭐</td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+
+     <div style="text-align:center; padding:30px 0 10px; color:#999; font-size:13px;">
+      整理时间：2026年3月 · 信息来源：知乎、豆瓣、百度百科、官方博客、floatboat.ai 官网及多方资料综合整理<br/>
+      本报告为学习研究用途，内容仅供参考
+     </div>
+
+    </div><!-- end article-body -->
+   </main>
+
+   <!-- 右侧边栏 -->
+   <aside class="sidebar-right">
+    <div class="related-articles">
+     <h3>相关文章</h3>
+     <ul>
+      <li><a href="/fukuxinli/ai/ai在心理咨询中的辅助作用/">AI在心理咨询中的辅助作用</a></li>
+      <li><a href="/fukuxinli/ai/数字生命与意识本质的哲学思考/">数字生命与意识本质的哲学思考</a></li>
+      <li><a href="/fukuxinli/ai/AI工具使用分享：国内大厂免费AI实战指南/">AI工具使用分享：国内大厂免费AI实战指南</a></li>
+      <li><a href="/fukuxinli/ai/AI工具应用与优化分享/">AI工具应用与优化分享</a></li>
+     </ul>
+    </div>
+    <div style="margin-top:20px; padding:16px; background:#f0faf4; border-radius:8px;">
+     <h3 style="color:#00c853; margin-bottom:10px; font-size:16px;">📚 推荐书单</h3>
+     <ul style="list-style:none; padding:0;">
+      <li style="margin-bottom:8px; font-size:14px; color:#555;">📗 AI帮你赢（谭少卿）</li>
+      <li style="margin-bottom:8px; font-size:14px; color:#555;">📘 AI导航式提问法（谭少卿）</li>
+     </ul>
+    </div>
+   </aside>
+  </div>
+
+  <footer>
+   <p>© 2024 福库心理 - 身心神同调 · 从心发现 生命 生活 生意</p>
+  </footer>
+ </body>
+</html>
