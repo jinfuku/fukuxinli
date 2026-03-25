@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>身体早就说了，只是你没听——从张雪峰猝死谈心脏的求救信号</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: #faf8f5;
+    color: #2c2c2c;
+    line-height: 1.9;
+    font-size: 16px;
+  }
+  .article {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 20px 60px;
+  }
+
+  /* 封面区 */
+  .cover {
+    background: linear-gradient(160deg, #1a1a2e 0%, #16213e 40%, #0f3460 70%, #533483 100%);
+    margin: 0 -20px;
+    padding: 60px 30px 50px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(ellipse at 60% 40%, rgba(180,100,255,0.12) 0%, transparent 60%),
+                radial-gradient(ellipse at 30% 70%, rgba(255,100,120,0.10) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  .cover-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.25);
+    color: rgba(255,255,255,0.8);
+    font-size: 12px;
+    letter-spacing: 2px;
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-bottom: 24px;
+  }
+  .cover h1 {
+    color: #fff;
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 16px;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+  .cover-sub {
+    color: rgba(255,255,255,0.65);
+    font-size: 14px;
+    letter-spacing: 1px;
+  }
+  .cover-heart {
+    font-size: 48px;
+    margin-bottom: 20px;
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.9; }
+    50% { transform: scale(1.1); opacity: 1; }
+  }
+
+  /* 正文内容 */
+  .content { padding-top: 40px; }
+
+  .lead {
+    font-size: 17px;
+    color: #3d3d3d;
+    background: linear-gradient(135deg, #f8f4ff, #fff5f7);
+    border-left: 4px solid #9b59b6;
+    padding: 20px 22px;
+    border-radius: 0 12px 12px 0;
+    margin-bottom: 36px;
+    line-height: 1.85;
+  }
+
+  h2 {
+    font-size: 19px;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin: 40px 0 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  h2::before {
+    content: '';
+    display: inline-block;
+    width: 4px;
+    height: 22px;
+    background: linear-gradient(180deg, #9b59b6, #e74c6b);
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  p { margin-bottom: 18px; color: #3a3a3a; }
+
+  .highlight-box {
+    background: linear-gradient(135deg, #fff9f0, #fff5f5);
+    border: 1px solid #f0d9a0;
+    border-radius: 14px;
+    padding: 22px 24px;
+    margin: 24px 0;
+  }
+  .highlight-box .title {
+    font-weight: 700;
+    color: #c0392b;
+    font-size: 15px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .highlight-box ul {
+    list-style: none;
+    padding: 0;
+  }
+  .highlight-box ul li {
+    padding: 6px 0 6px 22px;
+    position: relative;
+    color: #3a3a3a;
+    font-size: 15px;
+    border-bottom: 1px dashed #f0d9a0;
+  }
+  .highlight-box ul li:last-child { border-bottom: none; }
+  .highlight-box ul li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: #e67e22;
+  }
+  .highlight-box .label {
+    display: inline-block;
+    background: #e74c3c;
+    color: #fff;
+    font-size: 11px;
+    padding: 1px 8px;
+    border-radius: 10px;
+    margin-right: 6px;
+  }
+  .highlight-box .label.yellow { background: #e67e22; }
+  .highlight-box .label.red { background: #c0392b; }
+
+  /* 四阶段时间线 */
+  .timeline {
+    margin: 28px 0;
+    position: relative;
+  }
+  .timeline-item {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 20px;
+    align-items: flex-start;
+  }
+  .timeline-dot {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .timeline-item:nth-child(1) .timeline-dot { background: #fff3cd; }
+  .timeline-item:nth-child(2) .timeline-dot { background: #fde2e4; }
+  .timeline-item:nth-child(3) .timeline-dot { background: #f8cecc; }
+  .timeline-item:nth-child(4) .timeline-dot { background: #e8d5f5; }
+  .timeline-body { flex: 1; }
+  .timeline-title {
+    font-weight: 700;
+    font-size: 15px;
+    color: #1a1a2e;
+    margin-bottom: 5px;
+  }
+  .timeline-desc {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.7;
+  }
+
+  /* 视角卡片 */
+  .perspective-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin: 24px 0;
+  }
+  @media (max-width: 500px) {
+    .perspective-grid { grid-template-columns: 1fr; }
+  }
+  .perspective-card {
+    border-radius: 14px;
+    padding: 18px 16px;
+    position: relative;
+    overflow: hidden;
+  }
+  .perspective-card::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 60px; height: 60px;
+    border-radius: 0 14px 0 60px;
+    opacity: 0.15;
+  }
+  .perspective-card.tcm {
+    background: linear-gradient(135deg, #fff8e6, #fff3d4);
+    border: 1px solid #f5d78e;
+  }
+  .perspective-card.tcm::before { background: #e67e22; }
+  .perspective-card.dao {
+    background: linear-gradient(135deg, #e8f8ee, #d4f5e2);
+    border: 1px solid #8ed5a8;
+  }
+  .perspective-card.dao::before { background: #27ae60; }
+  .perspective-card.psych {
+    background: linear-gradient(135deg, #e8eeff, #d4ddff);
+    border: 1px solid #8ea8f5;
+  }
+  .perspective-card.psych::before { background: #3498db; }
+  .perspective-card.sync {
+    background: linear-gradient(135deg, #f5e8ff, #ead4ff);
+    border: 1px solid #c88ef5;
+  }
+  .perspective-card.sync::before { background: #9b59b6; }
+  .card-icon { font-size: 24px; margin-bottom: 8px; }
+  .card-title {
+    font-weight: 700;
+    font-size: 14px;
+    color: #1a1a2e;
+    margin-bottom: 8px;
+  }
+  .card-text { font-size: 13px; color: #555; line-height: 1.7; }
+
+  /* 养生方法 */
+  .therapy-list {
+    margin: 24px 0;
+  }
+  .therapy-item {
+    display: flex;
+    gap: 16px;
+    padding: 18px 20px;
+    border-radius: 14px;
+    margin-bottom: 14px;
+    align-items: flex-start;
+  }
+  .therapy-item.tuina {
+    background: linear-gradient(135deg, #fff5f0, #ffe8e0);
+    border: 1px solid #f5c4a8;
+  }
+  .therapy-item.aijiu {
+    background: linear-gradient(135deg, #fffbf0, #fff3d4);
+    border: 1px solid #f5dfa8;
+  }
+  .therapy-item.dao {
+    background: linear-gradient(135deg, #f0f8ff, #e0f0ff);
+    border: 1px solid #a8d0f5;
+  }
+  .therapy-icon { font-size: 28px; flex-shrink: 0; margin-top: 2px; }
+  .therapy-body { flex: 1; }
+  .therapy-title { font-weight: 700; font-size: 15px; color: #1a1a2e; margin-bottom: 6px; }
+  .therapy-desc { font-size: 14px; color: #555; line-height: 1.7; }
+  .therapy-points {
+    margin-top: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .therapy-tag {
+    background: rgba(0,0,0,0.07);
+    border-radius: 20px;
+    padding: 2px 10px;
+    font-size: 12px;
+    color: #444;
+  }
+
+  /* 警示数据 */
+  .data-row {
+    display: flex;
+    gap: 12px;
+    margin: 24px 0;
+    flex-wrap: wrap;
+  }
+  .data-card {
+    flex: 1;
+    min-width: 140px;
+    background: linear-gradient(135deg, #1a1a2e, #0f3460);
+    border-radius: 14px;
+    padding: 20px 16px;
+    text-align: center;
+    color: #fff;
+  }
+  .data-number {
+    font-size: 30px;
+    font-weight: 900;
+    color: #e74c6b;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .data-unit { font-size: 14px; color: rgba(255,255,255,0.7); }
+
+  /* 结尾 CTA */
+  .cta-box {
+    background: linear-gradient(160deg, #1a1a2e 0%, #533483 100%);
+    border-radius: 20px;
+    padding: 36px 28px;
+    text-align: center;
+    margin-top: 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-box::before {
+    content: '';
+    position: absolute;
+    top: -30%; left: -20%;
+    width: 140%; height: 160%;
+    background: radial-gradient(ellipse at 50% 40%, rgba(180,100,255,0.15) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .cta-box h3 {
+    color: #fff;
+    font-size: 20px;
+    margin-bottom: 12px;
+    line-height: 1.5;
+  }
+  .cta-box p {
+    color: rgba(255,255,255,0.7);
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+  .cta-button {
+    display: inline-block;
+    background: linear-gradient(135deg, #e74c6b, #9b59b6);
+    color: #fff;
+    padding: 12px 32px;
+    border-radius: 30px;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-decoration: none;
+  }
+  .wechat-info {
+    margin-top: 16px;
+    color: rgba(255,255,255,0.6);
+    font-size: 13px;
+  }
+
+  /* 引用/金句 */
+  .quote {
+    border-left: 4px solid #9b59b6;
+    background: linear-gradient(135deg, #f8f4ff, #fdf0ff);
+    padding: 16px 20px;
+    border-radius: 0 12px 12px 0;
+    margin: 28px 0;
+    font-size: 16px;
+    color: #4a4a6a;
+    font-style: italic;
+    line-height: 1.85;
+  }
+
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #d0c0e8, transparent);
+    margin: 36px 0;
+  }
+
+  /* 结语 */
+  .ending {
+    text-align: center;
+    font-size: 14px;
+    color: #999;
+    margin-top: 40px;
+  }
+</style>
+</head>
+<body>
+<div class="article">
+
+  <!-- 封面 -->
+  <div class="cover">
+    <div class="cover-heart">🫀</div>
+    <div class="cover-tag">身心同调 · 健康科普</div>
+    <h1>身体早就说了<br>只是你没听</h1>
+    <div class="cover-sub">从张雪峰猝死事件，谈心脏的求救信号</div>
+  </div>
+
+  <!-- 正文 -->
+  <div class="content">
+
+    <div class="lead">
+      一个帮助了无数普通家庭孩子规划人生的人，跑过马拉松，热爱运动，41岁，猝然离世。<br><br>
+      公众的第一反应是：跑步害了他。<br><br>
+      但真相并不是这样。
+    </div>
+
+    <!-- 数据 -->
+    <h2>一个令人不安的数字</h2>
+    <p>中国每年有 <strong>54万人</strong> 死于心源性猝死——平均每分钟，就有一个人的心脏永远停跳。</p>
+    <p>其中，77%发生在家中，不是在运动场，不是在马拉松赛道，而是在沙发上、床上、办公桌前。</p>
+    <div class="data-row">
+      <div class="data-card">
+        <div class="data-number">54万</div>
+        <div class="data-unit">中国每年心源性猝死人数</div>
+      </div>
+      <div class="data-card">
+        <div class="data-number">77%</div>
+        <div class="data-unit">发生在日常生活场景</div>
+      </div>
+      <div class="data-card">
+        <div class="data-number">4分钟</div>
+        <div class="data-unit">黄金急救窗口期</div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- 猝死不是意外 -->
+    <h2>猝死，从来不是意外</h2>
+    <p>猝死这个词，让人以为是"突然发生的"。但医学告诉我们，心脏在崩溃之前，其实已经呐喊了很久。</p>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot">⚠️</div>
+        <div class="timeline-body">
+          <div class="timeline-title">前驱期（数月到数周前）</div>
+          <div class="timeline-desc">持续疲劳、胸闷气短、嘴唇轻微发紫、莫名心慌——身体已经在发出信号，大多数人选择"忍一忍"</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot">🔥</div>
+        <div class="timeline-body">
+          <div class="timeline-title">终末事件期（数小时到数分钟前）</div>
+          <div class="timeline-desc">剧烈胸痛、呼吸困难、冷汗、放射痛（肩颈疼、牙痛）——心脏在用最后的力气呼救</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot">💔</div>
+        <div class="timeline-body">
+          <div class="timeline-title">心脏骤停</div>
+          <div class="timeline-desc">1分钟内意识丧失。4-6分钟内若无急救，将造成不可逆的脑损伤</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot">🕯️</div>
+        <div class="timeline-body">
+          <div class="timeline-title">生物学死亡</div>
+          <div class="timeline-desc">错过黄金窗口，无法挽回</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="quote">
+      心脏不是无声崩塌的。<br>
+      它在一次次胸闷中说话，在每一次"撑一撑就过去了"的时候落泪。<br>
+      我们失去的，不是被突然带走的人，而是一个个把预警信号强行忽视的习惯。
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- 身心同调视角 -->
+    <h2>从身心同调的角度，我们怎么看？</h2>
+    <p>在身心同调的工作框架里，身体的症状从来不只是"机器零件出了故障"——它是一种<strong>语言</strong>，是内在状态向外的映射。心脏尤其如此。</p>
+
+    <div class="perspective-grid">
+      <div class="perspective-card tcm">
+        <div class="card-icon">🌿</div>
+        <div class="card-title">中医视角</div>
+        <div class="card-text">心为君主之官，主神志。长期思虑过度、肝气郁结→木克土→中焦受阻→心血不畅。<br><br>嘴唇发紫，正是心血瘀滞的外象。</div>
+      </div>
+      <div class="perspective-card dao">
+        <div class="card-icon">☯️</div>
+        <div class="card-title">道家视角</div>
+        <div class="card-text">心包经、心经长期不通，君主之宫失于防护。现代人"胸口憋着一口气"，正是宗气不展、心阳受困的集体体感。</div>
+      </div>
+      <div class="perspective-card psych">
+        <div class="card-icon">🧠</div>
+        <div class="card-title">心身医学视角</div>
+        <div class="card-text">高压+熬夜+焦虑→交感神经长期激活→皮质醇持续分泌→心肌持续紧张收缩→心脏磨损加剧。</div>
+      </div>
+      <div class="perspective-card sync">
+        <div class="card-icon">🔮</div>
+        <div class="card-title">身心同调视角</div>
+        <div class="card-text">猝死者，往往是最"听话"的意志力压迫者——他们把所有的身体预警，都用"还撑得住"四个字消音了。</div>
+      </div>
+    </div>
+
+    <p>张雪峰在被网友质疑嘴唇发紫的时候，他的回应是："我跑过马拉松，我身体没问题。"</p>
+    <p>这句话，让人心疼。因为这正是我们大多数人的逻辑——用某个"成就"来否定身体的真实感受，而不是去倾听它。</p>
+
+    <div class="divider"></div>
+
+    <!-- 推拿艾灸养护 -->
+    <h2>心脏养护，从日常身体功课开始</h2>
+    <p>我们无法预知意外，但我们可以建立一种生活方式——<strong>在身体还在说话的时候，主动去听</strong>。</p>
+
+    <div class="therapy-list">
+      <div class="therapy-item tuina">
+        <div class="therapy-icon">👐</div>
+        <div class="therapy-body">
+          <div class="therapy-title">推拿 · 疏通心包，守护君主</div>
+          <div class="therapy-desc">心包经为心脏的"宫墙"，定期疏通可改善心脏微循环，缓解因气血不畅带来的胸闷、心悸。特别是长期伏案、情绪压抑的人，心包经往往是第一个堵塞的地方。</div>
+          <div class="therapy-points">
+            <span class="therapy-tag">内关穴</span>
+            <span class="therapy-tag">膻中穴</span>
+            <span class="therapy-tag">极泉穴</span>
+            <span class="therapy-tag">心包经循经推拿</span>
+          </div>
+        </div>
+      </div>
+      <div class="therapy-item aijiu">
+        <div class="therapy-icon">🕯️</div>
+        <div class="therapy-body">
+          <div class="therapy-title">艾灸 · 温通心阳，驱散寒凝</div>
+          <div class="therapy-desc">中医认为"阳气者，若天与日"，心阳不足是心脏功能下降的根本。艾灸温热之性，可温通心阳，改善阳虚型心悸、怕冷、胸口发紧的状态。尤其适合久坐、体寒、睡眠差的人群。</div>
+          <div class="therapy-points">
+            <span class="therapy-tag">心俞穴</span>
+            <span class="therapy-tag">神阙穴</span>
+            <span class="therapy-tag">关元穴</span>
+            <span class="therapy-tag">足三里</span>
+          </div>
+        </div>
+      </div>
+      <div class="therapy-item dao">
+        <div class="therapy-icon">🌀</div>
+        <div class="therapy-body">
+          <div class="therapy-title">道家导引 · 内景内视，听懂身体</div>
+          <div class="therapy-desc">道家修炼中的内景功法，核心并非神秘，而是一种<strong>向内感知的训练</strong>——通过意守、吐纳、导引，逐渐能感知到气在经络中的流动，感知到哪里有阻滞、哪里在说话。这是比任何穿戴设备都更灵敏的"心脏监测仪"。</div>
+          <div class="therapy-points">
+            <span class="therapy-tag">腹式呼吸</span>
+            <span class="therapy-tag">六字诀·呵字功（养心）</span>
+            <span class="therapy-tag">小周天导引</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- 心脏预警信号 -->
+    <h2>这些信号，请认真对待</h2>
+    <p>在身心同调的工作中，我们始终强调：<strong>症状是礼物</strong>。它是身体在用最后的温柔提醒你，该停下来了。</p>
+
+    <div class="highlight-box">
+      <div class="title">🚨 心脏在说话——这些信号不要忽视</div>
+      <ul>
+        <li><span class="label yellow">前驱</span>持续超过两周的疲劳感，怎么休息都恢复不过来</li>
+        <li><span class="label yellow">前驱</span>平静状态下出现胸闷、气短或心悸</li>
+        <li><span class="label yellow">前驱</span>嘴唇、指甲颜色偏暗紫（中医心血瘀滞的外象）</li>
+        <li><span class="label red">警示</span>运动时出现胸痛、头晕，停下来也不缓解</li>
+        <li><span class="label red">警示</span>肩颈放射痛伴随胸闷（常被误认为颈椎病）</li>
+        <li><span class="label red">警示</span>莫名冷汗、恶心、极度乏力三者同时出现</li>
+      </ul>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- 结尾 -->
+    <div class="quote">
+      你上一次真正感受自己的心跳，是什么时候？<br><br>
+      不是被吓到时那种狂跳，<br>
+      而是安静地，把手放在胸口，<br>
+      感受它一下一下地，在跟你说话。
+    </div>
+
+    <p>身心同调，不是一种疗法，而是一种生活方式——<strong>把对身体的觉察，还给自己</strong>。</p>
+    <p>在那之前，心脏替你承受了太多：压力、恐惧、未被表达的情绪、强撑的疲惫。它不需要你完美，它只需要你，偶尔听一听它。</p>
+
+    <!-- CTA -->
+    <div class="cta-box">
+      <h3>如果你感受到身体在说话<br>来试一次真正的倾听</h3>
+      <p>推拿 · 艾灸 · 身心同调体验<br>帮你建立与自己身体的重新连接</p>
+      <div class="cta-button">预约体验 / 了解课程</div>
+      <div class="wechat-info">微信咨询：yirui52999</div>
+    </div>
+
+    <div class="ending">
+      <p>本文内容仅供健康科普参考，不构成医疗诊断建议</p>
+      <p style="margin-top:8px;">— 福库心理 · 身心同调工作室 —</p>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>
